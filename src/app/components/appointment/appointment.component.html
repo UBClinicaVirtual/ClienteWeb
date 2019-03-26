@@ -6,7 +6,22 @@
     </div>
     <div class="card-footer bg-transparent border-primary">
         <button type="button" class="btn btn-outline-primary" (click)="open(content)">Detalle</button>
-        <button type="button" class="btn btn-outline-secondary">Cancelar Turno</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="deleteSwal.show()">Cancelar Turno</button>
+        <swal
+          #deleteSwal
+          title="¿Seguro que quiere cancelar su turno?"
+          text="Se eliminara de su lista de turnos pendientes"
+          type="warning"
+          [showCancelButton]="true"
+          [focusCancel]="true"
+          (confirm)="confirmDelete.show()">
+        </swal>
+        <swal
+          #confirmDelete
+          title="Turno cancelado correctamente"
+          type="success"
+          >
+        </swal>
     </div>
 
   <ng-template #content let-c="close" let-d="dismiss">
@@ -25,7 +40,7 @@
 
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Cancelar turno</button>
+      <button type="button" class="btn btn-outline-dark" (click)="deleteSwal.show()">Cancelar turno</button>
       <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Pedir turno</button>
       <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Descripcion</button>
       <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Volver</button>
