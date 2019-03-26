@@ -7,6 +7,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AppointmentsComponent } from './components/appointments/appointments.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AppointmentDetailComponent } from './components/appointment-detail/appo
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SweetAlert2Module.forRoot(),
     NgbModule
   ],
   providers: [],
