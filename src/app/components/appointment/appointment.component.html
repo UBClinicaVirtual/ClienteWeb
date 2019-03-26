@@ -1,3 +1,34 @@
 <html>
-  <app-appointment-detail></app-appointment-detail>
+    <div class="card-header">{{turno.appointment_date}}</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">{{turno.speciality_name}}</h5>
+      <p class="card-text">Dr. {{turno.hcp_first_name +" " +turno.hcp_last_name}}</p>
+    </div>
+    <div class="card-footer bg-transparent border-primary">
+        <button type="button" class="btn btn-outline-primary" (click)="open(content)">Detalle</button>
+        <button type="button" class="btn btn-outline-secondary">Cancelar Turno</button>
+    </div>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Turno: 11/12/19</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+        <span>Turno Pendiente</span>
+      <h6>Hospital San Martin</h6>
+      <p>Ginecologia -    Dr. Walter Duartes</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dolores pariatur, culpa iure odit nemo eligendi illo iusto at? Quidem nemo laborum minima reiciendis dolor cumque perferendis quos ut sunt.</p>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Cancelar turno</button>
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Pedir turno</button>
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Descripcion</button>
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Volver</button>
+    </div>
+  </ng-template>
 </html>
