@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AppointmentsComponent } from './components/appointments/appointments.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
+import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     AppointmentsComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    AppointmentDetailComponent
   ],
   imports: [
     BrowserModule,
