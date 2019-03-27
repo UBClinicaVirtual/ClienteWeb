@@ -8,6 +8,9 @@ import { AppointmentsComponent } from './components/appointments/appointments.co
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProtectedComponent } from './components/protected/protected.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     WelcomeComponent,
     AppointmentsComponent,
     AppointmentComponent,
-    AppointmentDetailComponent
+    AppointmentDetailComponent,
+    NavbarComponent,
+    HomeComponent,
+    ProtectedComponent
   ],
   imports: [
     BrowserModule,
