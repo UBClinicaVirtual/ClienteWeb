@@ -13,6 +13,9 @@ import { HomeComponent } from './components/home/home.component';
 import { ProtectedComponent } from './components/protected/protected.component';
 import {APP_ROUTING} from './app.routes';
 
+//services
+import{AuthService} from "./services/auth.service";
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import {APP_ROUTING} from './app.routes';
     NgbModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
