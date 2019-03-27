@@ -2,7 +2,7 @@
 import {RouterModule, Routes} from '@angular/router';
 
 import {HomeComponent} from './components/home/home.component';
-import {AppointmentsComponent} from './components/appointments/appointments.component';
+import {WelcomeComponent} from './components/welcome/welcome.component';
 import {ProtectedComponent} from './components/protected/protected.component';
 
 
@@ -11,7 +11,7 @@ import {ProtectedComponent} from './components/protected/protected.component';
 
 const APP_ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'turns', component: AppointmentsComponent },
+  { path: 'turns', component: WelcomeComponent },
   { path: 'protected', component: ProtectedComponent /*, canActivate:[AuthGuardService]*/},
   { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
