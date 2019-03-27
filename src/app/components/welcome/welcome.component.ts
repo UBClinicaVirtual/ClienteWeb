@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'app-welcome',
@@ -11,5 +12,6 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }
