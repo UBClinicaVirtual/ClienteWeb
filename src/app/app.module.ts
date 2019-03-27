@@ -11,6 +11,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProtectedComponent } from './components/protected/protected.component';
+import {APP_ROUTING} from './app.routes';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { ProtectedComponent } from './components/protected/protected.component';
     BrowserModule,
     AppRoutingModule,
     SweetAlert2Module.forRoot(),
-    NgbModule
+    NgbModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
