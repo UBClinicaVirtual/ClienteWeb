@@ -6,13 +6,13 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" [routerLink]="['home']" routerLinkActive = "active" >Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Turns</a>
+        <a class="nav-link" [routerLink]="['turns']" routerLinkActive = "active">Turns</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Protected</a>
+        <a class="nav-link" [routerLink]="['protected']" routerLinkActive = "active">Protected</a>
       </li>
     </ul>
     <span class="navbar-text">
