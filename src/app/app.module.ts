@@ -37,7 +37,8 @@ import {AuthGuardService} from "./services/auth-guard.service";
     APP_ROUTING
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
