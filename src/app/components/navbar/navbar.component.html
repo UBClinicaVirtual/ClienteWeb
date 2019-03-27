@@ -17,11 +17,13 @@
     </ul>
     <span class="navbar-text">
       <button   (click)= "login()"
+                *ngIf="!auth.isAuthenticated()"
                 type="button"
                 class= "btn btn-outline-primary"
                 name="button">Ingresar</button
 
       <button   (click)= "salir()"
+                *ngIf="auth.isAuthenticated()"
                 type="button"
                 class= "btn btn-outline-primary"
                 name="button">Salir</button>
