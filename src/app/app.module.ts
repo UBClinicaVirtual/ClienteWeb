@@ -15,6 +15,7 @@ import {APP_ROUTING} from './app.routes';
 
 //services
 import{AuthService} from "./services/auth.service";
+import {AuthGuardService} from "./services/auth-guard.service";
 
 
 @NgModule({
