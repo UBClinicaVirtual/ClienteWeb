@@ -1,11 +1,5 @@
-<app-navbar></app-navbar>
-
-<div class = "container main-container">
-  <router-outlet></router-outlet>
-</div>
-
-<app-welcome></app-welcome>
-
+<div class="g-signin2" data-onsuccess="onSignIn"></div> <hr>
+<a href="#" onclick="signOut();">Sign out</a>
 <script>
     function onSignIn(googleUser) {
       alert("hola");

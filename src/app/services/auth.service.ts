@@ -32,6 +32,10 @@ export class AuthService {
     return this._idToken;
   }
 
+  idtoken(){
+    return this._idToken;
+  }
+
   public login(): void {
     this.auth0.authorize();
   }

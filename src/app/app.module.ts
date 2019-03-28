@@ -16,6 +16,7 @@ import {APP_ROUTING} from './app.routes';
 //services
 import{AuthService} from "./services/auth.service";
 import {AuthGuardService} from "./services/auth-guard.service";
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {AuthGuardService} from "./services/auth-guard.service";
     AppointmentDetailComponent,
     NavbarComponent,
     HomeComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
