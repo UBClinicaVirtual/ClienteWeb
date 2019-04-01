@@ -14,6 +14,9 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  login(){
+    let response = this.connection.login();
+    console.log(response);
+  }
 
 }

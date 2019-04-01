@@ -1,4 +1,15 @@
-<div class="g-signin2" data-onsuccess="onSignIn"></div> <hr>
+<google-signin
+  [clientId]="myClientId"
+  [width]="myWidth"
+  [theme]="myTheme"
+  [scope]="myScope"
+  [longTitle]="myLongTitle"
+  (googleSignInSuccess)="onGoogleSignInSuccess($event)">
+</google-signin>
+
+
+
+<!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> <hr>
 <a href="#" onclick="signOut();">Sign out</a>
 <script>
     function onSignIn(googleUser) {
@@ -17,4 +28,4 @@
       console.log('User signed out.');
     });
   }
-</script>
+</script> -->

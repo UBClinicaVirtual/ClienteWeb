@@ -17,6 +17,8 @@ import {APP_ROUTING} from './app.routes';
 import{AuthService} from "./services/auth.service";
 import {AuthGuardService} from "./services/auth-guard.service";
 import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import {GoogleSignInComponent} from 'angular-google-signin';
 
 
 @NgModule({
@@ -29,13 +31,15 @@ import { LoginComponent } from './components/login/login.component';
     NavbarComponent,
     HomeComponent,
     ProtectedComponent,
-    LoginComponent
+    LoginComponent,
+    GoogleSignInComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SweetAlert2Module.forRoot(),
     NgbModule,
+    HttpClientModule,
     APP_ROUTING
   ],
   providers: [
