@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ServerConfigService } from 'src/app/config/server-config.service';
+import { config } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerConnectionService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private config : ServerConfigService) { }
 
-  private urlPath = "http://ubclinicavirtual.000webhostapp.com/api/v1";
+  private urlPath = this.config.url();
   // private urlPath = "localhost:3200"
 
   private userType  = "";
