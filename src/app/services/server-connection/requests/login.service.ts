@@ -16,6 +16,6 @@ export class LoginService {
     //SETEAR LOS VALORES (METHOD - PARAMETERS - BODY - ETC)
     //QUE NECESITE EL REQUEST DEL SERVICEIO CONNECTION PARA FUNCIONAR
     // let response =  this.connection.get();
-    // this.connection.apiKey = response.user.api_token; 
+    // this.connection.apiKey = response.user.api_token;
   }
 }
