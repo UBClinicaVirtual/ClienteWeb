@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ServerConfigService } from 'src/app/config/server-config.service';
 import { config } from 'rxjs';
 
@@ -20,9 +20,30 @@ export class ServerConnectionService {
   public apiKey = null;
 
   login(){
-    return this.http.get(this.urlPath + "/user", {
-      headers: { "Accept": "application/json", "Content-Type": "application/json", "Authorization": "Bearer qsi0jBa0fyhgvZKY0mvcQTwvH9jAZ8bBAk1uVMn1OtEW6I8ypSenF3g3iQXu" }
-    }).toPromise();
+    let httpHeaders = new HttpHeaders({
+      /*
+      'Content-Type' : 'application/json',
+      'Cache-Control': 'no-cache'
+      */
+    'Access-Control-Allow-Origin':'*'
+  });
+
+  console.log({
+    "access_token": this.token
+  });
+
+    //Invoco al router cabeza de google para hacer el login en google
+    this.http.post("http://localhost:3000/googlerouter.php", {
+      "access_token": this.token
+    }, { headers: httpHeaders}  )
+    .subscribe(
+      data  => {
+        console.log("POST Request is successful ", data);
+      },
+      error  => {
+        console.log("Error", error);
+      }
+    );
   }
 
   get (){
@@ -38,4 +59,27 @@ export class ServerConnectionService {
     // this.http.post ( .... )
   }
 
+
+  onClickButton(){
+
+    let httpHeaders = new HttpHeaders({
+      /*
+      'Content-Type' : 'application/json',
+      'Cache-Control': 'no-cache'
+      */
+     'Access-Control-Allow-Origin':'*'
+  });
+
+    //aca llamaba directamente a 'http://ubclinicavirtual.000webhostapp.com/api/v1/login2'
+    //Ahora llamo al router para que el llame a 'http://ubclinicavirtual.000webhostapp.com/api/v1/login2'
+    this.http.post("http://localhost:3000/mirouter.php", "", { headers: httpHeaders}  )
+    .subscribe(
+      data  => {
+        console.log("POST Request is successful ", data);
+      },
+      error  => {
+        console.log("Error", error);
+      }
+    );
+  }
 }

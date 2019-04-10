@@ -15,8 +15,11 @@ export class WelcomeComponent implements OnInit {
   }
 
   login(){
-    let response = this.connection.login();
-    console.log(response);
+    this.connection.login();
+  }
+
+  onClickButton(){
+    this.connection.onClickButton();
   }
 
 }
