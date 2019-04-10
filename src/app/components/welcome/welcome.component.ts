@@ -22,4 +22,8 @@ export class WelcomeComponent implements OnInit {
     this.connection.onClickButton();
   }
 
+  appointments(){
+    this.connection.appointments();
+
+  }
 }

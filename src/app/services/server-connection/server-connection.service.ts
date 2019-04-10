@@ -82,4 +82,31 @@ export class ServerConnectionService {
       }
     );
   }
+
+  appointments(){
+    let httpHeaders = new HttpHeaders({
+      /*
+      'Content-Type' : 'application/json',
+      'Cache-Control': 'no-cache'
+      */
+    'Access-Control-Allow-Origin':'*'
+  });
+
+  console.log({
+    "access_token": this.token
+  });
+
+    //Invoco al router cabeza de google para hacer el login en google
+    this.http.post("http://localhost:3000/appointments.php", {
+      "access_token": this.token
+    }, { headers: httpHeaders}  )
+    .subscribe(
+      data  => {
+        console.log("POST Request is successful ", data);
+      },
+      error  => {
+        console.log("Error", error);
+      }
+    );
+  }
 }
