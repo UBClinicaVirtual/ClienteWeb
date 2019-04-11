@@ -26,4 +26,9 @@ export class WelcomeComponent implements OnInit {
     this.connection.appointments();
 
   }
+
+  userdata(){
+    this.connection.userdata();
+
+  }
 }

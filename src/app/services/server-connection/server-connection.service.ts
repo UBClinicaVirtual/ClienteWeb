@@ -17,28 +17,25 @@ export class ServerConnectionService {
 
   public token = "";
 
-  public apiKey = null;
+  public apiKey = "";
 
   login(){
     let httpHeaders = new HttpHeaders({
-      /*
-      'Content-Type' : 'application/json',
-      'Cache-Control': 'no-cache'
-      */
-    'Access-Control-Allow-Origin':'*'
-  });
+      'Access-Control-Allow-Origin':'*'
+    });
 
-  console.log({
-    "access_token": this.token
-  });
+    console.log({
+      "access_token": this.token
+    });
 
     //Invoco al router cabeza de google para hacer el login en google
-    this.http.post("http://localhost:3000/googlerouter.php", {
+    this.http.post("http://localhost:3000/googlerouter.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/login", {
       "access_token": this.token
     }, { headers: httpHeaders}  )
     .subscribe(
       data  => {
         console.log("POST Request is successful ", data);
+        this.apiKey = data['user']['api_token'];
       },
       error  => {
         console.log("Error", error);
@@ -48,7 +45,7 @@ export class ServerConnectionService {
 
   get (){
 
-    // return this.http.get . . . 
+    // return this.http.get . . .
     // return this.http.get(this.urlPath + "/user", {
     //   headers: { "Accept": "application/json", "Content-Type": "application/json", "Authorization": "Bearer qsi0jBa0fyhgvZKY0mvcQTwvH9jAZ8bBAk1uVMn1OtEW6I8ypSenF3g3iQXu" }
     // }).toPromise();
@@ -85,28 +82,46 @@ export class ServerConnectionService {
 
   appointments(){
     let httpHeaders = new HttpHeaders({
-      /*
       'Content-Type' : 'application/json',
-      'Cache-Control': 'no-cache'
-      */
-    'Access-Control-Allow-Origin':'*'
-  });
+      'Accept' : 'application/json',
+      'Authorization' : 'Bearer ' + this.apiKey,
+      'Access-Control-Allow-Origin':'*'
+    });
 
-  console.log({
-    "access_token": this.token
-  });
-
-    //Invoco al router cabeza de google para hacer el login en google
-    this.http.post("http://localhost:3000/appointments.php", {
-      "access_token": this.token
-    }, { headers: httpHeaders}  )
+    //Invoco al router cabeza para pedir los datos del usuario
+    this.http.post("http://localhost:3000/googlerouter.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/user/patient/appointments", 
+    //Aca van los headers del requerimiento
+    { headers: httpHeaders}  )
     .subscribe(
-      data  => {
-        console.log("POST Request is successful ", data);
-      },
-      error  => {
-        console.log("Error", error);
-      }
+        data  => {
+          console.log("User GET Request is successful ", data);
+        },
+        error  => {
+          console.log("Error", error);
+        }
+    );
+  }
+
+
+  userdata(){
+    let httpHeaders = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+      'Authorization' : 'Bearer ' + this.apiKey,
+      'Access-Control-Allow-Origin':'*'
+    });
+
+    //Invoco al router cabeza para pedir los datos del usuario
+    this.http.get("http://localhost:3000/googlerouter.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/user", 
+    //Aca van los headers del requerimiento
+    { headers: httpHeaders}  )
+    .subscribe(
+        data  => {
+          console.log("User GET Request is successful ", data);
+        },
+        error  => {
+          console.log("Error", error);
+        }
     );
   }
 }
