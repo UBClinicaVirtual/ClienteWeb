@@ -9,7 +9,6 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
 import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
 import { ProtectedComponent } from './components/protected/protected.component';
 import {APP_ROUTING} from './app.routes';
 
@@ -29,7 +28,6 @@ import {GoogleSignInComponent} from 'angular-google-signin';
     AppointmentComponent,
     AppointmentDetailComponent,
     NavbarComponent,
-    HomeComponent,
     ProtectedComponent,
     LoginComponent,
     GoogleSignInComponent
