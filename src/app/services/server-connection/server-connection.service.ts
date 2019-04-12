@@ -81,26 +81,33 @@ export class ServerConnectionService {
   }
 
   appointments(){
+
     let httpHeaders = new HttpHeaders({
       'Content-Type' : 'application/json',
       'Accept' : 'application/json',
+      //Fuerzo que traiga el del usuario que tiene api_token paciente
       'Authorization' : 'Bearer ' + this.apiKey,
       'Access-Control-Allow-Origin':'*'
-    });
+    }); 
 
-    //Invoco al router cabeza para pedir los datos del usuario
+    //Invoco al router cabeza para hacer pedir los turnos
     this.http.post("http://localhost:3000/googlerouter.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/user/patient/appointments", 
+    //Aca va el body del requerimiento
+    {
+      
+    }, 
     //Aca van los headers del requerimiento
-    { headers: httpHeaders}  )
+    { headers: httpHeaders })
     .subscribe(
-        data  => {
-          console.log("User GET Request is successful ", data);
-        },
-        error  => {
-          console.log("Error", error);
-        }
+      data  => {
+        console.log("POST Request Appointments is successful ", data);        
+      },
+      error  => {      
+        console.log("Error", error);      
+      }      
     );
-  }
+  } 
+
 
 
   userdata(){
