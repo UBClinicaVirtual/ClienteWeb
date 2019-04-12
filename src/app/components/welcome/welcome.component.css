@@ -1,4 +1,6 @@
-html{
-    background-color: beige;
-    padding: 10%;
+
+body{
+    padding: 18%;
+    text-align: center;
+    background-image: url("background.JPG");
 }
