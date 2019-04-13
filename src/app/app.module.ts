@@ -12,9 +12,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProtectedComponent } from './components/protected/protected.component';
 import {APP_ROUTING} from './app.routes';
 
-//services
-import{AuthService} from "./services/auth.service";
-import {AuthGuardService} from "./services/auth-guard.service";
+// services
+import {AuthService} from './services/auth.service';
+import {AuthGuardService} from './services/auth-guard.service';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import {GoogleSignInComponent} from 'angular-google-signin';

@@ -1,27 +1,31 @@
+<!--
+ NO BORRAR POR AHORA
+
+ 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Clinica Virtual</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">Clinica Virtual</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['home']" routerLinkActive = "active" >Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" [routerLink]="['turns']" routerLinkActive = "active" >Turns</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['protected']" routerLinkActive = "active"  >Mi Perfil</a>
-        </li>
-      <!-- <li class="nav-item">
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['turns']" routerLinkActive="active">Turns</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['protected']" routerLinkActive="active">Mi Perfil</a>
+            </li>
+             <li class="nav-item">
         <a class="nav-link" [routerLink]="['turns']" routerLinkActive = "active" *ngIf="auth.isAuthenticated()">Turns</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['protected']" routerLinkActive = "active" *ngIf="auth.isAuthenticated()">Mi Perfil</a>
-      </li> -->
-    </ul>
-    <span class="navbar-text">
+      </li> 
+        </ul>
+        <span class="navbar-text">
       <button   (click)= "login()"
                 *ngIf="!auth.isAuthenticated()"
                 type="button"
@@ -34,5 +38,86 @@
                 class= "btn btn-outline-primary"
                 name="button">Salir</button>
     </span>
-  </div>
+    </div>
 </nav>
+
+-->
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Clinica Virtual</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Menu</p>
+            <li>
+                <a href="#">Pantalla Principal</a>
+            </li>
+            <li>
+                <a href="#">Mi Perfil</a>
+            </li>
+            <li>
+                <a href="#">Mis Turnos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['turns']" routerLinkActive="active">Turns</a>
+            </li>
+            <li>
+                <a href="#">Buscar Turnos</a>
+            </li>
+            <li>
+                <a href="#">etc...</a>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="" class="download">Probando</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+
+
+                <a class="navbar-brand d-flex mx-auto" href="#">Clinica Virtual - Hospital de Clinicas Jose de San Martin </a>
+
+                <span class="navbar-text">
+                  <button   (click)= "login()"
+                            *ngIf="!auth.isAuthenticated()"
+                            type="button"
+                            class= "btn btn-outline-primary"
+                            name="button">Ingresar</button>
+
+                 <button    class= "btn btn-outline-primary" 
+                            name="button">Ayuda</button>
+            
+                  <button   (click)= "salir()"
+                            *ngIf="auth.isAuthenticated()"
+                            type="button"
+                            class= "btn btn-outline-primary"
+                            name="button">Salir</button>
+                </span>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="overlay"></div>
