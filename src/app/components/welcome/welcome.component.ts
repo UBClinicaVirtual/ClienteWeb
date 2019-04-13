@@ -9,30 +9,30 @@ import { GlobalesService } from 'src/app/services/globales.service';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent{
+export class WelcomeComponent {
 
   constructor(private connection: ServerConnectionService, private globales: GlobalesService) { }
 
 
-  login(){
+  login() {
     this.connection.login();
   }
 
-  onClickButton(){
+  onClickButton() {
     this.connection.onClickButton();
   }
 
-  appointments(){
+  appointments() {
     this.connection.appointments();
 
   }
 
-  userdata(){
+  userdata() {
     this.connection.userdata();
 
   }
 
-  esVisibleClick(){
+  esVisibleClick() {
     this.globales.reverNavBar();
   }
 }
