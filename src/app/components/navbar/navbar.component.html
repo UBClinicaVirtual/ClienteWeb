@@ -1,5 +1,7 @@
 <!--
+ NO BORRAR POR AHORA
 
+ 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Clinica Virtual</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,67 +44,80 @@
 -->
 
 <div class="wrapper">
-    <!-- Sidebar -->
+    <!-- Sidebar  -->
     <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
         <div class="sidebar-header">
-            <h3> Bootstrap SideBar </h3>
+            <h3>Clinica Virtual</h3>
         </div>
 
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
+            <p>Menu</p>
+            <li>
+                <a href="#">Pantalla Principal</a>
             </li>
             <li>
-                <a href="#">About</a>
+                <a href="#">Mi Perfil</a>
             </li>
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
+                <a href="#">Mis Turnos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['turns']" routerLinkActive="active">Turns</a>
             </li>
             <li>
-                <a href="#">Portfolio</a>
+                <a href="#">Buscar Turnos</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="#">etc...</a>
             </li>
+        </ul>
 
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="" class="download">Probando</a>
+            </li>
         </ul>
     </nav>
 
-    <!-- Page Content -->
+    <!-- Page Content  -->
     <div id="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
 
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i class = "fas fa-align-left"></i>
-                <span>Toglle Sidebar</span>
-                </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarText">
 
+
+                <a class="navbar-brand d-flex mx-auto" href="#">Clinica Virtual - Hospital de Clinicas Jose de San Martin </a>
+
+                <span class="navbar-text">
+                  <button   (click)= "login()"
+                            *ngIf="!auth.isAuthenticated()"
+                            type="button"
+                            class= "btn btn-outline-primary"
+                            name="button">Ingresar</button>
+
+                 <button    class= "btn btn-outline-primary" 
+                            name="button">Ayuda</button>
+            
+                  <button   (click)= "salir()"
+                            *ngIf="auth.isAuthenticated()"
+                            type="button"
+                            class= "btn btn-outline-primary"
+                            name="button">Salir</button>
+                </span>
             </div>
         </nav>
     </div>
-    ...
 </div>
+
+<div class="overlay"></div>
