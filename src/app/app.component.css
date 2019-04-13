@@ -1,0 +1,11 @@
+body{
+    padding: 10%;
+    width: 100%;
+    background-image: url("background.JPG");
+    background-size: cover;
+}
+
+html{
+    height: 100%;
+    background-color: black;
+}

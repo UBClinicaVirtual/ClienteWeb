@@ -1,11 +1,14 @@
 
 <!-- <app-navbar></app-navbar> -->
 
-<app-welcome *ngIf="!ifNavBar()"></app-welcome>
-<app-navbar *ngIf="ifNavBar()"></app-navbar>
-<router-outlet *ngIf="ifNavBar()"></router-outlet>
-
-<router-outlet></router-outlet>
+<html>
+    <body>
+        <app-welcome *ngIf="!ifNavBar()"></app-welcome>
+        <app-navbar *ngIf="ifNavBar()"></app-navbar>
+        <router-outlet *ngIf="ifNavBar()"></router-outlet>
+        <router-outlet></router-outlet>
+    </body>
+</html>
 
 <!-- <div>
   <input type="checkbox" style="margin: 2%;"> Modo Testing
