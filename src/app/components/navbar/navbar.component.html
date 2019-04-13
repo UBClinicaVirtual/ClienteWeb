@@ -9,11 +9,17 @@
         <a class="nav-link" [routerLink]="['home']" routerLinkActive = "active" >Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+          <a class="nav-link" [routerLink]="['turns']" routerLinkActive = "active" >Turns</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['protected']" routerLinkActive = "active"  >Mi Perfil</a>
+        </li>
+      <!-- <li class="nav-item">
         <a class="nav-link" [routerLink]="['turns']" routerLinkActive = "active" *ngIf="auth.isAuthenticated()">Turns</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['protected']" routerLinkActive = "active" *ngIf="auth.isAuthenticated()">Mi Perfil</a>
-      </li>
+      </li> -->
     </ul>
     <span class="navbar-text">
       <button   (click)= "login()"
