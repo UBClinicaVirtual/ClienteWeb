@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ServerConnectionService } from 'src/app/services/server-connection/server-connection.service';
+import { GlobalesService } from 'src/app/services/globales.service';
+
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent{
 
-  constructor(private connection: ServerConnectionService) { }
+  constructor(private connection: ServerConnectionService, private globales: GlobalesService) { }
 
-  ngOnInit() {
-  }
 
   login(){
     this.connection.login();
@@ -30,5 +30,9 @@ export class WelcomeComponent implements OnInit {
   userdata(){
     this.connection.userdata();
 
+  }
+
+  esVisibleClick(){
+    this.globales.reverNavBar();
   }
 }

@@ -1,7 +1,9 @@
 
 <!-- <app-navbar></app-navbar> -->
 
-<app-welcome></app-welcome>
+<app-welcome *ngIf="!ifNavBar()"></app-welcome>
+<app-navbar *ngIf="ifNavBar()"></app-navbar>
+<router-outlet *ngIf="ifNavBar()"></router-outlet>
 
 <router-outlet></router-outlet>
 
