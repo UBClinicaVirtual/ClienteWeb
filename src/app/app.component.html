@@ -3,10 +3,10 @@
 <html>
 
 <body>
+    <!-- <app-welcome *ngIf="!ifNavBar()"></app-welcome> -->
 
-    <!-- <app-welcome *ngIf="!ifNavBar()"></app-welcome>-->
     <app-navbar></app-navbar>
-    <!-- <router-outlet *ngIf="ifNavBar()"></router-outlet>-->
+    <router-outlet *ngIf="ifNavBar()"></router-outlet>
     <router-outlet></router-outlet>
 </body>
 
