@@ -8,37 +8,37 @@ import { config } from 'rxjs';
 })
 export class ServerConnectionService {
 
-  constructor(private http : HttpClient, private config : ServerConfigService) { }
+  constructor(private http: HttpClient, private config: ServerConfigService) { }
 
   private urlPath = this.config.url();
   // private urlPath = "localhost:3200"
 
-  private userType  = "";
+  private userType = '';
 
-  public token = "";
+  public token = '';
 
-  public apiKey = "";
+  public apiKey = '';
 
-  login(){
+  login() {
     let httpHeaders = new HttpHeaders({
       'Access-Control-Allow-Origin':'*'
     });
 
     console.log({
-      "access_token": this.token
+      'access_token': this.token
     });
 
-    //Invoco al router cabeza de google para hacer el login en google
-    this.http.post("http://localhost:3000/googlerouter.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/login", {
-      "access_token": this.token
+    // Invoco al router cabeza de google para hacer el login en google
+    this.http.post('http://localhost:3000/googlerouter.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/login', {
+      'access_token': this.token
     }, { headers: httpHeaders}  )
     .subscribe(
       data  => {
-        console.log("POST Request is successful ", data);
+        console.log('POST Request is successful ', data);
         this.apiKey = data['user']['api_token'];
       },
       error  => {
-        console.log("Error", error);
+        console.log('Error', error);
       }
     );
   }
@@ -69,6 +69,7 @@ export class ServerConnectionService {
 
     //aca llamaba directamente a 'http://ubclinicavirtual.000webhostapp.com/api/v1/login2'
     //Ahora llamo al router para que el llame a 'http://ubclinicavirtual.000webhostapp.com/api/v1/login2'
+    
     this.http.post("http://localhost:3000/mirouter.php", "", { headers: httpHeaders}  )
     .subscribe(
       data  => {
