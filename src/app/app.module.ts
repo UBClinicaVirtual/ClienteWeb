@@ -9,13 +9,12 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
 import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
 import { ProtectedComponent } from './components/protected/protected.component';
 import {APP_ROUTING} from './app.routes';
 
-//services
-import{AuthService} from "./services/auth.service";
-import {AuthGuardService} from "./services/auth-guard.service";
+// services
+import {AuthService} from './services/auth.service';
+import {AuthGuardService} from './services/auth-guard.service';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import {GoogleSignInComponent} from 'angular-google-signin';
@@ -29,7 +28,6 @@ import {GoogleSignInComponent} from 'angular-google-signin';
     AppointmentComponent,
     AppointmentDetailComponent,
     NavbarComponent,
-    HomeComponent,
     ProtectedComponent,
     LoginComponent,
     GoogleSignInComponent

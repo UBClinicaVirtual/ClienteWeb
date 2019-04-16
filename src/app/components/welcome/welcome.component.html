@@ -1,13 +1,29 @@
 
  <html>
- <!-- SE PERMITE VER LOS TURNOS CON ESTE COMPONENTE -->
-  <!-- <app-appointments></app-appointments> -->
+  <body>
+      <!-- SE PERMITE VER LOS TURNOS CON ESTE COMPONENTE -->
+    <!-- <app-appointments></app-appointments> -->
+    <h1 class="font-weight-light" style="font-size:70px;">Bienvenido a Clínica Virtual</h1>
+    <h1 class="font-weight-light" style="font-size:35px;">Hospital de Clínica San Martin</h1>
+    <!-- <app-login></app-login> -->
+    
 
-  <app-login></app-login>
+    <button class="btn btn-danger" style="height: 40px;width:20%;opacity: 0.9;    margin-top: 30px;" (click)="esVisibleClick()">Comenzar</button>
+    
+    <br><br>
+    
+    <div style="background-color:black; opacity: 0.7;">
+      <br><br>
+      <div style="margin-left: 45.5%;"><app-login></app-login></div>
+      <br>
+      <button class="btn btn-primary" (click)="login()">Login Server</button>
+      <br><br>
+      <button class="btn btn-primary" (click)="userdata()">Traer Mis Datos</button>
+      <br><br>
+      <button class="btn btn-primary" (click)="appointments()">Traer Turnos</button>
+      <br><br>
 
-  <button class="btn btn-primary" (click)="login()">Login Server</button>
-  <button class="btn btn-primary" (click)="userdata()">Traer Mis Datos</button>
-  <button class="btn btn-primary" (click)="appointments()">Traer Turnos</button>
+    </div>
 
-
+  </body>
 </html>
