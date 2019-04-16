@@ -6,15 +6,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class LoginService implements serviceNotifyInterface {
 
-  constructor(private connection: ServerConnectionService) { }
-
-  notify(data){
+  notifty(data: any) {
     console.log('POST Request is successful :D', data);
     this.connection.apiKey = data['user']['api_token'];
     console.log(this.connection.apiKey );
   }
+
+  constructor(private connection: ServerConnectionService) { }
 
   execute(){
     let httpHeaderss = new HttpHeaders({
