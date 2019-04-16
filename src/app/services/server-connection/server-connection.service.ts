@@ -45,15 +45,24 @@ export class ServerConnectionService {
 
   get (){
 
-    // return this.http.get . . .
-    // return this.http.get(this.urlPath + "/user", {
-    //   headers: { "Accept": "application/json", "Content-Type": "application/json", "Authorization": "Bearer qsi0jBa0fyhgvZKY0mvcQTwvH9jAZ8bBAk1uVMn1OtEW6I8ypSenF3g3iQXu" }
-    // }).toPromise();
   }
 
-  post(){
-    //toda la info para que se haga el psot
-    // this.http.post ( .... )
+  post(uri:string, httpHeaders:HttpHeaders,body ){
+    this.http.post
+    (
+      this.urlPath + uri,
+      body,
+      { headers: httpHeaders}
+    )
+    .subscribe(
+      data  => {
+        console.log('POST Request is successful ', data);
+        return data;
+      },
+      error  => {
+        console.log('Error', error);
+      }
+    );
   }
 
 

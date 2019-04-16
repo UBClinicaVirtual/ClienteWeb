@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ServerConnectionService} from '../server-connection.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +10,13 @@ export class LoginService {
 
   constructor(private connection: ServerConnectionService) { }
 
-  met = 'post';
-
-
   execute(){
-    // this.connection.login();
-    //SETEAR LOS VALORES (METHOD - PARAMETERS - BODY - ETC)
-    //QUE NECESITE EL REQUEST DEL SERVICEIO CONNECTION PARA FUNCIONAR
-    // let response =  this.connection.get();
-    // this.connection.apiKey = response.user.api_token;
+    let httpHeaderss = new HttpHeaders({
+      'Access-Control-Allow-Origin':'*'
+    });
+
+    let body = {'access_token': this.connection.token};
+    let data = this.connection.post('/login',httpHeaderss,body);
+    this.connection.apiKey = data['user']['api_token'];
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ServerConnectionService } from 'src/app/services/server-connection/server-connection.service';
 import { GlobalesService } from 'src/app/services/globales.service';
+import { LoginService } from 'src/app/services/server-connection/requests/login.service';
 
 
 @Component({
@@ -11,11 +12,11 @@ import { GlobalesService } from 'src/app/services/globales.service';
 })
 export class WelcomeComponent {
 
-  constructor(private connection: ServerConnectionService, private globales: GlobalesService) { }
+  constructor(private loginService: LoginService,private connection: ServerConnectionService, private globales: GlobalesService) { }
 
 
   login() {
-    this.connection.login();
+    this.loginService.execute();
   }
 
   onClickButton() {
