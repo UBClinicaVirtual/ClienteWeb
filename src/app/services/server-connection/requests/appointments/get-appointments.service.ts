@@ -5,13 +5,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class GetAppointmentsService {
+export class GetAppointmentsService implements serviceNotifyInterface {
+  notifty(data: any) {
+    console.log('POST Request is successful :D', data);
+  }
 
   constructor(private connection: ServerConnectionService) { }
 
-  notify(data){
-    console.log('POST Request is successful :D', data);
-  }
 
   execute(){
     console.log("Solicitando turnos...");

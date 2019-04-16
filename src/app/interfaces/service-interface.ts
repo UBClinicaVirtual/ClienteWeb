@@ -1,0 +1,3 @@
+interface serviceNotifyInterface {
+    notifty(data);
+}

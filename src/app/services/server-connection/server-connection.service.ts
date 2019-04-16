@@ -47,7 +47,7 @@ export class ServerConnectionService {
 
   }
 
-  post(uri:string, httpHeaders:HttpHeaders,body, service){
+  post(uri:string, httpHeaders:HttpHeaders,body, service:serviceNotifyInterface){
     this.http.post
     (
       this.urlPath + uri,
@@ -56,8 +56,7 @@ export class ServerConnectionService {
     )
     .subscribe(
       data  => {
-        service.notify(data);
-        return data;
+        service.notifty(data);
       },
       error  => {
         console.log('Error', error);
