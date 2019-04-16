@@ -29,7 +29,7 @@ export class ServerConnectionService {
     });
 
     // Invoco al router cabeza de google para hacer el login en google
-    this.http.post('http://localhost:3000/googlerouter.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/login', {
+    this.http.post('http://localhost:3000/utils/router/router.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/login', {
       'access_token': this.token
     }, { headers: httpHeaders}  )
     .subscribe(
@@ -92,7 +92,7 @@ export class ServerConnectionService {
     }); 
 
     //Invoco al router cabeza para hacer pedir los turnos
-    this.http.post("http://localhost:3000/googlerouter.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/user/patient/appointments", 
+    this.http.post("http://localhost:3000/utils/router/router.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/user/patient/appointments", 
     //Aca va el body del requerimiento
     {
       
@@ -120,7 +120,7 @@ export class ServerConnectionService {
     });
 
     //Invoco al router cabeza para pedir los datos del usuario
-    this.http.get("http://localhost:3000/googlerouter.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/user", 
+    this.http.get("http://localhost:3000/utils/router/router.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/user", 
     //Aca van los headers del requerimiento
     { headers: httpHeaders}  )
     .subscribe(

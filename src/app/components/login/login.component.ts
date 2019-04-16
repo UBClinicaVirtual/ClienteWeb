@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   private myClientId: string = '154525363401-7rn9a462ng2ukds3pcgff8jp4uv9c9tu.apps.googleusercontent.com';
 
-
   onGoogleSignInSuccess(event: GoogleSignInSuccess) {
     let googleUser: any = event.googleUser;
     let id: string = googleUser.getId();
