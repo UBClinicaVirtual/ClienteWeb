@@ -9,8 +9,8 @@ export class ServerConfigService {
 
   private mockUrl = "localhost:3200";
   private realUrl = "http://ubclinicavirtual.000webhostapp.com/api/v1";
-
+  private routerUrl= "http://localhost:3000/utils/router/router.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1";
   url(){
-    return this.mockUrl;
+    return this.routerUrl;
   }
 }

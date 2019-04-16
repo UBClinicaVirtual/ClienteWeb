@@ -29,7 +29,7 @@ export class ServerConnectionService {
     });
 
     // Invoco al router cabeza de google para hacer el login en google
-    this.http.post('http://localhost:3000/utils/router/router.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/login', {
+    this.http.post(this.urlPath + '/login', {
       'access_token': this.token
     }, { headers: httpHeaders}  )
     .subscribe(
@@ -92,7 +92,7 @@ export class ServerConnectionService {
     }); 
 
     //Invoco al router cabeza para hacer pedir los turnos
-    this.http.post("http://localhost:3000/utils/router/router.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/user/patient/appointments", 
+    this.http.post(this.urlPath + "/user/patient/appointments", 
     //Aca va el body del requerimiento
     {
       
@@ -120,7 +120,30 @@ export class ServerConnectionService {
     });
 
     //Invoco al router cabeza para pedir los datos del usuario
-    this.http.get("http://localhost:3000/utils/router/router.php?url=http://ubclinicavirtual.000webhostapp.com/api/v1/user", 
+    this.http.get(this.urlPath + "/user", 
+    //Aca van los headers del requerimiento
+    { headers: httpHeaders}  )
+    .subscribe(
+        data  => {
+          console.log("User GET Request is successful ", data);
+        },
+        error  => {
+          console.log("Error", error);
+        }
+    );
+  }
+
+  request(){
+    let httpHeaders = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+      'Authorization' : 'Bearer ' + this.apiKey,
+      'Access-Control-Allow-Origin':'*'
+    });
+
+    //Invoco al router cabeza para pedir los datos del usuario
+    this.http.post(this.urlPath + "/hcp/search",
+    {},
     //Aca van los headers del requerimiento
     { headers: httpHeaders}  )
     .subscribe(
