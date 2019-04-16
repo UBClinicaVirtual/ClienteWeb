@@ -19,29 +19,29 @@ export class ServerConnectionService {
 
   public apiKey = '';
 
-  login() {
-    let httpHeaders = new HttpHeaders({
-      'Access-Control-Allow-Origin':'*'
-    });
+  // login() {
+  //   let httpHeaders = new HttpHeaders({
+  //     'Access-Control-Allow-Origin':'*'
+  //   });
 
-    console.log({
-      'access_token': this.token
-    });
+  //   console.log({
+  //     'access_token': this.token
+  //   });
 
-    // Invoco al router cabeza de google para hacer el login en google
-    this.http.post(this.urlPath + '/login', {
-      'access_token': this.token
-    }, { headers: httpHeaders}  )
-    .subscribe(
-      data  => {
-        console.log('POST Request is successful ', data);
-        this.apiKey = data['user']['api_token'];
-      },
-      error  => {
-        console.log('Error', error);
-      }
-    );
-  }
+  //   // Invoco al router cabeza de google para hacer el login en google
+  //   this.http.post(this.urlPath + '/login', {
+  //     'access_token': this.token
+  //   }, { headers: httpHeaders}  )
+  //   .subscribe(
+  //     data  => {
+  //       console.log('POST Request is successful ', data);
+  //       this.apiKey = data['user']['api_token'];
+  //     },
+  //     error  => {
+  //       console.log('Error', error);
+  //     }
+  //   );
+  // }
 
   get (){
 
@@ -98,7 +98,7 @@ export class ServerConnectionService {
       //Fuerzo que traiga el del usuario que tiene api_token paciente
       'Authorization' : 'Bearer ' + this.apiKey,
       'Access-Control-Allow-Origin':'*'
-    }); 
+    });
 
     //Invoco al router cabeza para hacer pedir los turnos
     this.http.post(this.urlPath + "/user/patient/appointments", 

@@ -3,7 +3,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ServerConnectionService } from 'src/app/services/server-connection/server-connection.service';
 import { GlobalesService } from 'src/app/services/globales.service';
 import { LoginService } from 'src/app/services/server-connection/requests/login/login.service';
-
+import { GetAppointmentsService } from 'src/app/services/server-connection/requests/appointments/get-appointments.service';
 
 @Component({
   selector: 'app-welcome',
@@ -12,7 +12,11 @@ import { LoginService } from 'src/app/services/server-connection/requests/login/
 })
 export class WelcomeComponent {
 
-  constructor(private loginService: LoginService,private connection: ServerConnectionService, private globales: GlobalesService) { }
+  constructor(
+    private getAppointments:GetAppointmentsService,
+    private loginService: LoginService,
+    private connection: ServerConnectionService,
+    private globales: GlobalesService) { }
 
 
   login() {
@@ -24,7 +28,7 @@ export class WelcomeComponent {
   }
 
   appointments() {
-    this.connection.appointments();
+    this.getAppointments.execute();
 
   }
 
