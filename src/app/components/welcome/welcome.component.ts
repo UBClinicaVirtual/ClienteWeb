@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ServerConnectionService } from 'src/app/services/server-connection/server-connection.service';
 import { GlobalesService } from 'src/app/services/globales.service';
-import { LoginService } from 'src/app/services/server-connection/requests/login.service';
+import { LoginService } from 'src/app/services/server-connection/requests/login/login.service';
 
 
 @Component({

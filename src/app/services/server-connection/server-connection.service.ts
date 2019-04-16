@@ -47,7 +47,7 @@ export class ServerConnectionService {
 
   }
 
-  post(uri:string, httpHeaders:HttpHeaders,body ){
+  post(uri:string, httpHeaders:HttpHeaders,body, service){
     this.http.post
     (
       this.urlPath + uri,
@@ -56,7 +56,7 @@ export class ServerConnectionService {
     )
     .subscribe(
       data  => {
-        console.log('POST Request is successful ', data);
+        service.notify(data);
         return data;
       },
       error  => {
