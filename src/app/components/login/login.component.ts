@@ -17,12 +17,8 @@ export class LoginComponent implements OnInit {
     let googleUser: any = event.googleUser;
     let id: string = googleUser.getId();
     let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
-    console.log('ID: ' +
-      profile
-        .getId()); // Do not send to your backend! Use an ID token instead.
     this.connection.token = googleUser.Zi.id_token;
 
-    console.log(this.connection.token);
   }
   ngOnInit() {
   }
