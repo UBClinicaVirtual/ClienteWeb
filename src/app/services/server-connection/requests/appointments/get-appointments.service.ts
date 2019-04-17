@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ServerConnectionService} from '../../server-connection.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AppointmentsComponent } from 'src/app/components/appointments/appointments.component';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class GetAppointmentsService implements serviceNotifyInterface {
   notifty(data: any) {
     console.log('POST Request is successful :D', data);
+    this.componente.response(data);
   }
 
   constructor(private connection: ServerConnectionService) { }
 
+  componente;
 
-  execute(){
+  execute(component:AppointmentsComponent){
+
+    this.componente = component;
+
     console.log("Solicitando turnos...");
 
     let httpHeaderss = new HttpHeaders({
