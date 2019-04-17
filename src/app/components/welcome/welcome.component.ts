@@ -28,7 +28,7 @@ export class WelcomeComponent {
   }
 
   appointments() {
-    this.getAppointments.execute();
+    this.getAppointments.execute(this);
 
   }
 

@@ -5,11 +5,11 @@
 <body>
     <app-welcome *ngIf="!ifNavBar()"></app-welcome>
 
-    <app-navbar  *ngIf="ifNavBar()"></app-navbar>
+    <app-navbar *ngIf="ifNavBar()"></app-navbar>
     <router-outlet *ngIf="ifNavBar()"></router-outlet>
 
-    <app-appointments></app-appointments>
-    
+    <app-appointments *ngIf="ifNavBar()"></app-appointments>
+
 </body>
 
 </html>
