@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { GetClinicsService } from 'src/app/services/server-connection/requests/clinics/get-clinics.service';
 import { GlobalesService } from 'src/app/services/globales.service';
+import { optionData } from './option-data';
+import { GetSpecialitiesService } from 'src/app/services/server-connection/requests/specialities/get-specialities.service';
+import { GetHcpsService } from 'src/app/services/server-connection/requests/hcps/get-hcps.service';
 
 
 @Component({
@@ -12,13 +15,19 @@ import { GlobalesService } from 'src/app/services/globales.service';
 
 export class AppointmentSearchComponent implements OnInit {
 
-  constructor(private getClinics : GetClinicsService, private globales: GlobalesService) {
-    
+  isLoading:boolean = false;
+ 
+  constructor(private getClinics : GetClinicsService, private globales: GlobalesService,private getSpecialities : GetSpecialitiesService, private getHcps: GetHcpsService) {
+    //this.getClinics.execute(this);
+    //this.getSpecialities.execute(this);
+    this.getHcps.execute(this);
   }
 
-  public optionsArray = {
+  public clinics: optionData[] = [];
+  public cspecialities: optionData[] = [];
+  public hcps: optionData[] = [];
 
-    clinics: ['San Martic','San Jose','San Pablo',],
+  public optionsArray = {
     specialities: ['Urologia','blablabla','experto en culos',],
     hcps: ['Pedro','Gabriel','Fernando']
 
@@ -40,7 +49,7 @@ export class AppointmentSearchComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getClinics.execute(this);
+    //this.getClinics.execute(this);
   }
 
   private buildOptionsArray(){
@@ -48,7 +57,10 @@ export class AppointmentSearchComponent implements OnInit {
   }
 
   notify(data){
-    this.optionsArray.clinics.push(data["clinics"][0].business_name);
+    //this.clinics.push(new optionData(data["clinics"][0].id,data["clinics"][0].business_name))
+    //this.clinics.push(new optionData(data["specialities"][0].id,data["specialities"][0].name))
+    this.clinics.push(new optionData(data["hcps"][0].id,data["hcps"][0].first_name + "," + data["hcps"][0].last_name))
+    this.isLoading = true;
   }
 
   ifNavBar(){

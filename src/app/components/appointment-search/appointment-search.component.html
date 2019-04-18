@@ -1,7 +1,8 @@
+<ng-container *ngIf="isLoading">
 <div style="background-color:white;">
     <label>
       <select [(ngModel)]="filtros.clinic_id" placeholder="Seleccione Hospital">
-      <option [value]="option" *ngFor="let option of optionsArray.clinics">{{option}}</option>
+      <option [value]="option.id" *ngFor="let option of clinics">{{option.label}}</option>
       </select>
     </label>
     <br>
@@ -29,3 +30,4 @@
     <br>
     <button class="btn btn-primary" (click)="onClick()">Console.log()</button>
   </div>
+</ng-container>
