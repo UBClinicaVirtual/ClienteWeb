@@ -1,0 +1,33 @@
+<ng-container *ngIf="isLoading">
+<div style="background-color:white;">
+    <label>
+      <select [(ngModel)]="filtros.clinic_id" placeholder="Seleccione Hospital">
+      <option [value]="option.id" *ngFor="let option of clinics">{{option.label}}</option>
+      </select>
+    </label>
+    <br>
+    <label>
+      <select [(ngModel)]="filtros.speciality_id" placeholder="Seleccione Especialidad">
+      <option [value]="speciality" *ngFor="let speciality of optionsArray.specialities">{{speciality}}</option>
+      </select>
+    </label>
+    <br>
+    <label>
+      <select [(ngModel)]="filtros.hcp_id" placeholder="Seleccione medico">
+      <option [value]="hcp" *ngFor="let hcp of optionsArray.hcps">{{hcp}}</option>
+      </select>
+    </label>
+    <br>
+    <br>
+    <label>
+    <input type="text" [(ngModel)]="filtros.date_from"placeholder="Fecha Desde">
+    </label>
+    <br>
+    <label>
+    <input type="text" [(ngModel)]="filtros.date_to"placeholder="Fecha Hasta">
+    </label>
+  
+    <br>
+    <button class="btn btn-primary" (click)="onClick()">Console.log()</button>
+  </div>
+</ng-container>

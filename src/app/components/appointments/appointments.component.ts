@@ -6,7 +6,8 @@ import { GetAppointmentsService } from 'src/app/services/server-connection/reque
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.css']
 })
-export class AppointmentsComponent implements OnInit {
+export class AppointmentsComponent implements OnInit,componentResponseInterface {
+
 
   constructor(private getAppointments:GetAppointmentsService) {
       getAppointments.execute(this);
@@ -14,6 +15,7 @@ export class AppointmentsComponent implements OnInit {
 
   appointmentResponse;
   turnos;
+
   response(data){
     this.turnos = data.appointments;
   }
