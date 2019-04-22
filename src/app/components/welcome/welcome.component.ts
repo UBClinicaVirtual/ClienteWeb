@@ -23,10 +23,6 @@ export class WelcomeComponent implements componentResponseInterface{
     private globales: GlobalesService) { }
 
 
-  login() {
-    this.loginService.execute();
-  }
-
   onClickButton() {
     this.connection.onClickButton();
   }
