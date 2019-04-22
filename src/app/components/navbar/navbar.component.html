@@ -57,18 +57,16 @@
         <ul class="list-unstyled components">
             <p>Menu</p>
             <li>
-                <a href="#">Pantalla Principal</a>
-            </li>
-            <li>
-                <a href="#">Mi Perfil</a>
-            </li>
-            <li>
-                <a href="#">Mis Turnos</a>
+                <a class="nav-link" [routerLink]="['home']" routerLinkActive = "active" >Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['turns']" routerLinkActive="active">Turns</a>
+                <a class="nav-link" [routerLink]="['protected']" routerLinkActive="active">Mi Perfil</a>
             </li>
-            <li>
+
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['turns']" routerLinkActive="active">Mis Turnos</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" [routerLink]="['buscar-turno']" routerLinkActive="active">Buscar Turno</a>
             </li>
             <li>
@@ -85,7 +83,7 @@
 
     <!-- Page Content  -->
     <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar-fixed-top navbar navbar-expand-lg navbar-light bg-light">
             <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
                         <span></span>
@@ -105,8 +103,9 @@
                             type="button"
                             class= "btn btn-outline-primary"
                             name="button">Ingresar</button> -->
-                <app-login></app-login>
-
+                 <button>
+                            <app-login></app-login>
+                        </button>
 
                  <button    class= "btn btn-outline-primary" 
                             name="button">Ayuda</button>
