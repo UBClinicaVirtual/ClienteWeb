@@ -11,6 +11,8 @@ export class LoginService implements serviceNotifyInterface {
   notifty(data: any) {
     console.log('POST Request is successful :D', data);
     this.connection.apiKey = data['user']['api_token'];
+    this.connection.userType = data['user']['user_type_id'];
+
     console.log(this.connection.apiKey );
   }
 

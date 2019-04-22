@@ -13,35 +13,11 @@ export class ServerConnectionService {
   private urlPath = this.config.url();
   // private urlPath = "localhost:3200"
 
-  private userType = '';
+  public userType = '';
 
   public token = '';
 
   public apiKey = '';
-
-  // login() {
-  //   let httpHeaders = new HttpHeaders({
-  //     'Access-Control-Allow-Origin':'*'
-  //   });
-
-  //   console.log({
-  //     'access_token': this.token
-  //   });
-
-  //   // Invoco al router cabeza de google para hacer el login en google
-  //   this.http.post(this.urlPath + '/login', {
-  //     'access_token': this.token
-  //   }, { headers: httpHeaders}  )
-  //   .subscribe(
-  //     data  => {
-  //       console.log('POST Request is successful ', data);
-  //       this.apiKey = data['user']['api_token'];
-  //     },
-  //     error  => {
-  //       console.log('Error', error);
-  //     }
-  //   );
-  // }
 
   get (){
 

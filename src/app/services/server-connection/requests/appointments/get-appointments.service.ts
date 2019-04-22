@@ -16,11 +16,11 @@ export class GetAppointmentsService implements serviceNotifyInterface {
 
   componente;
 
-  execute(component:AppointmentsComponent){
+  execute(component:componentResponseInterface){
 
     this.componente = component;
 
-    console.log("Solicitando turnos...");
+    console.log("service: GetAppointmentsService");
 
     let httpHeaderss = new HttpHeaders({
       'Authorization' : 'Bearer ' + this.connection.apiKey

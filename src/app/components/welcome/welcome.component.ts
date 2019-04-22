@@ -10,7 +10,11 @@ import { GetAppointmentsService } from 'src/app/services/server-connection/reque
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent {
+export class WelcomeComponent implements componentResponseInterface{
+
+  response(data: any) {
+    console.log(data);
+  }
 
   constructor(
     private getAppointments:GetAppointmentsService,

@@ -1,0 +1,3 @@
+interface componentResponseInterface {
+    response(data);
+}
