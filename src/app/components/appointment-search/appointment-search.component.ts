@@ -81,22 +81,44 @@ export class AppointmentSearchComponent implements OnInit {
     return this.globales.getNavbar();
   }
 
-  notify(data){
-    switch(this.requestType) {
-      case "getClinics":
+  // notify(data){
+  //   switch(this.requestType) {
+  //     case "getClinics":
+  //       this.clinics.push(new optionData(data["clinics"][0].id,data["clinics"][0].business_name));
+  //       this.requestType = "getSpecialities";
+  //       this.getSpecialities.execute(this);
+  //       break;
+  //     case "getSpecialities":
+  //       this.specialities.push(new optionData(data["specialities"][0].id,data["specialities"][0].name));
+  //       this.requestType = "getHcps";
+  //       this.getHcps.execute(this);
+  //       break;
+  //     case "getHcps":
+  //       this.hcps.push(new optionData(data["hcps"][0].id,data["hcps"][0].first_name + ", " + data["hcps"][0].last_name))
+  //       this.done();
+  //       break;
+  //   }
+  // }
+
+
+  requestTypeOperation = {
+    "getClinics":function(data){
         this.clinics.push(new optionData(data["clinics"][0].id,data["clinics"][0].business_name));
         this.requestType = "getSpecialities";
         this.getSpecialities.execute(this);
-        break;
-      case "getSpecialities":
+    },
+    "getSpecialities" : function(data){
         this.specialities.push(new optionData(data["specialities"][0].id,data["specialities"][0].name));
         this.requestType = "getHcps";
         this.getHcps.execute(this);
-        break;
-      case "getHcps":
+    },
+    "getHcps" : function(data){
         this.hcps.push(new optionData(data["hcps"][0].id,data["hcps"][0].first_name + ", " + data["hcps"][0].last_name))
         this.done();
-        break;
     }
+  }
+
+  notify(data){
+    this.requestTypeOperation[this.requestType](data);
   }
 }
