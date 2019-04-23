@@ -12,9 +12,12 @@ import { config } from 'rxjs';
 })
 export class LoginComponent implements OnInit, componentResponseInterface {
 
+
   response(data: any) {
-    this.connected = this.connection.connected;
+    console.log(data);
   }
+
+
 
   constructor(private connection: ServerConnectionService,private loginService: LoginService,private config:ServerConfigService) { }
 
@@ -27,7 +30,7 @@ export class LoginComponent implements OnInit, componentResponseInterface {
     let id: string = googleUser.getId();
     let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
     this.connection.token = googleUser.Zi.id_token;
-    this.loginService.execute(this);
+    this.loginService.execute();
     console.log(this.connection.token);
 
   }
