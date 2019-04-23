@@ -8,13 +8,13 @@
     <br>
     <label>
       <select [(ngModel)]="filtros.speciality_id" placeholder="Seleccione Especialidad">
-      <option [value]="speciality" *ngFor="let speciality of optionsArray.specialities">{{speciality}}</option>
+      <option [value]="option.id" *ngFor="let option of specialities">{{option.label}}</option>
       </select>
     </label>
     <br>
     <label>
       <select [(ngModel)]="filtros.hcp_id" placeholder="Seleccione medico">
-      <option [value]="hcp" *ngFor="let hcp of optionsArray.hcps">{{hcp}}</option>
+      <option [value]="option.id" *ngFor="let option of hcps">{{option.label}}</option>
       </select>
     </label>
     <br>
