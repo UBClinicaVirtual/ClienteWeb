@@ -20,7 +20,7 @@ export class GetHcpsService implements serviceNotifyInterface {
 
     this.componente = component;
 
-    console.log("Solicitando doctores...");
+    console.log("service: get-hcp");
 
     let httpHeaderss = new HttpHeaders({
       'Authorization' : 'Bearer ' + this.connection.apiKey

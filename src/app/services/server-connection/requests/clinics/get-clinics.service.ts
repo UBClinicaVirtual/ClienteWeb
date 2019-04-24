@@ -18,7 +18,7 @@ export class GetClinicsService implements serviceNotifyInterface{
 
     this.componente = component;
 
-    console.log("Solicitando clinicas...");
+    console.log("service: get-clinics");
 
     let httpHeaderss = new HttpHeaders({
       'Authorization' : 'Bearer ' + this.connection.apiKey

@@ -19,6 +19,8 @@ export class LoginService implements serviceNotifyInterface {
   constructor(private connection: ServerConnectionService) { }
 
   execute(){
+    console.log("service: login");
+
     let httpHeaderss = new HttpHeaders({
       'Access-Control-Allow-Origin':'*'
     });

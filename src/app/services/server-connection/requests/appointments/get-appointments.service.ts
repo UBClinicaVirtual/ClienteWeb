@@ -20,7 +20,7 @@ export class GetAppointmentsService implements serviceNotifyInterface {
 
     this.componente = component;
 
-    console.log("service: GetAppointmentsService");
+    console.log("service: get-appointments");
 
     let httpHeaderss = new HttpHeaders({
       'Authorization' : 'Bearer ' + this.connection.apiKey
