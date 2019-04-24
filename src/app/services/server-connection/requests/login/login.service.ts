@@ -8,6 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginService implements serviceNotifyInterface {
 
+  public userProfile;
+
   notifty(data: any) {
     console.log('POST Request is successful :D', data);
     this.connection.apiKey = data['user']['api_token'];

@@ -1,14 +1,15 @@
 <div class="row" *ngIf="profile">
   <div class="col-md-4">
-    <img [src] = "profile.picture" class="img-fluid">
+    <img [src] = "profile.getImageUrl()" class="">
   </div>
 
   <div class="col-md-8">
     <ul class="list-group">
-      <li class = "list-group-item">Apellido: {{profile.family_name}}</li>
-      <li class = "list-group-item">Nombre: {{profile.given_name}}</li>
-      <li class = "list-group-item">Sexo: {{profile.gender}}</li>
-      <li class = "list-group-item">Mail: {{profile.nickname}}@gmail.com</li>
+    <h1>{{profile.getName()}}</h1>
+      <li class = "list-group-item"><strong>Apellido:</strong> {{profile.getFamilyName()}}</li>
+      <li class = "list-group-item"><strong>Nombre:</strong> {{profile.getGivenName()}}</li>
+      <!-- <li class = "list-group-item">Sexo: {{profile.getGender()}}</li> -->
+      <li class = "list-group-item"><strong>Mail:</strong> {{profile.getEmail()}}</li>
 
     </ul>
 
