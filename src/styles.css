@@ -7,8 +7,9 @@
  }
  
  .main-container {
-    margin-top: 40px;
+    margin-top: 150px;
 }
+
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body.main-container{
@@ -35,6 +36,7 @@ a:focus {
 }
 
 .navbar {
+    
     padding: 15px 10px;
     background: #fff;
     border: none;
