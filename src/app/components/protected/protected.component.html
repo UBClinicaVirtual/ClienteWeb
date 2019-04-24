@@ -12,6 +12,59 @@
       <li class = "list-group-item"><strong>Mail:</strong> {{profile.getEmail()}}</li>
 
     </ul>
-
   </div>
+<hr>
+  <div class="col-md-13" style="    margin-left: 35%; margin-top: 5%;">
+      <h1>{{usertype(user.user.user_type_id)}}</h1>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <input type="text" aria-label="First name" class="form-control" value="{{user.patient.identification_number}}" readonly='false'>
+          <span class="input-group-text">Id Paciente</span>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <input type="text" aria-label="First name" class="form-control" value="{{user.patient.first_name}}">
+          <span class="input-group-text">Nombre</span>
+        </div>
+      </div>
+      
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <input type="text" aria-label="First name" class="form-control" value="{{user.patient.last_name}}">
+          <span class="input-group-text">Apellido</span>
+        </div>
+      </div>
+      
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <input type="text" aria-label="First name" class="form-control" value="{{user.patient.phone}}">
+          <span class="input-group-text">Contacto</span>
+        </div>
+      </div>
+      
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <input type="text" aria-label="First name" class="form-control" value="{{user.patient.birth_date}}">
+          <span class="input-group-text">Fecha Nacimiento</span>
+        </div>
+      </div>
+      
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <input type="text" aria-label="First name" class="form-control" value="{{user.patient.address}}">
+          <span class="input-group-text">Direccion</span>
+        </div>
+      </div>
+      
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <input type="text" aria-label="First name" class="form-control" value="{{user.patient.gender_id}}">
+          <span class="input-group-text">Sexo</span>
+        </div>
+      </div>
+      
+      <button class="btn btn-primary">Editar perfil</button>
+    </div>
   </div>
