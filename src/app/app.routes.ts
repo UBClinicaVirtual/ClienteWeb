@@ -11,9 +11,9 @@ import { AppointmentSearchComponent} from './components/appointment-search/appoi
 
 
 const APP_ROUTES: Routes = [
-  { path: 'home', component: WelcomeComponent  , canActivate: [AuthGuardService]},
-  { path: 'turns', component: AppointmentsComponent  , canActivate: [AuthGuardService]},
-  { path: 'protected', component: ProtectedComponent , canActivate: [AuthGuardService]},
+  { path: 'home', component: WelcomeComponent},
+  { path: 'turns', component: AppointmentsComponent },
+  { path: 'protected', component: ProtectedComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home'},
   { path: 'buscar-turno', component: AppointmentSearchComponent}
 ];

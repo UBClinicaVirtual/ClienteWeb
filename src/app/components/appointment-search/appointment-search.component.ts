@@ -6,7 +6,6 @@ import { optionData } from './option-data';
 import { GetSpecialitiesService } from 'src/app/services/server-connection/requests/specialities/get-specialities.service';
 import { GetHcpsService } from 'src/app/services/server-connection/requests/hcps/get-hcps.service';
 
-
 @Component({
   selector: 'app-appointment-search',
   templateUrl: './appointment-search.component.html',
@@ -16,22 +15,16 @@ import { GetHcpsService } from 'src/app/services/server-connection/requests/hcps
 export class AppointmentSearchComponent implements OnInit {
 
   isLoading:boolean = false;
+  requestType: string = "";
  
   constructor(private getClinics : GetClinicsService, private globales: GlobalesService,private getSpecialities : GetSpecialitiesService, private getHcps: GetHcpsService) {
-    //this.getClinics.execute(this);
-    //this.getSpecialities.execute(this);
-    this.getHcps.execute(this);
+    this.getOptionData();
   }
+
 
   public clinics: optionData[] = [];
-  public cspecialities: optionData[] = [];
+  public specialities: optionData[] = [];
   public hcps: optionData[] = [];
-
-  public optionsArray = {
-    specialities: ['Urologia','blablabla','experto en culos',],
-    hcps: ['Pedro','Gabriel','Fernando']
-
-  }
 
   public filtros = {
     clinic_id: Number,
@@ -42,6 +35,11 @@ export class AppointmentSearchComponent implements OnInit {
     
   }
 
+  private getOptionData(){
+    this.requestType = "getClinics";
+    this.getClinics.execute(this);
+  }
+
 
   onClick(){
     console.log(this.filtros);
@@ -49,21 +47,57 @@ export class AppointmentSearchComponent implements OnInit {
 
 
   ngOnInit() {
-    //this.getClinics.execute(this);
   }
 
   private buildOptionsArray(){
     
   }
 
-  notify(data){
-    //this.clinics.push(new optionData(data["clinics"][0].id,data["clinics"][0].business_name))
-    //this.clinics.push(new optionData(data["specialities"][0].id,data["specialities"][0].name))
-    this.clinics.push(new optionData(data["hcps"][0].id,data["hcps"][0].first_name + "," + data["hcps"][0].last_name))
+  private done(){
+   
     this.isLoading = true;
   }
 
   ifNavBar(){
     return this.globales.getNavbar();
+  }
+
+  requestTypeOperation = {
+    "getClinics":function(component,data){
+        component.parseClincis(data["clinics"]);
+        component.requestType = "getSpecialities";
+        component.getSpecialities.execute(component);
+    },
+    "getSpecialities" : function(component,data){
+        component.parseSpecialities(data["specialities"]);
+        component.requestType = "getHcps";
+        component.getHcps.execute(component);
+    },
+    "getHcps" : function(component,data){
+        component.parseHcps(data["hcps"]);
+        component.done();
+    }
+  }
+
+  notify(data){
+    this.requestTypeOperation[this.requestType](this,data);
+  }
+
+  private parseClincis(clinics){
+    for ( var clinic in clinics){
+      this.clinics.push(new optionData(clinics[clinic].id,clinics[clinic].business_name));
+    }
+  }
+
+  private parseHcps(hcps){
+    for ( var hcp in hcps){
+      this.hcps.push(new optionData(hcps[hcp].id,hcps[hcp].first_name + ", " + hcps[hcp].last_name));
+    }
+  }
+
+  private parseSpecialities(specialities){
+    for ( var specialitie in specialities){
+      this.specialities.push(new optionData(specialities[specialitie].id,specialities[specialitie].name));
+    }
   }
 }
