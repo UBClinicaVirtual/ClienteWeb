@@ -14,17 +14,17 @@ export class ProtectedComponent implements OnInit {
   constructor(private auth:AuthService,private loginService: LoginService) { }
 
   ngOnInit() {
+    this.profile = this.loginService.userProfile;
 
-    if (this.loginService.userProfile) {
-      console.warn("si lo encontro: " +  this.loginService.userProfile);
+    // if (this.loginService.userProfile) {
 
-      this.profile = this.loginService.userProfile;
-    } else {
-        console.warn("no encontro perfil");
-        this.auth.getProfile((err, profile) => {
-        this.profile = profile;
-      });
-      }
+    //   this.profile = this.loginService.userProfile;
+    // } else {
+    //     console.warn("no encontro perfil");
+    //     this.auth.getProfile((err, profile) => {
+    //     this.profile = profile;
+    //   });
+    //   }
   }
 
 }
