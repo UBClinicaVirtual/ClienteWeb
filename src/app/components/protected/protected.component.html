@@ -1,6 +1,6 @@
 <div class="row" *ngIf="profile">
   <div class="col-md-4">
-    <img [src] = "profile.getImageUrl()" class="">
+    <img class="profile" [src] = "profile.getImageUrl()">
   </div>
 
   <div class="col-md-8">
@@ -68,3 +68,11 @@
       <button class="btn btn-primary">Editar perfil</button>
     </div>
   </div>
+
+
+    <div *ngIf="!profile" >
+      <div class="alert alert-warning" role="alert">
+          Inicie sesion para ver sus datos
+      </div>
+    <img style="width:14%" src="https://img.icons8.com/dusk/128/000000/jake.png">
+    </div>

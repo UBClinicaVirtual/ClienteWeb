@@ -1,0 +1,9 @@
+img.profile:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+img.profile{
+    border-radius: 50%;
+    opacity: 0.6;
+}

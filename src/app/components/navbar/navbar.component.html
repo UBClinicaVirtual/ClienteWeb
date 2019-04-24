@@ -51,17 +51,16 @@
         </div>
 
         <div class="sidebar-header">
-            <h3>Clinica Virtual</h3>
+            <h3>Opciones</h3>
         </div>
 
         <ul class="list-unstyled components">
-            <p>Menu</p>
-            <li>
+            <!-- <li>
                 <a class="nav-link" [routerLink]="['home']" routerLinkActive = "active" >Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['protected']" routerLinkActive="active">Mi Perfil</a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['turns']" routerLinkActive="active">Mis Turnos</a>
@@ -77,6 +76,8 @@
         <ul class="list-unstyled CTAs">
             <li>
                 <a href="" class="download">Probando</a>
+                <button class="btn">Cerrar Sesion</button>
+
             </li>
         </ul>
     </nav>
@@ -107,10 +108,13 @@
                             <app-login></app-login>
                         </button>
 
-                 <button    class= "btn btn-outline-primary" 
-                            name="button">Ayuda</button>
-            
-                  <button   (click)= "salir()"
+                <!-- <button    class= "btn btn-outline-primary" 
+                            name="button">Ayuda</button> -->
+                <img  [routerLink]="['protected']" routerLinkActive="active" class="profile" src="https://img.icons8.com/ios/50/000000/help.png" >
+
+                <img  [routerLink]="['protected']" routerLinkActive="active" class="profile" src="https://img.icons8.com/ios/50/000000/user-male-circle-filled.png" >
+
+                <button   (click)= "salir()"
                             *ngIf="auth.isAuthenticated()"
                             type="button"
                             class= "btn btn-outline-primary"
