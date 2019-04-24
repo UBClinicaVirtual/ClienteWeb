@@ -1,17 +1,15 @@
 
-body {
+html.main {
     width: 100%;
-    background-image: url("background.JPG");
-    background-size: cover;
 }
 
 html {
     height: 100%;
     background-color: black;
 }
-body{
+/* body{
     padding: 18%;
     text-align: center;
     background-image: url("background.JPG");
 
-}
+} */
