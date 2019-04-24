@@ -5,7 +5,6 @@ import { GlobalesService } from 'src/app/services/globales.service';
 import { optionData } from './option-data';
 import { GetSpecialitiesService } from 'src/app/services/server-connection/requests/specialities/get-specialities.service';
 import { GetHcpsService } from 'src/app/services/server-connection/requests/hcps/get-hcps.service';
-import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-appointment-search',
