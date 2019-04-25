@@ -5,7 +5,7 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class GlobalesService implements OnInit  {
 
-  navbarVisibility: boolean;
+  navbarVisibility: boolean = false;
 
   ngOnInit(){
     this.navbarVisibility = false;
