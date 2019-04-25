@@ -1,9 +1,16 @@
-img.profile:hover{
+img.profile:hover,.main:hover{
     cursor: pointer;
     opacity: 1;
 }
 
 img.profile{
-    border-radius: 50%;
     opacity: 0.6;
 }
+
+img.main{
+    opacity: 0.8;
+    
+    border-radius: 50%;
+    width: 60px;
+}
+
