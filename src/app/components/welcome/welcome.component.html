@@ -8,7 +8,15 @@
     <!-- <app-login></app-login> -->
     
 
-    <button class="btn btn-danger" style="height: 60px;width:20%;opacity: 0.9;    margin-top: 30px;" (click)="esVisibleClick()">Comenzar</button>
+    <button type="button" class="btn btn-danger begin" data-toggle="modal" data-target=".bd-example-modal-lg">Comenzar</button>
+
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <app-register ></app-register>
+      </div>
+    </div>
+  </div>
     
     <!-- <br><br>
     

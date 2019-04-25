@@ -3,3 +3,7 @@ body{
     text-align: center;
     background-color: transparent;
 }
+
+.begin{
+    height: 60px;width:20%;opacity: 0.9;    margin-top: 30px;
+}

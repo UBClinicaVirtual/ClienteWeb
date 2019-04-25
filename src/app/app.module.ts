@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import {GoogleSignInComponent} from 'angular-google-signin';
 import { AppointmentSearchComponent } from './components/appointment-search/appointment-search.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AppointmentSearchComponent } from './components/appointment-search/appo
     ProtectedComponent,
     LoginComponent,
     GoogleSignInComponent,
-    AppointmentSearchComponent
+    AppointmentSearchComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
