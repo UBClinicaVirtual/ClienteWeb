@@ -15,6 +15,7 @@ import { GetAvailableAppointmentsService } from 'src/app/services/server-connect
 export class AppointmentSearchComponent implements OnInit, componentResponseInterface {
  
   isLoading:boolean = false;
+  mostrarTurnos:boolean = false;
   requestType: string = "";
  
   constructor(
@@ -26,7 +27,6 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     ){
     this.getOptionData();
   }
-
 
   public clinics: optionData[] = [];
   public specialities: optionData[] = [];
@@ -50,6 +50,7 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     console.log(this.filtros);
     this.requestType = "getAvailableAppointments";
     this.getAvailableAppointments.execute(this);
+
   }
 
 
@@ -77,7 +78,6 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     return this.filtros;
   }
 
-
   private parseClincis(clinics){
     for ( var clinic in clinics){
       this.clinics.push(new optionData(clinics[clinic].id,clinics[clinic].business_name));
@@ -96,7 +96,7 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     }
   }
 
-  turnos;
+  public turnos;
 
   requestTypeOperation = {
     "getClinics":function(component,data){
@@ -118,7 +118,9 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     },
     "getAvailableAppointments": function(component,data){
         console.log(data);
-        this.turnos = data['appointments_available'];
+        component.turnos = data['available_appointments'];
+        component.mostrarTurnos = true;
+      
     }
   }
 }

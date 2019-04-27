@@ -34,8 +34,8 @@
     </ng-container>
 </div>
 
-<div><H1>TURNOS ACA ABAJO</H1></div>
-
+<div *ngIf="mostrarTurnos"><H1>TURNOS ACA ABAJO</H1>
 <app-appointments [turnos]="turnos"></app-appointments>
-<!-- asdasdasd -->
+</div>
+
    
