@@ -78,11 +78,6 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     return this.filtros;
   }
 
-  public imprimir(){
-    console.log(this.turnos)
-  }
-
-
   private parseClincis(clinics){
     for ( var clinic in clinics){
       this.clinics.push(new optionData(clinics[clinic].id,clinics[clinic].business_name));
