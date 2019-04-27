@@ -11,6 +11,9 @@ import { GetAppointmentsService } from 'src/app/services/server-connection/reque
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements componentResponseInterface{
+  getBody() {
+    throw new Error("Method not implemented.");
+  }
 
   response(data: any) {
     console.log(data);
