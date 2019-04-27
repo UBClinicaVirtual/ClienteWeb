@@ -5,6 +5,7 @@ import { optionData } from './option-data';
 import { GetSpecialitiesService } from 'src/app/services/server-connection/requests/specialities/get-specialities.service';
 import { GetHcpsService } from 'src/app/services/server-connection/requests/hcps/get-hcps.service';
 import { GetAvailableAppointmentsService } from 'src/app/services/server-connection/requests/appointments/get-available-appointments.service';
+import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
 
 @Component({
   selector: 'app-appointment-search',
@@ -40,13 +41,27 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     "date_to": ""
   }
 
+  data= {
+    loading : false,
+    msg:""
+  };
+
   private getOptionData(){
     this.requestType = "getClinics";
-    this.getClinics.execute(this);
+    this.data.loading = true;
+    this.data.msg = "Cargando busqueda";
+
+    if(!this.getClinics.data)
+      this.getClinics.execute(this);
+    else
+      this.response(this.getClinics.data);
   }
 
 
   onClick(){
+
+    this.data.loading = true;
+    this.data.msg = "Buscando turnos disponibles";
     console.log(this.filtros);
     this.requestType = "getAvailableAppointments";
     this.getAvailableAppointments.execute(this);
@@ -103,24 +118,31 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
         component.parseClincis(data["clinics"]);
         component.requestType = "getSpecialities";
         console.log(data);
-        component.getSpecialities.execute(component);
+        if(!component.getSpecialities.data)
+          component.getSpecialities.execute(component);
+        else
+          component.response(component.getSpecialities.data);
     },
     "getSpecialities" : function(component,data){
         component.parseSpecialities(data["specialities"]);
         component.requestType = "getHcps";
         console.log(data);
-        component.getHcps.execute(component);
+        if(!component.getHcps.data)
+          component.getHcps.execute(component);
+        else
+          component.response(component.getHcps.data);
     },
     "getHcps" : function(component,data){
         component.parseHcps(data["hcps"]);
         console.log(data);
         component.done();
+        component.data.loading = false;
     },
     "getAvailableAppointments": function(component,data){
         console.log(data);
         component.turnos = data['available_appointments'];
         component.mostrarTurnos = true;
-      
+        component.data.loading = false;
     }
   }
 }
