@@ -40,4 +40,20 @@ export class WelcomeComponent implements componentResponseInterface{
   esVisibleClick() {
     this.globales.reverNavBar();
   }
+
+  turnos = [
+		{
+			"id": 78,
+			"hcp_id": 1,
+			"hcp_first_name": "Juan Jose",
+			"hcp_last_name": "Ingenieros",			
+			"clinic_id": 1,
+			"clinic_name": "Clinica de la trinidad",
+			"speciality_id": 1,
+			"speciality_name": "Guardia de ginecologia",
+			"appointment_hour": "18:30",
+			"day_of_the_week": 4,
+			"appointment_date": "2018-09-20"            
+		},
+	]
 }

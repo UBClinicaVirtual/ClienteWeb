@@ -17,7 +17,7 @@ export class ServerConnectionService {
 
   public token = '';
 
-  public apiKey = '';
+  public apiKey = false;
 
   get (){
 

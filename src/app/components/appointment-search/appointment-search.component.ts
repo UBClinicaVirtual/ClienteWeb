@@ -66,15 +66,18 @@ export class AppointmentSearchComponent implements OnInit {
     "getClinics":function(component,data){
         component.parseClincis(data["clinics"]);
         component.requestType = "getSpecialities";
+        console.log(data);
         component.getSpecialities.execute(component);
     },
     "getSpecialities" : function(component,data){
         component.parseSpecialities(data["specialities"]);
         component.requestType = "getHcps";
+        console.log(data);
         component.getHcps.execute(component);
     },
     "getHcps" : function(component,data){
         component.parseHcps(data["hcps"]);
+        console.log(data);
         component.done();
     }
   }

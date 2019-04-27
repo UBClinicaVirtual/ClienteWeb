@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GetAppointmentsService } from 'src/app/services/server-connection/requests/appointments/get-appointments.service';
 
 @Component({
@@ -10,20 +10,22 @@ export class AppointmentsComponent implements OnInit,componentResponseInterface 
 
 
   constructor(private getAppointments:GetAppointmentsService) {
-      getAppointments.execute(this);
   }
 
+  @Input() turnos: {};
+
   appointmentResponse;
-  turnos;
 
   response(data){
     this.turnos = data.appointments;
   }
 
   ngOnInit() {
+    if(!this.turnos){
+      this.getAppointments.execute(this);
+    }
   }
 
-  
 
 
   // response = {
