@@ -21,11 +21,11 @@
         <br>
         <br>
         <label>
-        <input type="text" [(ngModel)]="filtros.date_from"placeholder="Fecha Desde">
+        <input type="date" [(ngModel)]="filtros.date_from"placeholder="Fecha Desde">
         </label>
         <br>
         <label>
-        <input type="text" [(ngModel)]="filtros.date_to"placeholder="Fecha Hasta">
+        <input type="date" [(ngModel)]="filtros.date_to"placeholder="Fecha Hasta">
         </label>
       
         <br>
@@ -34,7 +34,8 @@
     </ng-container>
 </div>
 
+<div><H1>TURNOS ACA ABAJO</H1></div>
 
-
+<app-appointments [turnos]="turnos"></app-appointments>
 <!-- asdasdasd -->
    

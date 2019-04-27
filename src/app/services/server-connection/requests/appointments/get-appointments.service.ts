@@ -14,7 +14,7 @@ export class GetAppointmentsService implements serviceNotifyInterface {
 
   constructor(private connection: ServerConnectionService) { }
 
-  componente;
+  componente: componentResponseInterface;
 
   execute(component:componentResponseInterface){
 

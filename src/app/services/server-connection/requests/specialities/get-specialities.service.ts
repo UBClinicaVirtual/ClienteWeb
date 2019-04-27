@@ -8,14 +8,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class GetSpecialitiesService implements serviceNotifyInterface {
 
   notifty(data: any) {
-    this.componente.notify(data);
+    this.componente.response(data);
   }
 
   constructor(private connection: ServerConnectionService) { }
 
-  componente;
+  componente: componentResponseInterface;
 
-  execute(component){
+  execute(component : componentResponseInterface){
 
     this.componente = component;
 

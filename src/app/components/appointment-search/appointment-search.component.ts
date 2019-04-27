@@ -1,10 +1,10 @@
 import { Component, OnInit} from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { GetClinicsService } from 'src/app/services/server-connection/requests/clinics/get-clinics.service';
 import { GlobalesService } from 'src/app/services/globales.service';
 import { optionData } from './option-data';
 import { GetSpecialitiesService } from 'src/app/services/server-connection/requests/specialities/get-specialities.service';
 import { GetHcpsService } from 'src/app/services/server-connection/requests/hcps/get-hcps.service';
+import { GetAvailableAppointmentsService } from 'src/app/services/server-connection/requests/appointments/get-available-appointments.service';
 
 @Component({
   selector: 'app-appointment-search',
@@ -12,12 +12,18 @@ import { GetHcpsService } from 'src/app/services/server-connection/requests/hcps
   styleUrls: ['./appointment-search.component.css']
 })
 
-export class AppointmentSearchComponent implements OnInit {
-
+export class AppointmentSearchComponent implements OnInit, componentResponseInterface {
+ 
   isLoading:boolean = false;
   requestType: string = "";
  
-  constructor(private getClinics : GetClinicsService, private globales: GlobalesService,private getSpecialities : GetSpecialitiesService, private getHcps: GetHcpsService) {
+  constructor(
+    private getClinics : GetClinicsService, 
+    private globales: GlobalesService,
+    private getSpecialities : GetSpecialitiesService, 
+    private getHcps: GetHcpsService,
+    private getAvailableAppointments: GetAvailableAppointmentsService
+    ){
     this.getOptionData();
   }
 
@@ -27,12 +33,11 @@ export class AppointmentSearchComponent implements OnInit {
   public hcps: optionData[] = [];
 
   public filtros = {
-    clinic_id: Number,
-    speciality_id: Number,
-    hcp_id: Number,
-    date_from: Date,
-    date_to: Date
-    
+    "clinic_id": "",
+    "speciality_id": "",
+    "hcp_id": "",
+    "date_from": "",
+    "date_to": ""
   }
 
   private getOptionData(){
@@ -43,6 +48,8 @@ export class AppointmentSearchComponent implements OnInit {
 
   onClick(){
     console.log(this.filtros);
+    this.requestType = "getAvailableAppointments";
+    this.getAvailableAppointments.execute(this);
   }
 
 
@@ -50,17 +57,46 @@ export class AppointmentSearchComponent implements OnInit {
   }
 
   private buildOptionsArray(){
-    
+
   }
 
   private done(){
-   
+
     this.isLoading = true;
   }
 
   ifNavBar(){
     return this.globales.getNavbar();
   }
+
+  response(data){
+    this.requestTypeOperation[this.requestType](this,data);
+  }
+
+  getBody() {
+    return this.filtros;
+  }
+
+
+  private parseClincis(clinics){
+    for ( var clinic in clinics){
+      this.clinics.push(new optionData(clinics[clinic].id,clinics[clinic].business_name));
+    }
+  }
+
+  private parseHcps(hcps){
+    for ( var hcp in hcps){
+      this.hcps.push(new optionData(hcps[hcp].id,hcps[hcp].first_name + ", " + hcps[hcp].last_name));
+    }
+  }
+
+  private parseSpecialities(specialities){
+    for ( var specialitie in specialities){
+      this.specialities.push(new optionData(specialities[specialitie].id,specialities[specialitie].name));
+    }
+  }
+
+  turnos;
 
   requestTypeOperation = {
     "getClinics":function(component,data){
@@ -79,28 +115,10 @@ export class AppointmentSearchComponent implements OnInit {
         component.parseHcps(data["hcps"]);
         console.log(data);
         component.done();
-    }
-  }
-
-  notify(data){
-    this.requestTypeOperation[this.requestType](this,data);
-  }
-
-  private parseClincis(clinics){
-    for ( var clinic in clinics){
-      this.clinics.push(new optionData(clinics[clinic].id,clinics[clinic].business_name));
-    }
-  }
-
-  private parseHcps(hcps){
-    for ( var hcp in hcps){
-      this.hcps.push(new optionData(hcps[hcp].id,hcps[hcp].first_name + ", " + hcps[hcp].last_name));
-    }
-  }
-
-  private parseSpecialities(specialities){
-    for ( var specialitie in specialities){
-      this.specialities.push(new optionData(specialities[specialitie].id,specialities[specialitie].name));
+    },
+    "getAvailableAppointments": function(component,data){
+        console.log(data);
+        this.turnos = data['appointments_available'];
     }
   }
 }
