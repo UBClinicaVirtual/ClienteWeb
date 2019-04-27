@@ -1,10 +1,10 @@
-<html>
-    <div class="card-header">{{turno.appointment_date}}</div>
-    <div class="card-body text-primary">
+<html >
+    <div class="card-header"  style="background-color:white;">{{turno.appointment_date}}</div>
+    <div class="card-body text-primary"  style="background-color:white;">
       <h5 class="card-title">{{turno.speciality_name}}</h5>
       <p class="card-text">Dr. {{turno.hcp_first_name +" " +turno.hcp_last_name}}</p>
     </div>
-    <div class="card-footer bg-transparent border-primary">
+    <div style="background-color:white;">
         <button type="button" class="btn btn-outline-primary" (click)="open(content)">Detalle</button>
         <button type="button" class="btn btn-outline-secondary" (click)="deleteSwal.show()">Cancelar Turno</button>
         <swal
