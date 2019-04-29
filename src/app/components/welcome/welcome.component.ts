@@ -11,6 +11,12 @@ import { GetAppointmentsService } from 'src/app/services/server-connection/reque
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements componentResponseInterface{
+
+  loadingInfo = {
+    state : true,
+    msg   : "Cargando informacion"
+  };
+
   getBody() {
     throw new Error("Method not implemented.");
   }

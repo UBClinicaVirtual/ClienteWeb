@@ -1,1 +1,5 @@
-<div class="loader"></div>
+<div *ngIf="info.state">
+    <div class="loader"></div>
+    <span>{{info.msg}}</span>
+</div>
+
