@@ -156,6 +156,10 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
         component.turnos = data['available_appointments'];
         component.mostrarTurnos = true;
         component.loadingInfo.state= false;
+
+        if( !(component.turnos.length > 0) ){
+          alert("No hay turnos disponibles");
+        }
     }
   }
 }
