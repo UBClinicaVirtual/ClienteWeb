@@ -1,3 +1,7 @@
+
+<app-loading [info]="loadingInfo" ></app-loading>
+
+
 <div class="alert alert-" >
   <ng-container *ngIf="isLoading">
     <div style="background-color:white;">
@@ -34,7 +38,6 @@
     </ng-container>
 </div>
 
-<app-loading *ngIf="data.loading">{{data.msg}}</app-loading>
 
 <div *ngIf="mostrarTurnos">
   <app-appointments [turnos]="turnos"></app-appointments>

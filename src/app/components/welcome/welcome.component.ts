@@ -13,8 +13,8 @@ import { GetAppointmentsService } from 'src/app/services/server-connection/reque
 export class WelcomeComponent implements componentResponseInterface{
 
   loadingInfo = {
-    state : true,
-    msg   : "Cargando informacion"
+    state : false,
+    msg   : "Cargando pantalla principal"
   };
 
   getBody() {

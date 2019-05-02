@@ -41,27 +41,35 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     "date_to": ""
   }
 
-  data= {
-    loading : false,
-    msg:""
+  loadingInfo = {
+    state : false,
+    msg   : ""
   };
+
+  sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+
+
 
   private getOptionData(){
     this.requestType = "getClinics";
-    this.data.loading = true;
-    this.data.msg = "Cargando busqueda";
+    this.loadingInfo.state= true;
+    this.loadingInfo.msg = "Buscando clinicas";
+
+    // this.sleep(5000).then(() => {
+    //   this.loadingInfo.msg = "Ya no cargo busqueda";
+    // });
 
     if(!this.getClinics.data)
-      this.getClinics.execute(this);
-    else
-      this.response(this.getClinics.data);
+       this.getClinics.execute(this);
+     else
+       this.response(this.getClinics.data);
   }
 
 
   onClick(){
 
-    this.data.loading = true;
-    this.data.msg = "Buscando turnos disponibles";
     console.log(this.filtros);
     this.requestType = "getAvailableAppointments";
     this.getAvailableAppointments.execute(this);
@@ -118,31 +126,36 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
         component.parseClincis(data["clinics"]);
         component.requestType = "getSpecialities";
         console.log(data);
-        if(!component.getSpecialities.data)
+        if(!component.getSpecialities.data){
+          component.loadingInfo.msg = "Buscando especialidades";
           component.getSpecialities.execute(component);
-        else
+        }
+        else{
           component.response(component.getSpecialities.data);
+        }
     },
     "getSpecialities" : function(component,data){
         component.parseSpecialities(data["specialities"]);
         component.requestType = "getHcps";
         console.log(data);
-        if(!component.getHcps.data)
+        if(!component.getHcps.data){
+          component.loadingInfo.msg = "Buscando doctores";
           component.getHcps.execute(component);
-        else
+        }else{
           component.response(component.getHcps.data);
+        }
     },
     "getHcps" : function(component,data){
         component.parseHcps(data["hcps"]);
         console.log(data);
         component.done();
-        component.data.loading = false;
+        component.loadingInfo.state= false;
     },
     "getAvailableAppointments": function(component,data){
         console.log(data);
         component.turnos = data['available_appointments'];
         component.mostrarTurnos = true;
-        component.data.loading = false;
+        component.loadingInfo.state= false;
     }
   }
 }
