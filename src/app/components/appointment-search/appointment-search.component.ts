@@ -69,6 +69,7 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
 
 
   onClick(){
+    this.isLoading = false;
     this.loadingInfo.state = true;
     this.loadingInfo.msg = "Buscando turnos disponibles";
 
@@ -153,6 +154,7 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
         component.loadingInfo.state= false;
     },
     "getAvailableAppointments": function(component,data){
+        component.isLoading = true;
         component.turnos = data['available_appointments'];
         component.mostrarTurnos = true;
         component.loadingInfo.state= false;
