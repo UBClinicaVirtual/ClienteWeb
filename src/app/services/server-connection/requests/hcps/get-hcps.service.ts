@@ -9,9 +9,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class GetHcpsService implements serviceNotifyInterface {
 
   notifty(data: any) {
+    this.data = data;
     this.componente.response(data);
   }
 
+  data:any;
   constructor(private connection: ServerConnectionService) { }
 
   componente: componentResponseInterface;

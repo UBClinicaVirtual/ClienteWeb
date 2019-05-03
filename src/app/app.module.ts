@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {GoogleSignInComponent} from 'angular-google-signin';
 import { AppointmentSearchComponent } from './components/appointment-search/appointment-search.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     GoogleSignInComponent,
     AppointmentSearchComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

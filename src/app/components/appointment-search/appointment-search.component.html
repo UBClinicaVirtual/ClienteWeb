@@ -1,3 +1,6 @@
+
+
+
 <div class="alert alert-" >
   <ng-container *ngIf="isLoading">
     <div style="background-color:white;">
@@ -29,13 +32,13 @@
         </label>
       
         <br>
-        <button class="btn btn-primary" (click)="onClick()">Console.log()</button>
+        <button class="btn btn-primary" (click)="onClick()">Buscar Turno</button>
       </div>
     </ng-container>
 </div>
 
-<div *ngIf="mostrarTurnos"><H1>TURNOS ACA ABAJO</H1>
-<app-appointments [turnos]="turnos"></app-appointments>
-</div>
+<app-loading [info]="loadingInfo" ></app-loading>
 
-   
+<div *ngIf="mostrarTurnos">
+  <app-appointments [turnos]="turnos" *ngIf = "isLoading"></app-appointments>
+</div>

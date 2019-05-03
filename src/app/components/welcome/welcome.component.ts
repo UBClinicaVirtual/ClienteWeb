@@ -12,6 +12,15 @@ import { GetAppointmentsService } from 'src/app/services/server-connection/reque
 })
 export class WelcomeComponent implements componentResponseInterface{
 
+  loadingInfo = {
+    state : false,
+    msg   : "Cargando pantalla principal"
+  };
+
+  getBody() {
+    throw new Error("Method not implemented.");
+  }
+
   response(data: any) {
     console.log(data);
   }
