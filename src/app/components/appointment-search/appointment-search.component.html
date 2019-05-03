@@ -40,5 +40,5 @@
 <app-loading [info]="loadingInfo" ></app-loading>
 
 <div *ngIf="mostrarTurnos">
-  <app-appointments [turnos]="turnos"></app-appointments>
+  <app-appointments [turnos]="turnos" *ngIf = "isLoading"></app-appointments>
 </div>
