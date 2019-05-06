@@ -2,11 +2,6 @@
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- <meta name="google-signin-client_id" content="154525363401-7rn9a462ng2ukds3pcgff8jp4uv9c9tu.apps.googleusercontent.com"> -->
     
@@ -25,16 +20,10 @@
 
 
     <base href="/">
-    <link rel="stylesheet" href="style.css">
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-    <script src="https://cdn.auth0.com/js/auth0/9.10/auth0.min.js"></script>
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
 </head>
 
@@ -46,7 +35,7 @@
     <div class="preloader">
             <div class="loader">
                 <div class="loader__figure"></div>
-                <p class="loader__label">Admin Pro</p>
+                <p class="loader__label">Loading</p>
             </div>
         </div>
 
@@ -73,43 +62,4 @@
 
 
 </body>
-<!-- <script>
-    function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    console.log('Token: ' + googleUser.getAuthResponse().id_token);
-  }
-
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-  
-</script> -->
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#sidebar").mCustomScrollbar({
-            theme: "minimal"
-        });
-
-        $('#dismiss, .overlay').on('click', function() {
-            $('#sidebar').removeClass('active');
-            $('.overlay').removeClass('active');
-        });
-
-        $('#sidebarCollapse').on('click', function() {
-            $('#sidebar').addClass('active');
-            $('.overlay').addClass('active');
-            $('.collapse.in').toggleClass('in');
-            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-        });
-    });
-</script>
-
 </html>
