@@ -25,6 +25,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { Login2Component } from './login2/login2.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProgressComponent } from './pages/progress/progress.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     LoadingComponent,
     Login2Component,
     NopagefoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProgressComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
