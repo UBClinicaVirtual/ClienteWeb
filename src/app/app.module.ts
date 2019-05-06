@@ -24,6 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { Login2Component } from './login2/login2.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     RegisterComponent,
     LoadingComponent,
     Login2Component,
-    NopagefoundComponent
+    NopagefoundComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
