@@ -22,6 +22,8 @@ import {GoogleSignInComponent} from 'angular-google-signin';
 import { AppointmentSearchComponent } from './components/appointment-search/appointment-search.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { Login2Component } from './login2/login2.component';
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { LoadingComponent } from './components/loading/loading.component';
     GoogleSignInComponent,
     AppointmentSearchComponent,
     RegisterComponent,
-    LoadingComponent
+    LoadingComponent,
+    Login2Component,
+    NopagefoundComponent
   ],
   imports: [
     BrowserModule,
