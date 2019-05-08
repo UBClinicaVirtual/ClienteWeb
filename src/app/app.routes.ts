@@ -1,23 +1,18 @@
+import { RouterModule, Routes } from "@angular/router";
 
-import {RouterModule, Routes} from '@angular/router';
 
-import {WelcomeComponent} from './components/welcome/welcome.component';
-import {ProtectedComponent} from './components/protected/protected.component';
-
-import {AuthGuardService} from './services/auth-guard.service';
-import { AppointmentsComponent } from './components/appointments/appointments.component';
-import { AppointmentSearchComponent} from './components/appointment-search/appointment-search.component';
-import { RegisterComponent } from './components/register/register.component';
+import { Login2Component } from './login2/login2.component';
+import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
+import { RegisterComponent } from './login2/register.component';
 
 
 
-const APP_ROUTES: Routes = [
-  { path: 'home', component: WelcomeComponent},
-  { path: 'turns', component: AppointmentsComponent },
-  { path: 'protected', component: ProtectedComponent},
-  { path: 'buscar-turno', component: AppointmentSearchComponent},
-  { path: 'register', component: RegisterComponent},
-  { path: '**', pathMatch: 'full', redirectTo: 'home'},
+
+const appRoutes: Routes = [
+    {path: 'login2', component:Login2Component},
+    {path: 'register', component:RegisterComponent},
+    {path: '**', component:NopagefoundComponent},
 ];
 
-export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
+
+export const APP_ROUTES = RouterModule.forRoot(appRoutes, {useHash: true});
