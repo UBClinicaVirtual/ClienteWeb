@@ -11,6 +11,9 @@ import { ProgressComponent } from './progress/progress.component';
 import { GraficasComponent } from './graficas/graficas.component';
 import { PAGES_ROUTES } from './pages.routes';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { AppointmentsComponent } from '../components/appointments/appointments.component';
+import { AppointmentComponent } from '../components/appointment/appointment.component';
+import { AppointmentDetailComponent } from '../components/appointment-detail/appointment-detail.component';
 
 
 
@@ -24,7 +27,10 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
         DashboardComponent,
         ProgressComponent,
         GraficasComponent,
-        IncrementadorComponent
+        IncrementadorComponent,
+
+        // provisorio
+        AppointmentsComponent
     ],
     exports:[
         DashboardComponent,
