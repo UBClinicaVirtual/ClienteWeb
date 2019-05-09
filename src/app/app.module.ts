@@ -17,7 +17,6 @@ import {APP_ROUTES} from './app.routes';
 import { AppointmentsComponent } from './components/appointments/appointments.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProtectedComponent } from './components/protected/protected.component';
 import {FormsModule} from '@angular/forms'
