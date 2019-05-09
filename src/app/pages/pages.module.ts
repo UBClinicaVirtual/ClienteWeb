@@ -17,6 +17,7 @@ import { AppointmentsComponent } from '../components/appointments/appointments.c
 import { AppointmentComponent } from '../components/appointment/appointment.component';
 import { AppointmentDetailComponent } from '../components/appointment-detail/appointment-detail.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 
@@ -34,7 +35,9 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
         GraficoDonaComponent,
 
         // provisorio
-        AppointmentsComponent
+        AppointmentsComponent,
+
+        AccountSettingsComponent
     ],
     exports:[
         DashboardComponent,
