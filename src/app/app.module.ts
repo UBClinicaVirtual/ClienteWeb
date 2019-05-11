@@ -1,9 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-//volar
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 
 //componentes
 import { AppComponent } from './app.component';
@@ -14,23 +11,13 @@ import { RegisterComponent } from './login2/register.component';
 import {APP_ROUTES} from './app.routes';
 
 
-import { AppointmentsComponent } from './components/appointments/appointments.component';
-import { AppointmentComponent } from './components/appointment/appointment.component';
-import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { ProtectedComponent } from './components/protected/protected.component';
-import {FormsModule} from '@angular/forms'
-
 // servicios
 
 import { ServiceModule } from './services/service.module';
 
-import { HttpClientModule } from '@angular/common/http';
-import {GoogleSignInComponent} from 'angular-google-signin';
-import { AppointmentSearchComponent } from './components/appointment-search/appointment-search.component';
-import { LoadingComponent } from './components/loading/loading.component';
 
 import { PagesModule } from './pages/pages.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -57,6 +44,7 @@ import { PagesModule } from './pages/pages.module';
     APP_ROUTES,
   //  FormsModule,
     PagesModule,
+    FormsModule,
     ServiceModule
   ],
   providers: [ ],
