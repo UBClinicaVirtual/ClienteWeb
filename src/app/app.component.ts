@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { SettingsService } from './services/settings.service';
 
 
 @Component({
@@ -9,5 +10,9 @@ import { Component} from '@angular/core';
 export class AppComponent {
 
   title = 'ClienteWeb';
+
+  constructor(public _ajustes: SettingsService){
+    
+  }
 
 }

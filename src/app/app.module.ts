@@ -23,6 +23,8 @@ import {FormsModule} from '@angular/forms'
 
 // services
 
+import { SettingsService } from './services/settings.service';
+
 import { HttpClientModule } from '@angular/common/http';
 import {GoogleSignInComponent} from 'angular-google-signin';
 import { AppointmentSearchComponent } from './components/appointment-search/appointment-search.component';
@@ -55,7 +57,7 @@ import { PagesModule } from './pages/pages.module';
   //  FormsModule,
     PagesModule
   ],
-  providers: [
+  providers: [SettingsService
   ],
   bootstrap: [AppComponent]
 })
