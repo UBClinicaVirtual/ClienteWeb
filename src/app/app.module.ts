@@ -21,9 +21,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProtectedComponent } from './components/protected/protected.component';
 import {FormsModule} from '@angular/forms'
 
-// services
+// servicios
 
-import { SettingsService } from './services/settings.service';
+import { ServiceModule } from './services/service.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import {GoogleSignInComponent} from 'angular-google-signin';
@@ -46,6 +46,7 @@ import { PagesModule } from './pages/pages.module';
    // AppointmentSearchComponent,
     RegisterComponent
    // LoadingComponent,
+    
   
   ],
   imports: [
@@ -55,10 +56,10 @@ import { PagesModule } from './pages/pages.module';
   //  HttpClientModule,
     APP_ROUTES,
   //  FormsModule,
-    PagesModule
+    PagesModule,
+    ServiceModule
   ],
-  providers: [SettingsService
-  ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
