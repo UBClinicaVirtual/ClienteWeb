@@ -15,12 +15,12 @@ const pagesRoutes: Routes = [
         path:'', 
         component: PagesComponent, 
         children:[
-            {path: 'dashboard', component:DashboardComponent},
-            {path: 'progress', component:ProgressComponent},
-            {path: 'graficas1', component:GraficasComponent},
-            {path: 'turnos', component:AppointmentsComponent},
-            {path: 'search-turn', component:AppointmentSearchComponent},
-            {path: 'account-settings', component:AccountSettingsComponent},
+            {path: 'dashboard', component:DashboardComponent, data: {titulo: 'Dashboard'}},
+            {path: 'progress', component:ProgressComponent, data: {titulo: 'Progreso Prueba'}},
+            {path: 'graficas1', component:GraficasComponent, data: {titulo: 'Graficos Prueba'}},
+            {path: 'turnos', component:AppointmentsComponent, data: {titulo: 'Mis Turnos'}},
+            {path: 'search-turn', component:AppointmentSearchComponent, data: {titulo: 'Buscar Turnos'}},
+            {path: 'account-settings', component:AccountSettingsComponent, data: {titulo: 'Ajustes de tema'}},
             {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]}
 

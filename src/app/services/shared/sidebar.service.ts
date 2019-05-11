@@ -14,7 +14,7 @@ export class SidebarService {
         {titulo: 'Barra de progreso (prueba) ', url: '/progress'},
         {titulo: 'Graficas(prueba)', url: '/graficas1'},
         {titulo: 'Mis turnos', url: '/turnos'},
-        {titulo: 'Mis turnos', url: '/search-turn'}
+        {titulo: 'Buscar Turnos', url: '/search-turn'}
       ]
     }
   ];
