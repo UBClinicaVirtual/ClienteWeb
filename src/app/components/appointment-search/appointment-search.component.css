@@ -1,0 +1,20 @@
+[type=date], label{
+    width: 50%;
+}
+
+
+.buscarturno{
+    padding: 4%;
+    background-color: cadetblue;
+}
+
+.contenedor{
+    width: 50%;
+    margin-left: 25%;
+    box-shadow: 3px 3px 10px 0px grey;
+}
+
+.button{
+    text-align: center;
+
+}
