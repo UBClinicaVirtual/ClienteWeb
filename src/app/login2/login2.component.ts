@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServerConnectionService } from '../services/server-connection/server-connection.service';
 
 declare function init_plugins();
 declare const gapi: any;
@@ -13,7 +14,7 @@ export class Login2Component implements OnInit {
 
   auth2: any;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,private connection: ServerConnectionService) { }
 
   ngOnInit() {
     init_plugins();
@@ -42,10 +43,8 @@ export class Login2Component implements OnInit {
 
       //let profile = googleUser.getBasicProfile();
 
-      let token = googleUser.getAuthResponse().id_token;
-
-      console.log(token);
-
+      this.connection.token  = googleUser.getAuthResponse().id_token;
+      console.log("Logeado con gmail");
     });
   }
 
