@@ -13,7 +13,7 @@ export class ServerConfigService {
   private clientId = '154525363401-7rn9a462ng2ukds3pcgff8jp4uv9c9tu.apps.googleusercontent.com';
   url(){
     //return this.routerUrl;
-   return this.mockUrl;
+   return this.routerUrl;
   }
 
   getClientID(){

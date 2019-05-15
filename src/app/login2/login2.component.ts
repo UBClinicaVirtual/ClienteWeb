@@ -46,14 +46,8 @@ export class Login2Component implements OnInit {
 
       this.connection.token  = googleUser.getAuthResponse().id_token;
       console.log("Logeado con gmail");
-      this.ingresar();
-      //this.loginService.execute();
+      console.log(this.connection.token);
+      this.loginService.execute();
     });
   }
-
-  ingresar(){
-    
-    this.router.navigate(['/dashboard']);
-  }
-
 }

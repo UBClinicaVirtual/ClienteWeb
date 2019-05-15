@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {ServerConnectionService} from '../../server-connection.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +12,7 @@ export class LoginService implements serviceNotifyInterface {
   notifty(data: any) {
     console.log('POST Request is successful :D', data);
     this.connection.apiKey = data['user']['api_token'];
-    this.connection.userType = data['user']['user_type_id'];
+    this.connection.userType = data['puser']['user_type_id'];
   }
 
   constructor(private connection: ServerConnectionService) { }
