@@ -1,10 +1,10 @@
-<html >
+<html class="turno" >
     <div class="card-header"  style="background-color:white;">{{turno.appointment_date}}</div>
     <div class="card-body text-primary"  style="background-color:white;">
       <h5 class="card-title">{{turno.speciality_name}}</h5>
       <p class="card-text">Dr. {{turno.hcp_first_name +" " +turno.hcp_last_name}}</p>
     </div>
-    <div style="background-color:white;">
+    <div style="background-color:white;"><hr>
         <button type="button" class="btn btn-outline-primary" (click)="open(content)">Detalle</button>
         <button type="button" class="btn btn-outline-secondary" (click)="deleteSwal.show()">Cancelar Turno</button>
         <swal
@@ -25,25 +25,37 @@
     </div>
 
   <ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Turno: 11/12/19</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+    
 
-    <div class="modal-body">
-        <span>Turno Pendiente</span>
-      <h6>Hospital San Martin</h6>
-      <p>Ginecologia -    Dr. Walter Duartes</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dolores pariatur, culpa iure odit nemo eligendi illo iusto at? Quidem nemo laborum minima reiciendis dolor cumque perferendis quos ut sunt.</p>
+    <div class="modal-body" >   <br>   
+      <div class="card" style="width: 100%;">
+            
+            <ul class="list-group list-group-flush">
+              
+              <li class="list-group-item"><h1>{{turno.speciality_name}}</h1></li>
+              <li class="list-group-item"><h3>{{turno.clinic_name}}</h3></li>
+              <li class="list-group-item"><h3>{{turno.appointment_date}}</h3></li>
+              <li class="list-group-item"><h3>Dr. {{turno.hcp_first_name}} {{turno.hcp_last_name}} </h3></li>
+               <li class="list-group-item">
+                  <br> <span
+                  style="margin-top: 3%;
+                         border-radius: 25px;"
+                  class="alert alert-warning">{{turno.appointment_status_name}}</span>
+              </li>
+            </ul>
+          </div>
+
+      <!-- <h2>{{turno.clinic_name}}</h2><br>
+      <h3>{{turno.appointment_date}}</h3> <br>
+      <h4>Dr. {{turno.hcp_first_name}} {{turno.hcp_last_name}} </h4> -->
 
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="deleteSwal.show()">Cancelar turno</button>
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Pedir turno</button>
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Descripcion</button>
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Volver</button>
+    <hr>
+    <div class="modal-body" style="padding:2%;">
+      <button type="button" class="btn btn-danger" (click)="deleteSwal.show()">Cancelar turno</button>
+      <button type="button" class="btn btn-info" (click)="c('Save click')">Pedir turno</button>
+      <button type="button" class="btn btn-secondary" (click)="c('Save click')">Descripcion</button>
+      <button type="button" class="btn btn-secondary" (click)="c('Save click')">Volver</button>
     </div>
   </ng-template>
 </html>

@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
-import { GlobalesService } from './services/globales.service';
+import { SettingsService } from './services/service.index';
+
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,8 @@ export class AppComponent {
 
   title = 'ClienteWeb';
 
-  constructor(private globales: GlobalesService){
-
+  constructor(public _ajustes: SettingsService){
+    
   }
 
-  ifNavBar(){
-    return this.globales.getNavbar();
-  }
 }

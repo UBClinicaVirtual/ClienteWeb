@@ -11,6 +11,11 @@ export class AppointmentsComponent implements OnInit,componentResponseInterface 
     throw new Error("Method not implemented.");
   }
 
+  loadingInfo = {
+    state : false,
+    msg   : ""
+  };
+
 
   constructor(private getAppointments:GetAppointmentsService) {
   }
@@ -20,11 +25,14 @@ export class AppointmentsComponent implements OnInit,componentResponseInterface 
   appointmentResponse;
 
   response(data){
+    this.loadingInfo.state = false;
     this.turnos = data.appointments;
   }
 
   ngOnInit() {
     if(!this.turnos){
+      this.loadingInfo.msg = "Cargando turnos";
+      this.loadingInfo.state= true;
       this.getAppointments.execute(this);
     }
   }

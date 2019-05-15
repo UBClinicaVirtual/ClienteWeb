@@ -1,38 +1,43 @@
 
 
 
-<div class="alert alert-" >
+<div class="contenedor" >
   <ng-container *ngIf="isLoading">
-    <div style="background-color:white;">
-        <label>
-          <select [(ngModel)]="filtros.clinic_id" placeholder="Seleccione Hospital">
+    <div class="buscarturno" style="background-color:white;">
+          <select  class="form-control" [(ngModel)]="filtros.clinic_id" required>
+          <option value="" disabled selected>Seleccione Clinica</option>
           <option [value]="option.id" *ngFor="let option of clinics">{{option.label}}</option>
           </select>
-        </label>
-        <br>
-        <label>
-          <select [(ngModel)]="filtros.speciality_id" placeholder="Seleccione Especialidad">
+        
+          <br><br>
+          <select  class="form-control" [(ngModel)]="filtros.speciality_id" required>
+          <option value="" disabled selected>Seleccione Especialidad</option>
           <option [value]="option.id" *ngFor="let option of specialities">{{option.label}}</option>
           </select>
-        </label>
-        <br>
-        <label>
-          <select [(ngModel)]="filtros.hcp_id" placeholder="Seleccione medico">
+        
+        <br><br>
+          <select  class="form-control" [(ngModel)]="filtros.hcp_id" required>
+          <option value="" disabled selected>Seleccione medico</option>
           <option [value]="option.id" *ngFor="let option of hcps">{{option.label}}</option>
           </select>
-        </label>
+        
         <br>
         <br>
-        <label>
-        <input type="date" [(ngModel)]="filtros.date_from"placeholder="Fecha Desde">
-        </label>
-        <br>
-        <label>
-        <input type="date" [(ngModel)]="filtros.date_to"placeholder="Fecha Hasta">
-        </label>
+          <label>Fecha desde</label> <label>Fecha hasta</label><br>
+        <input type="date" class="form-control" [(ngModel)]="filtros.date_from"placeholder="Fecha Desde" required>
+        
       
-        <br>
-        <button class="btn btn-primary" (click)="onClick()">Buscar Turno</button>
+        <input type="date" class="form-control" [(ngModel)]="filtros.date_to"placeholder="Fecha Hasta" required>
+        
+      
+        <br> <br>
+        
+        <hr>
+        <div class="button">
+            <button class="btn btn-success btn-lg" (click)="onClick()">Buscar Turno</button>
+
+        </div>
+        
       </div>
     </ng-container>
 </div>

@@ -1,7 +1,17 @@
+<p>Turnos</p>
+
+<app-loading [info]="loadingInfo" ></app-loading>
+
+
 <html>
-  <div class="row" style="padding: 3%" *ngFor="let turno of turnos" style="padding:7%; margin-top: -80px">
-    <div class="card border-primary mb-3" style="width: 100%; padding: 2%;" >
+  <div  style="padding: 1%; width:100%; float: left;" *ngFor="let turno of turnos">
+    <div style="width: 250px;" >
       <app-appointment  [turno]=turno></app-appointment>
+
     </div>
+    
   </div>
+  <hr>
 </html>
+
+
