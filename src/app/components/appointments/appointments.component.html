@@ -4,11 +4,14 @@
 
 
 <html>
-  <div class="row" style="padding: 3%" *ngFor="let turno of turnos" style="padding:7%; margin-top: -80px">
-    <div style="width: 70%; padding: 2%; margin-left: 15%;" >
+  <div  style="padding: 1%; width:100%; float: left;" *ngFor="let turno of turnos">
+    <div style="width: 250px;" >
       <app-appointment  [turno]=turno></app-appointment>
+
     </div>
+    
   </div>
+  <hr>
 </html>
 
 
