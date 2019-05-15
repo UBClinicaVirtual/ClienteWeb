@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+declare function init_plugins();
 
 @Component({
   selector: 'app-register',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  forma: FormGroup;
+
   constructor() { }
 
   ngOnInit() {
+    init_plugins();
+
+    this.forma = new FormGroup({
+      nombre: new FormControl(null, Validators.required),
+      apellido: new FormControl(null, Validators.required),
+      dni: new FormControl(null, Validators.required),
+      nacimiento: new FormControl(null, Validators.required),
+      sexo: new FormControl(null, Validators.required),
+      direccion: new FormControl(null, Validators.required),
+      telefono: new FormControl(null, Validators.required),
+      condiciones: new FormControl(false),
+
+ 
+    });
+  }
+
+  registrarUsuario(){
+    console.log(this.forma.value);
   }
 
 }
