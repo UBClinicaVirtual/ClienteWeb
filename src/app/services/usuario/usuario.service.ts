@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class UsuarioService {
   token: string;
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,
+    public router:Router
   ) {
     this.cargarStorage();
    }
@@ -37,6 +39,16 @@ export class UsuarioService {
 
 
    }
+
+   logout(){
+    
+    this.token='';
+    localStorage.removeItem('token');
+  
+    this.router.navigate(['./login2']);
+
+    
+  }
 
 }
 
