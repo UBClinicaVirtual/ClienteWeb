@@ -46,7 +46,7 @@ export class Login2Component implements OnInit {
       //let profile = googleUser.getBasicProfile();
 
       this.connection.token  = googleUser.getAuthResponse().id_token;
-      this.usuarioService.guardarStorage(this.connection.token);
+      // this.usuarioService.guardarStorage(this.connection.token);
       this.loginService.execute();
       this.router.navigate(['./dashboard']);
     });
