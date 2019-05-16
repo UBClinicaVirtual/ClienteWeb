@@ -41,14 +41,10 @@ export class Login2Component implements OnInit {
   }
 
   attachSignin(element){
-    this.auth2.attachClickHandler(element, {}, (googleUser) => {
-
+      this.auth2.attachClickHandler(element, {}, (googleUser) => {
       //let profile = googleUser.getBasicProfile();
-
       this.connection.token  = googleUser.getAuthResponse().id_token;
-      // this.usuarioService.guardarStorage(this.connection.token);
       this.loginService.execute();
-      this.router.navigate(['./dashboard']);
     });
   }
 }

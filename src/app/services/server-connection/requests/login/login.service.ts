@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {ServerConnectionService} from '../../server-connection.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UsuarioService } from 'src/app/services/service.index';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +11,19 @@ export class LoginService implements serviceNotifyInterface {
 
   public userProfile;
 
-  constructor(private connection: ServerConnectionService, private usuarioService : UsuarioService) { }
+  constructor(public router: Router, private connection: ServerConnectionService, private usuarioService : UsuarioService) { }
 
   notifty(data: any) {
     console.log('POST Request is successful :D', data);
-    //si es usuario registrado 
-    // this.router.navigate(['./dashboard']);
-    //si no
-    //this.router.navigate(['./register']);
     this.connection.apiKey = data['user']['api_token'];
     this.connection.userType = data['puser']['user_type_id'];
     this.usuarioService.guardarStorage(data['user']['api_token']);
+
+    if(this.connection.userType != '0'){
+      this.router.navigate(['./dashboard']);
+    }else{
+      this.router.navigate(['./register']);
+    }
   }
 
   execute(){
