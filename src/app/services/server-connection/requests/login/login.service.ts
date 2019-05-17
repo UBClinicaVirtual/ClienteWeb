@@ -17,11 +17,12 @@ export class LoginService implements serviceNotifyInterface {
     console.log('POST Request is successful :D', data);
     this.connection.apiKey = data['user']['api_token'];
     this.connection.userType = data['user']['user_type_id'];
-    this.usuarioService.guardarStorage(data['user']['api_token']);
-
+    
     if(this.connection.userType != 0){
+      this.usuarioService.guardarStorage(data['user']['api_token'], 'registrado');
       this.router.navigate(['./dashboard']);
     }else{
+      this.usuarioService.guardarStorage(data['user']['api_token'], '');
       this.router.navigate(['./register']);
     }
   }
