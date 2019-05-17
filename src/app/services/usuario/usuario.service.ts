@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class UsuarioService {
 
-  usuario: Usuario;
   token: string;
+  estado: string;
 
   constructor(
     public http: HttpClient,
@@ -19,23 +19,27 @@ export class UsuarioService {
    }
 
    estaLogueado(){
-     return(this.token.length > 5)? true: false;
+     return(this.token.length > 5 && this.estado.length > 5 )? true: false;
    }
 
    cargarStorage(){
      if(localStorage.getItem('token')){
        this.token = localStorage.getItem('token');
+       this.estado = localStorage.getItem('estado');
        
      }else{
        this.token = '';
+       this.estado = '';
      }
    }
 
-   guardarStorage(token:string){
+   guardarStorage(token:string, estado:string){
 
     localStorage.setItem('token',token);
+    localStorage.setItem('estado', estado);
 
     this.token = token;
+    this.estado = estado;
 
 
    }
@@ -43,7 +47,10 @@ export class UsuarioService {
    logout(){
     
     this.token='';
+    this.estado='';
     localStorage.removeItem('token');
+    localStorage.removeItem('estado');
+
   
     this.router.navigate(['./login2']);
 
