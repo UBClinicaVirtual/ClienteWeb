@@ -8,6 +8,7 @@ import { AppointmentsComponent } from '../components/appointments/appointments.c
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { AppointmentSearchComponent } from '../components/appointment-search/appointment-search.component'
 import { LoginGuardGuard } from '../services/service.index';
+import { ProtectedComponent } from '../components/protected/protected.component';
 
 
 
@@ -23,6 +24,7 @@ const pagesRoutes: Routes = [
             {path: 'turnos', component:AppointmentsComponent, data: {titulo: 'Mis Turnos'}},
             {path: 'search-turn', component:AppointmentSearchComponent, data: {titulo: 'Buscar Turnos'}},
             {path: 'account-settings', component:AccountSettingsComponent, data: {titulo: 'Ajustes de tema'}},
+            {path: 'protected', component:ProtectedComponent, data: {titulo: 'Mi perfil'}},
             {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]}
 
