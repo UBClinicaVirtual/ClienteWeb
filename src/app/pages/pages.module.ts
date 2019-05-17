@@ -24,6 +24,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { LoginComponent } from '../components/login/login.component';
 
 
+
 import { PAGES_ROUTES } from './pages.routes';
 import { HttpClientModule } from '@angular/common/http';
 

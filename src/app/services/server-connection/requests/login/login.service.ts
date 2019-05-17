@@ -16,10 +16,10 @@ export class LoginService implements serviceNotifyInterface {
   notifty(data: any) {
     console.log('POST Request is successful :D', data);
     this.connection.apiKey = data['user']['api_token'];
-    this.connection.userType = data['puser']['user_type_id'];
+    this.connection.userType = data['user']['user_type_id'];
     this.usuarioService.guardarStorage(data['user']['api_token']);
 
-    if(this.connection.userType != '0'){
+    if(this.connection.userType != 0){
       this.router.navigate(['./dashboard']);
     }else{
       this.router.navigate(['./register']);
