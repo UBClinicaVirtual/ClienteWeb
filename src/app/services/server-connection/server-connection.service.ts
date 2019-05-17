@@ -13,7 +13,7 @@ export class ServerConnectionService {
   private urlPath = this.config.url();
   // private urlPath = "localhost:3200"
 
-  public userType = '';
+  public userType : any;
 
   public token = '';
 

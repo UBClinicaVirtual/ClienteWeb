@@ -10,11 +10,11 @@
                         <li class="user-profile">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/profile.png" alt="user" /><span class="hide-menu">Fernando I. Romero</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="javascript:void()">Mi perfil </a></li>
+                                <li><a routerLinkActive="active" routerLink="/protected">Mi perfil </a></li>
                                 <li><a href="javascript:void()">Mi balance</a></li>
                                 <li><a href="javascript:void()">Buzon</a></li>
                                 <li><a routerLinkActive="active" routerLink="/account-settings">Ajuste de cuenta</a></li>
-                                <li><a routerLink="/login2">Cerrar sesion</a></li>
+                                <li><a (click)= "_usuarioService.logout()" class="pointer">Cerrar sesion</a></li>
                             </ul>
                         </li>
                         <li class="nav-devider"></li>

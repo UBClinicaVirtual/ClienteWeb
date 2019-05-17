@@ -34,6 +34,9 @@ export class LoginComponent implements OnInit, componentResponseInterface {
     let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
     this.loginService.userProfile = profile;
     this.connection.token = googleUser.Zi.id_token;
+
+    //probando
+    localStorage.setItem('token',this.connection.token);
     this.loginService.execute();
     console.log(this.connection.token);
 

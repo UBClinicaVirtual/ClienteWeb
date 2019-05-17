@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {ServerConnectionService} from '../../server-connection.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UsuarioService } from 'src/app/services/service.index';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +11,21 @@ export class LoginService implements serviceNotifyInterface {
 
   public userProfile;
 
+  constructor(public router: Router, private connection: ServerConnectionService, private usuarioService : UsuarioService) { }
+
   notifty(data: any) {
     console.log('POST Request is successful :D', data);
     this.connection.apiKey = data['user']['api_token'];
-    this.connection.userType = data['puser']['user_type_id'];
+    this.connection.userType = data['user']['user_type_id'];
+    
+    if(this.connection.userType != 0){
+      this.usuarioService.guardarStorage(data['user']['api_token'], 'registrado');
+      this.router.navigate(['./dashboard']);
+    }else{
+      this.usuarioService.guardarStorage(data['user']['api_token'], '');
+      this.router.navigate(['./register']);
+    }
   }
-
-  constructor(private connection: ServerConnectionService) { }
 
   execute(){
     console.log("service: login");
@@ -25,6 +35,6 @@ export class LoginService implements serviceNotifyInterface {
     });
 
     let body = {'access_token': this.connection.token};
-    let data = this.connection.post('/login',httpHeaderss,body,this);
+    this.connection.post('/login',httpHeaderss,body,this);
   }
 }
