@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import{AuthService} from "../../services/auth.service";
 import { LoginService } from 'src/app/services/server-connection/requests/login/login.service';
 
 @Component({
@@ -11,7 +10,7 @@ export class ProtectedComponent implements OnInit {
 
   profile: any;
 
-  constructor(private auth:AuthService,private loginService: LoginService) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
     this.profile = this.loginService.userProfile;
@@ -30,24 +29,20 @@ export class ProtectedComponent implements OnInit {
   usertype(type){
     switch (type) {
       case '0':
-      return "Sin Perfil";
-        
-      break;
+          return "Sin Perfil";   
+          break;
       case '1':
-      return "Paciente";
-      
-      break;
+          return "Paciente";
+          break;
       case '2':
-      return "Doctor";
-      
-      break;
+          return "Doctor";
+          break;
       case '3':
-      return "Clinica";
-        
-      break;
+          return "Clinica";
+          break;
       default:
-      return "No asignado";
-        break;
+          return "No asignado";
+          break;
     }
   }
 
@@ -61,7 +56,7 @@ export class ProtectedComponent implements OnInit {
         "updated_at": "2018-09-27 15:06:20",
         "api_token": "HoFcCOSgtjyfD5GELBuyQ3xHZasPiBSyqGsFeDsYLXj4BewYcIEOvyqAn0iZ",
         "active": 1,
-        "user_type_id": "1"
+        "user_type_id": "2"
     },
 	"patient":{
 		"id": 6,
