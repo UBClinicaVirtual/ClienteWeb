@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 //componentes
 import { AppComponent } from './app.component';
 import { Login2Component } from './login2/login2.component';
-import { RegisterComponent } from './login2/register.component';
+import { RegisterComponent } from './register/register.component';
 
 //Rutas
 import {APP_ROUTES} from './app.routes';
