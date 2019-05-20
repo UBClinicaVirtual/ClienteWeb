@@ -1,27 +1,29 @@
-# ClienteWeb
+# Clinica Virtual
+## Proyecto web - Universidad de Belgrano - Tecnicatura en Programación de Computadoras
+---
+## Integrantes:
+ > [Gabriel Espina](https://github.com/GabrielEspina)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+ > [Fernando Romero](https://github.com/fernandoromero91)
 
-## Development server
+ > [Pedro Rodriguez](https://github.com/PedroRodriguez95)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Profesores:
 
-## Code scaffolding
+> [Didier Renard](https://github.com/didierrenardub)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> Laura Greiner
 
-## Build
+## Aplicación:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+>### Entorno web para la administración de turnos ginecológicos, tomando como modelo para su gestión: 
+>  [Hospital de Clínicas José de San Martín](http://www.hospitaldeclinicas.uba.ar/)
 
-## Running unit tests
+## Usuarios: 
+Se puede acceder al entorno con tres tipos de usuarios: 
+>Paciente
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+>Doctor
 
-## Running end-to-end tests
+>Clinica
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
