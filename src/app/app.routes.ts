@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { Login2Component } from './login2/login2.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
-import { RegisterComponent } from './login2/register.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
