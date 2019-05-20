@@ -10,6 +10,9 @@ declare function init_plugins();
 })
 export class RegisterComponent implements OnInit {
 
+  userTypeSelected:"";
+
+
   usertype =[
     { "id":1,
       "name":"Paciente"

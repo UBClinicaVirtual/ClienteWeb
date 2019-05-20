@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-usertype-register',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsertypeRegisterComponent implements OnInit {
 
+  @Input() user: any;
+
   constructor() { }
 
   ngOnInit() {
+    if(this.user){
+      console.log(this.user);
+    }
   }
 
 }
