@@ -10,11 +10,23 @@ declare function init_plugins();
 })
 export class RegisterComponent implements OnInit {
 
+  usertype =[
+    { "id":1,
+      "name":"Paciente"
+    },
+    { "id":2,
+      "name":"Doctor"
+    },
+    { "id":3,
+      "name":"Clinica"
+    },
+  ]
   forma: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
+   
     init_plugins();
 
     this.forma = new FormGroup({
