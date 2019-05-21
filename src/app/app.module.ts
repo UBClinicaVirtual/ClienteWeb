@@ -18,6 +18,7 @@ import { ServiceModule } from './services/service.module';
 
 import { PagesModule } from './pages/pages.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsertypeRegisterComponent } from './register/usertype-register/usertype-register.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Login2Component,
    // GoogleSignInComponent,
    // AppointmentSearchComponent,
-    RegisterComponent
+    RegisterComponent,
+   UsertypeRegisterComponent
    // LoadingComponent,
     
   
