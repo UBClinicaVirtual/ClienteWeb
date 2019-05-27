@@ -15,7 +15,7 @@ export class GetAvailableAppointmentsService implements serviceNotifyInterface {
 
   componente: componentResponseInterface;
 
-  execute(component:componentResponseInterface){
+  execute(component:componentResponseInterface, body:any){
 
     this.componente = component;
 
@@ -24,8 +24,6 @@ export class GetAvailableAppointmentsService implements serviceNotifyInterface {
     let httpHeaderss = new HttpHeaders({
       'Authorization' : 'Bearer ' + this.connection.apiKey
     });
-
-    let body = this.componente.getBody();
 
     this.connection.post('/appointment/available',httpHeaderss,body,this);
   }
