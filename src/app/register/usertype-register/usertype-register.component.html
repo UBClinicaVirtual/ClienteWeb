@@ -1,5 +1,3 @@
-<form action="">
-
 <div class="form-group m-t-20">
     <div class="col-xs-12">
         <input  name="nombre" class="form-control" type="text" required placeholder="Nombre">
@@ -35,9 +33,24 @@
       <input  name="telefono" class="form-control" type="text" required placeholder="Telefono">
   </div>
 </div>
-<select  class="form-control" [(ngModel)]="userTypeSelected" required >
-    <option value="usr" disabled selected></option>
-    <option  [value]="type.id" *ngFor="let type of usertype">{{type.name}}</option>
+<!-- <select  class="form-control" [(ngModel)]="userTypeSelected" required >
+    <option value="usr" disabled selected>Elegir especialidad</option>
+    <option  [value]="specialitie.id" *ngFor="let specialitie of specialities">{{specialitie.name}}</option>
 
-</select>
-</form>
+</select> -->
+
+<div class="form-group">
+    <label class="form-control"> Elegir las especialidades</label><br>
+    <span *ngFor="let specialitie of specialities_chosen" ><br>{{specialitie}}</span>
+    <hr>
+    <div class="col-xs-12" *ngFor="let specialitie of specialities">
+        <input id="{{specialitie.id}}" class="btn btn-secondary"  (click)="specialitieChoosed(specialitie.id);" value="{{specialitie.name}}">
+    </div>
+  </div>
+
+
+<div class="form-group text-center m-t-20">
+    <div class="col-xs-12">
+        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Registrarme</button>
+    </div>
+</div>
