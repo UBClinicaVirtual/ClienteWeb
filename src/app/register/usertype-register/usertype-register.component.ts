@@ -30,7 +30,10 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
   specialitieChoosed(id){
     let specChoosed = document.getElementById(id);
     specChoosed.hidden = "hidden";
-    this.specialities_chosen.push(specChoosed.value);
+    this.specialities_chosen.push({
+      "name":specChoosed.value,
+      "id":specChoosed.id
+    });
     console.log(this.specialities_chosen);
   }
 

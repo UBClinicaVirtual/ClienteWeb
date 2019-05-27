@@ -41,7 +41,7 @@
 
 <div class="form-group">
     <label class="form-control"> Elegir las especialidades</label><br>
-    <span *ngFor="let specialitie of specialities_chosen" ><br>{{specialitie}}</span>
+    <span *ngFor="let specialitie of specialities_chosen" ><br>{{specialitie.name}}</span>
     <hr>
     <div class="col-xs-12" *ngFor="let specialitie of specialities">
         <input id="{{specialitie.id}}" class="btn btn-secondary"  (click)="specialitieChoosed(specialitie.id);" value="{{specialitie.name}}">
