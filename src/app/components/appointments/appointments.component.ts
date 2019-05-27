@@ -7,9 +7,6 @@ import { GetAppointmentsService } from 'src/app/services/server-connection/reque
   styleUrls: ['./appointments.component.css']
 })
 export class AppointmentsComponent implements OnInit,componentResponseInterface {
-  getBody() {
-    throw new Error("Method not implemented.");
-  }
 
   loadingInfo = {
     state : false,
