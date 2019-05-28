@@ -16,6 +16,17 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
 
   specialities;
   specialities_chosen = [];
+  userData = {
+    name:null,
+    lastname:null,
+    dni:null,
+    born:null,
+    gender:null,
+    address:null,
+    phone:null,
+    specialities:null
+  }
+  registeredUser = {};
 
   constructor(private getSpecialitiesService : GetSpecialitiesService) { }
 
@@ -35,6 +46,12 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
       "id":specChoosed.id
     });
     console.log(this.specialities_chosen);
+  }
+
+  addUserProfile(){
+    this.userData.specialities = this.specialities_chosen;
+    console.log(this.userData);
+    
   }
 
 }
