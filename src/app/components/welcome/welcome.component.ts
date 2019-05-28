@@ -17,10 +17,6 @@ export class WelcomeComponent implements componentResponseInterface{
     msg   : "Cargando pantalla principal"
   };
 
-  getBody() {
-    throw new Error("Method not implemented.");
-  }
-
   response(data: any) {
     console.log(data);
   }

@@ -74,7 +74,7 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     this.loadingInfo.msg = "Buscando turnos disponibles";
 
     this.requestType = "getAvailableAppointments";
-    this.getAvailableAppointments.execute(this);
+    this.getAvailableAppointments.execute(this,this.filtros);
 
   }
 
@@ -97,10 +97,6 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
 
   response(data){
     this.requestTypeOperation[this.requestType](this,data);
-  }
-
-  getBody() {
-    return this.filtros;
   }
 
   private parseClincis(clinics){

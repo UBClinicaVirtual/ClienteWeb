@@ -11,9 +11,7 @@ import { config } from 'rxjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, componentResponseInterface {
-  getBody() {
-    throw new Error("Method not implemented.");
-  }
+
 
 
   response(data: any) {

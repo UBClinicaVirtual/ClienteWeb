@@ -28,4 +28,6 @@
       right: 0px;
       position: absolute;
       height: 100%; }
-  
+  input[type="radio"]{
+    -webkit-appearance: radio !important;
+}
