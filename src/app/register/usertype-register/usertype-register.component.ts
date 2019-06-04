@@ -8,6 +8,7 @@ import { GetSpecialitiesService } from 'src/app/services/server-connection/reque
 })
 export class UsertypeRegisterComponent implements OnInit, componentResponseInterface {
   response(data: any) {
+    this.information.state = false;
     console.log(data);
     this.specialities = data.specialities;
   }
@@ -29,14 +30,25 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
   registeredUser = {};
 
   constructor(private getSpecialitiesService : GetSpecialitiesService) { }
+  information = {
+    state : true,
+    msg   : "Cargando Especialidades"
+  };
+
+  isLoading:boolean;
 
   ngOnInit() {
+    this.isLoading = false;
     if(this.user){
       console.log(this.user);
     }
 
+    this.information.state = true;
+    this.information.msg = "Cargando Especialidades";
     this.getSpecialitiesService.execute(this);
   }
+
+ 
 
   specialitieChoosed(id){
     let specChoosed = document.getElementById(id);
