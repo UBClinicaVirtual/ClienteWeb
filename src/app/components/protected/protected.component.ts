@@ -15,6 +15,7 @@ export class ProtectedComponent implements OnInit {
   ngOnInit() {
     this.profile = this.loginService.userProfile;
 
+
     // if (this.loginService.userProfile) {
 
     //   this.profile = this.loginService.userProfile;
