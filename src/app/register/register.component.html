@@ -6,38 +6,17 @@
         <div class="login-box card" style="overflow: auto">
 
           <div class="card-body" style="text-align: center">
-                <a href="javascript:void(0)" class="text-center db"><img src="../assets/images/logo-icon.png" alt="Home" /><br/><!-- <img src="../assets/images/logo-text.png" alt="Home" /> --></a>
-                <h1 class="box-title m-t-40 m-b-0" >Registrate como:</h1>
-                <br>
-
-                <!-- <select  class="form-control" [(ngModel)]="userTypeSelected" required >
-                    <option value="usr" disabled selected>Tipo de usuario</option>
-                    <option  [value]="type.id" *ngFor="let type of usertype">{{type.name}}</option>
-
-                </select> -->
+                <a href="javascript:void(0)" class="text-center db"><img src="../assets/images/logo-icon.png" alt="Home" /></a>
+                <h1 class="box-title m-t-40 m-b-0" >Registrate como:</h1><hr>
+                
                 <div *ngIf="!userTypeSelected">
-                    <div class="form-group text-center m-t-20">
-                            <div class="col-xs-12">
-                                <button  class="btn btn-dark btn-lg btn-block text-uppercase waves-effect waves-light" (click)="addUserType(1)">
-                                    PACIENTE<img src="images/patient.png" alt="" style="width:150px;height:150px;">
-                                </button>
-                            </div>
+                    <div class="form-group text-center m-t-20" *ngFor="let type of usertype">
+                        <div class="col-xs-12">
+                            <button  class="btn btn-{{type.class}} btn-lg btn-block text-uppercase waves-effect waves-light" (click)="addUserType(type.id)">
+                                {{type.name}}<img src="images/{{type.img}}.png" alt="" style="width:150px;height:150px;">
+                            </button>
                         </div>
-                        <div class="form-group text-center m-t-20">
-                            <div class="col-xs-12">
-                                    
-                                <button  class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" (click)="addUserType(2)">
-                                    DOCTOR<img src="images/hcp.png" alt="" style="width:150px;height:150px;">
-                                </button>
-                            </div>
-                        </div>
-                        <div class="form-group text-center m-t-20">
-                            <div class="col-xs-12">
-                                <button  class="btn btn-success btn-lg btn-block text-uppercase waves-effect waves-light" (click)="addUserType(3)">
-                                        CLINICA<img src="images/clinic.png" alt="" style="width:150px;height:150px;">
-                                </button>
-                            </div>
-                        </div>
+                    </div>
                 </div>
 
               <form ngNativeValidate [formGroup]="forma" (ngSubmit)="registrarUsuario()" class="form-horizontal form-material" id="loginform" action="index.html">
@@ -60,6 +39,3 @@
           </div>
       </div>
   </section>
-  <!-- ============================================================== -->
-  <!-- End Wrapper -->
-  <!-- ============================================================== -->
