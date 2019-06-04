@@ -19,11 +19,12 @@ export class UsuarioService {
    }
 
    estaLogueado(){
+     
      return(this.token.length > 5 && this.estado.length > 5 )? true: false;
    }
 
    cargarStorage(){
-     if(localStorage.getItem('token')){
+     if(localStorage.getItem('token') && localStorage.getItem('estado')){
        this.token = localStorage.getItem('token');
        this.estado = localStorage.getItem('estado');
        
