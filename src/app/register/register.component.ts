@@ -10,7 +10,7 @@ declare function init_plugins();
 })
 export class RegisterComponent implements OnInit {
 
-  userTypeSelected:"";
+  userTypeSelected:any = null;
 
 
   usertype =[
@@ -48,6 +48,10 @@ export class RegisterComponent implements OnInit {
 
   registrarUsuario(){
     console.log(this.forma.value);
+  }
+
+  addUserType(type){
+    this.userTypeSelected = type;
   }
 
 }
