@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService, UsuarioService  } from 'src/app/services/service.index';
 import { LoginService } from 'src/app/services/server-connection/requests/login/login.service';
+import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,6 +10,9 @@ import { LoginService } from 'src/app/services/server-connection/requests/login/
 })
 export class SidebarComponent implements OnInit {
 
+
+  usuarioGoogle: UsuarioGoogle;
+
   profile: any;
 
   constructor( public _sidebar: SidebarService,
@@ -16,7 +20,9 @@ export class SidebarComponent implements OnInit {
                 private loginService: LoginService) { }
 
   ngOnInit() {
-    this.profile = this.loginService.userProfile;
+    //this.profile = this.loginService.userProfile;
+    this.usuarioGoogle = this._usuarioService.usuarioGoogle;
+    console.log(this.usuarioGoogle);
     
   }
 
