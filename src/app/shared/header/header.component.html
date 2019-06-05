@@ -110,15 +110,15 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img  class="profile-pic" [src] = "profile.getImageUrl()" /></a>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img  class="profile-pic" [src] = "usuarioGoogle.image" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated fadeIn">
                                 <ul class="dropdown-user">
                                     <li>
                                         <div class="dw-user-box">
-                                            <div class="u-img"><img class="profile" [src] = "profile.getImageUrl()"></div>
+                                            <div class="u-img"><img class="profile" [src] = "usuarioGoogle.image"></div>
                                             <div class="u-text">
-                                                <h4>{{profile.getName()}}</h4>
-                                                <p class="text-muted"> {{profile.getEmail()}}</p><a routerLinkActive="active" routerLink="/protected" class="btn btn-rounded btn-danger btn-sm">Ir a mi perfil</a></div>
+                                                <h4>{{usuarioGoogle.fullName}}</h4>
+                                                <p class="text-muted"> {{usuarioGoogle.email}}</p><a routerLinkActive="active" routerLink="/protected" class="btn btn-rounded btn-danger btn-sm">Ir a mi perfil</a></div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
