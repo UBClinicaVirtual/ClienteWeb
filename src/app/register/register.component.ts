@@ -10,18 +10,24 @@ declare function init_plugins();
 })
 export class RegisterComponent implements OnInit {
 
-  userTypeSelected:"";
+  userTypeSelected:any = null;
 
 
   usertype =[
     { "id":1,
-      "name":"Paciente"
+      "name":"PACIENTE",
+      "class":"dark",
+      "img":"patient"
     },
     { "id":2,
-      "name":"Doctor"
+      "name":"DOCTOR",
+      "class":"info",
+      "img":"hcp"
     },
     { "id":3,
-      "name":"Clinica"
+      "name":"CLINICA",
+      "class":"success",
+      "img":"clinic"
     },
   ]
   forma: FormGroup;
@@ -48,6 +54,10 @@ export class RegisterComponent implements OnInit {
 
   registrarUsuario(){
     console.log(this.forma.value);
+  }
+
+  addUserType(type){
+    this.userTypeSelected = type;
   }
 
 }
