@@ -20,7 +20,8 @@ export class LoginService implements serviceNotifyInterface {
     
     if(this.connection.userType == 1){
       this.usuarioService.guardarStorage(data['user']['api_token'], 'registrado');
-      this.router.navigate(['./dashboard']);
+    //  this.router.navigate(['./dashboard']);
+      window.location.href = '#/dashboard';
       this.usuarioService.guardarPaciente(data['patient'])
     }else{
       this.usuarioService.guardarStorage(data['user']['api_token'], '');

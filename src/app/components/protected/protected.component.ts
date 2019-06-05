@@ -115,17 +115,19 @@ export class ProtectedComponent implements OnInit {
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/service.index';
 import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
+import { Patient } from 'src/app/models/patient.model';
 //import swal from 'sweetalert';
 
 @Component({
   selector: 'app-protected',
   templateUrl: './protected.component.html',
-  styleUrls: ['./protected.component.css']
+  styles: []
 })
 export class ProtectedComponent implements OnInit {
 
   usuario:Usuario;
   usuarioGoogle: UsuarioGoogle;
+  paciente:Patient;
 
   constructor(
     public _usuarioService: UsuarioService
@@ -133,7 +135,8 @@ export class ProtectedComponent implements OnInit {
 
   ngOnInit() {
     this.usuarioGoogle = this._usuarioService.usuarioGoogle;
-    console.log(this.usuarioGoogle);
+    this.paciente = this._usuarioService.paciente;
+    
   }
 
   guardar(usuario: Usuario){
