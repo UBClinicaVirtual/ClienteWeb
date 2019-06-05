@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/*  import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/server-connection/requests/login/login.service';
 
 @Component({
@@ -100,4 +100,50 @@ export class ProtectedComponent implements OnInit {
 	
 }
 
+} */
+ 
+
+
+
+ 
+
+ ///////////////////////////////////////////////////////////
+ //                    New Profile                        //
+ ///////////////////////////////////////////////////////////
+
+ import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario.model';
+import { UsuarioService } from 'src/app/services/service.index';
+import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
+//import swal from 'sweetalert';
+
+@Component({
+  selector: 'app-protected',
+  templateUrl: './protected.component.html',
+  styleUrls: ['./protected.component.css']
+})
+export class ProtectedComponent implements OnInit {
+
+  usuario:Usuario;
+  usuarioGoogle: UsuarioGoogle;
+
+  constructor(
+    public _usuarioService: UsuarioService
+  ) { }
+
+  ngOnInit() {
+    this.usuarioGoogle = this._usuarioService.usuarioGoogle;
+    console.log(this.usuarioGoogle);
+  }
+
+  guardar(usuario: Usuario){
+  //  this.usuario.nombre = usuario.nombre;
+    // VA la peticioin
+    console.log('Guardado(?');
+  }
+
+ 
+
+
 }
+

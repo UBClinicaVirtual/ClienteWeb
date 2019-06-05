@@ -1,4 +1,4 @@
-<div class="row" *ngIf="profile">
+<!--  <div class="row" *ngIf="profile">
   <div class="col-md-4">
     <img class="profile" [src] = "profile.getImageUrl()">
   </div>
@@ -7,12 +7,12 @@
     <ul class="list-group">
     <h1 class="font-weight-light">{{profile.getName()}}</h1>
       <li class = "list-group-item"><strong class="font-weight-light">Apellido:</strong > {{profile.getFamilyName()}}</li>
-      <li class = "list-group-item"><strong class="font-weight-light">Nombre:</strong > {{profile.getGivenName()}}</li>
-
+      <li class = "list-group-item"><strong class="font-weight-light">Nombre:</strong > {{profile.getGivenName()}}</li> 
+-->
       <!-- <li class = "list-group-item">Sexo: {{profile.getGender()}}</li> -->
 
-      
-      <li class = "list-group-item"><strong class="font-weight-light">Mail:</strong > {{profile.getEmail()}}</li>
+      <!--
+       <li class = "list-group-item"><strong class="font-weight-light">Mail:</strong > {{profile.getEmail()}}</li>
 
     </ul>
   </div>
@@ -79,3 +79,58 @@
       </div>
     <img style="width:14%" src="https://img.icons8.com/dusk/128/000000/jake.png">
     </div>
+  -->
+
+<!-- 
+   |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+   ||              Nuevo Profile                                    ||
+   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+  <div class="row animated fadeIn">
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Perfil del usuario</h4>
+                <h6 class="card-subtitle">nombre usuario</h6>
+
+                <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar( f.value)" class="form p-t-20">
+                    <div class="form-group">
+                        <label for="exampleInputuname">Nombre de usuario</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                            <input [ngModel]="usuarioGoogle.fullName" name="nombre" type="text" class="form-control"  placeholder="Nombre de usuario" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Correo de usuario</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                            <input [ngModel]="usuarioGoogle.email" [disabled]=true name="email" type="email" class="form-control"  placeholder="Correo de usuario" required>
+                        </div>
+                    </div>
+
+  
+                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                      <i class="fa fa-save"></i> Guardar</button>
+   
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Fotrografia del usuario</h4>
+                <h6 class="card-subtitle">nombre usuario</h6>
+
+                <img [src]="usuarioGoogle.image" class= "w150">
+                
+            
+
+                <br><br>
+            </div>
+            </div>
+    </div>
+      
+</div> 
