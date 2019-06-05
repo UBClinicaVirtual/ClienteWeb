@@ -16,7 +16,10 @@ export class Login2Component implements OnInit {
 
   auth2: any;
 
-  constructor(public router: Router,private connection: ServerConnectionService, private loginService: LoginService, private usuarioService : UsuarioService) { }
+  constructor(public router: Router,
+              private connection: ServerConnectionService, 
+              private _loginService: LoginService, 
+              private _usuarioService : UsuarioService) { }
 
   ngOnInit() {
     init_plugins();
@@ -42,10 +45,12 @@ export class Login2Component implements OnInit {
 
   attachSignin(element){
       this.auth2.attachClickHandler(element, {}, (googleUser) => {
-      //let profile = googleUser.getBasicProfile();
+      let profile = googleUser.getBasicProfile();
+      this._usuarioService.guardarGoogle(profile.getEmail(), profile.getName(), profile.getImageUrl(),'');
+      
       this.connection.token  = googleUser.getAuthResponse().id_token;
-      this.loginService.userProfile = googleUser.getBasicProfile();
-      this.loginService.execute();
+      this._loginService.userProfile = googleUser.getBasicProfile();
+      this._loginService.execute();
     });
   }
 }
