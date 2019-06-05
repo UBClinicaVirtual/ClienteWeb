@@ -4,13 +4,13 @@ export class Usuario{
     constructor(
 
         // provisorio
-        public nombre: string,
-        public apellido:string,
-        public dni: string,
-        public nacimiento: string,
-        public sexo: string,
-        public direccion: string,
-        public telefono: string
+        public id: string,
+        public email:string,
+        public created_at: string,
+        public updated_at: string,
+        public api_token: string,
+        public active: string,
+        public user_type_id: string
 
     ){}
 
