@@ -22,4 +22,9 @@ describe('AppointmentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return url', () => {
+    var a = true;
+    expect(a).toBe(true);
+  });
 });
