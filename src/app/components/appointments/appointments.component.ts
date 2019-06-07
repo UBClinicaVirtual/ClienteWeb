@@ -8,6 +8,8 @@ import { GetAppointmentsService } from 'src/app/services/server-connection/reque
 })
 export class AppointmentsComponent implements OnInit,componentResponseInterface {
 
+  
+
   loadingInfo = {
     state : false,
     msg   : ""
@@ -24,6 +26,7 @@ export class AppointmentsComponent implements OnInit,componentResponseInterface 
   response(data){
     this.loadingInfo.state = false;
     this.turnos = data.appointments;
+   
   }
 
   ngOnInit() {
