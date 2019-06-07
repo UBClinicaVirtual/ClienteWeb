@@ -21,4 +21,8 @@ export class AppointmentComponent implements OnInit {
     this.modalService.open(content);
   }
 
+  scheduleAppointment(){
+    console.log("turno pedido correctamente");
+  }
+
 }
