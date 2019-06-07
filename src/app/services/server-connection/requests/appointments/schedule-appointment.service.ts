@@ -21,9 +21,7 @@ export class ScheduleAppointmentService implements serviceNotifyInterface{
 
     console.log("service: schedule-appointment");
 
-    let httpHeaderss = new HttpHeaders({
-      'Authorization' : 'Bearer ' + this.connection.apiKey
-    });
+    let httpHeaderss = new HttpHeaders();
 
     this.connection.post('/user/patient/appointment/schedule',httpHeaderss,body,this);
   }

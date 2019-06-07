@@ -23,9 +23,7 @@ export class GetSpecialitiesService implements serviceNotifyInterface {
 
     console.log("service: get-specialities");
 
-    let httpHeaderss = new HttpHeaders({
-      'Authorization' : 'Bearer ' + this.connection.apiKey
-    });
+    let httpHeaderss = new HttpHeaders();
 
     let body = {}
     this.connection.post('/specialities',httpHeaderss,body,this);

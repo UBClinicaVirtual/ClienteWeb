@@ -22,11 +22,12 @@ export class GetAppointmentsService implements serviceNotifyInterface {
 
     console.log("service: get-appointments");
 
-    let httpHeaderss = new HttpHeaders({
-      'Authorization' : 'Bearer ' + this.connection.apiKey
-    });
+    let httpHeaderss = new HttpHeaders();
 
     let body = {}
+
+    console.log("httpHeaderss",httpHeaderss);
+    console.log("contexto",this);
     this.connection.post('/user/patient/appointments',httpHeaderss,body,this);
   }
 }

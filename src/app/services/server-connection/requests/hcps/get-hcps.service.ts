@@ -24,9 +24,7 @@ export class GetHcpsService implements serviceNotifyInterface {
 
     console.log("service: get-hcp");
 
-    let httpHeaderss = new HttpHeaders({
-      'Authorization' : 'Bearer ' + this.connection.apiKey
-    });
+    let httpHeaderss = new HttpHeaders();
 
     let body = {}
     this.connection.post('/hcp/search',httpHeaderss,body,this);
