@@ -21,9 +21,7 @@ export class GetAvailableAppointmentsService implements serviceNotifyInterface {
 
     console.log("service: get-appointments-available");
 
-    let httpHeaderss = new HttpHeaders({
-      'Authorization' : 'Bearer ' + this.connection.apiKey
-    });
+    let httpHeaderss = new HttpHeaders();
 
     this.connection.post('/appointment/available',httpHeaderss,body,this);
   }
