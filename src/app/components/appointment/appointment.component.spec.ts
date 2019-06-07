@@ -2,7 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppointmentComponent } from './appointment.component';
 import { SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
-import { SwalDefaults } from '@sweetalert2/ngx-sweetalert2/di';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+
 
 describe('AppointmentComponent', () => {
   let component: AppointmentComponent;
@@ -12,7 +13,7 @@ describe('AppointmentComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AppointmentComponent ],
       imports: [SweetAlert2Module],
-      providers: [ SwalDefaults]
+      providers: [ HttpClient, HttpHandler]
     })
     .compileComponents();
   }));
@@ -27,13 +28,4 @@ describe('AppointmentComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should not have to make a dummy test for it to detect the rest of the tests', () => {
-    var dummy = true;
-    expect(dummy).toBe(true);
-  });
-
-  it('but apparently i do', () => {
-    var a = 1;
-    expect(a).toBe(1);
-  });
 });
