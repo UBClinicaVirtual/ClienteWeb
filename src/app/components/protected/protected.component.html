@@ -112,35 +112,35 @@
                       <label >Direccion</label>
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
-                          <input [ngModel]="paciente.address"  name="direccion" type="direccion" class="form-control"  placeholder="Direccion" required>
+                          <input [ngModel]="paciente.address"  name="address" type="text" class="form-control"  placeholder="Direccion" required>
                       </div>
                   </div>
                   <div class="form-group">
                     <label >Fecha de Nacimiento</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
-                        <input [ngModel]="paciente.birth_date"  name="nac" type="nac" class="form-control"  placeholder="Fecha de nacimiento" required>
+                        <input [ngModel]="paciente.birth_date"  name="birth_date" type="date" class="form-control"  placeholder="Fecha de nacimiento" required>
                     </div>
                 </div>
               <div class="form-group">
                 <label >Sexo</label>
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
-                    <input [ngModel]="paciente.gender_id"  name="sexo" type="sexo" class="form-control"  placeholder="sexo" required>
+                    <input [ngModel]="paciente.gender_id"  name="gender_id" type="text" class="form-control"  placeholder="sexo" required>
                 </div>
             </div>
           <div class="form-group">
             <label >identificacion</label>
             <div class="input-group">
                 <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
-                <input [ngModel]="paciente.identification_number"  name="identificacion" type="identificacion" class="form-control"  placeholder="identificacion" required>
+                <input [ngModel]="paciente.identification_number"  name="identification_number" type="text" class="form-control"  placeholder="identificacion" required>
             </div>
         </div>
         <div class="form-group">
           <label>Telefono</label>
           <div class="input-group">
               <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
-              <input [ngModel]="paciente.phone" name="telefono" type="telefono" class="form-control"  placeholder="telefono" required>
+              <input [ngModel]="paciente.phone" name="phone" type="text" class="form-control"  placeholder="telefono" required>
           </div>
       </div>
 
