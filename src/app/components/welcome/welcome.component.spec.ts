@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WelcomeComponent } from './welcome.component';
+import { LoadingComponent } from '../loading/loading.component';
+import { RegisterComponent } from 'src/app/register/register.component';
+import { FormsModule} from '@angular/forms';
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -8,7 +11,8 @@ describe('WelcomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WelcomeComponent ]
+      declarations: [ WelcomeComponent, LoadingComponent, RegisterComponent],
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));
