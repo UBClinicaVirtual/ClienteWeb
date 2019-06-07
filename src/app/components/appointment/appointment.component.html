@@ -1,4 +1,4 @@
-<html class="turno" >
+<!-- <html class="turno" >
     <div class="card-header"  style="background-color:white;">{{turno.appointment_date}}</div>
     <div class="card-body text-primary"  style="background-color:white;">
       <h5 class="card-title">{{turno.speciality_name}}</h5>
@@ -7,7 +7,37 @@
     <div style="background-color:white;"><hr>
         <button type="button" class="btn btn-outline-primary" (click)="open(content)">Detalle</button>
         <button type="button" class="btn btn-outline-secondary" (click)="deleteSwal.show()">Cancelar Turno</button>
+   -->
 
+ <!--              <td>
+                {{turno.appointment_date}}
+              </td>
+              <td >
+                {{turno.speciality_name}}
+              </td>
+              <td >
+                Dr. {{turno.hcp_first_name +" " +turno.hcp_last_name}}
+              </td>
+              <td>
+                <button (click)="open(content)" class="btn btn-primary">
+                  <i class="fa fa-save"></i>
+                </button>
+                <button (click)="deleteSwal.show()" class="btn btn-danger">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+              </td> -->
+
+  
+               
+                  <button (click)="open(content)" class="btn btn-primary">
+                    <i class="fa fa-save"></i>
+                  </button>
+                  <button (click)="deleteSwal.show()" class="btn btn-danger">
+                      <i class="fa fa-trash-o"></i>
+                    </button>
+                
+
+          
 
         <swal
           #deleteSwal
@@ -26,7 +56,7 @@
           >
         </swal>
 
-    </div>
+    
 
   <ng-template #content let-c="close" let-d="dismiss">
     
@@ -80,4 +110,3 @@
           >
         </swal>
   </ng-template>
-</html>
