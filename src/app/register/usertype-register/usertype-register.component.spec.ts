@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsertypeRegisterComponent } from './usertype-register.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('UsertypeRegisterComponent', () => {
   let component: UsertypeRegisterComponent;
@@ -8,7 +10,9 @@ describe('UsertypeRegisterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UsertypeRegisterComponent ]
+      declarations: [ UsertypeRegisterComponent ],
+      imports: [ FormsModule],
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   }));
