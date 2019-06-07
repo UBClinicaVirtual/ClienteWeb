@@ -24,7 +24,7 @@ export class RegisterService implements serviceNotifyInterface{
 
     let httpHeaderss = new HttpHeaders();
 
-    let body = {}
+    let body = {'access_token': this.connection.token};
 
     this.connection.post('/register',httpHeaderss,body,this);
 
