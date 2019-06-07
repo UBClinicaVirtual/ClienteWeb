@@ -123,7 +123,7 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     "getClinics":function(component,data){
         component.parseClincis(data["clinics"]);
         component.requestType = "getSpecialities";
-        console.log(data);
+      //  console.log(data);
         if(!component.getSpecialities.data){
           component.loadingInfo.msg = "Buscando especialidades";
           component.getSpecialities.execute(component);
@@ -135,7 +135,7 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     "getSpecialities" : function(component,data){
         component.parseSpecialities(data["specialities"]);
         component.requestType = "getHcps";
-        console.log(data);
+      //  console.log(data);
         if(!component.getHcps.data){
           component.loadingInfo.msg = "Buscando doctores";
           component.getHcps.execute(component);
@@ -145,7 +145,7 @@ export class AppointmentSearchComponent implements OnInit, componentResponseInte
     },
     "getHcps" : function(component,data){
         component.parseHcps(data["hcps"]);
-        console.log(data);
+       // console.log(data);
         component.done();
         component.loadingInfo.state= false;
     },

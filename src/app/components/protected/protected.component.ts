@@ -116,6 +116,7 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/service.index';
 import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
 import { Patient } from 'src/app/models/patient.model';
+import { ModifyProfileService } from 'src/app/services/server-connection/requests/profile/modify-profile.service';
 //import swal from 'sweetalert';
 
 @Component({
@@ -123,26 +124,56 @@ import { Patient } from 'src/app/models/patient.model';
   templateUrl: './protected.component.html',
   styles: []
 })
-export class ProtectedComponent implements OnInit {
+export class ProtectedComponent implements OnInit,componentResponseInterface {
+  response(data: any) {
+    alert("Paciente modificado");
+  }
 
   usuario:Usuario;
   usuarioGoogle: UsuarioGoogle;
   paciente:Patient;
 
   constructor(
-    public _usuarioService: UsuarioService
-  ) { }
-
-  ngOnInit() {
+    public _usuarioService: UsuarioService,
+    private modifyprofileservice: ModifyProfileService
+    ) { 
     this.usuarioGoogle = this._usuarioService.usuarioGoogle;
     this.paciente = this._usuarioService.paciente;
     
+ 
   }
 
-  guardar(usuario: Usuario){
-  //  this.usuario.nombre = usuario.nombre;
-    // VA la peticioin
-    console.log('Guardado(?');
+  ngOnInit() {
+    
+  }
+
+  guardar(paciente: Patient){
+
+       this.paciente.address = paciente.address;
+       this.paciente.birth_date = paciente.birth_date;
+       this.paciente.gender_id = paciente.gender_id;
+       this.paciente.identification_number = paciente.identification_number;
+       this.paciente.phone = paciente.phone;
+
+       
+
+       let body = 
+       
+       { 
+         "first_name" : this.paciente.first_name,
+         "last_name": this.paciente.last_name,
+         "identification_number": this.paciente.identification_number,
+         "birth_date": this.paciente.birth_date,
+         "gender_id": this.paciente.gender_id,
+         "address": this.paciente.address,
+         "phone": this.paciente.phone
+       }
+      
+      
+      
+       this.modifyprofileservice.execute(this,body);
+  
+ 
   }
 
  
