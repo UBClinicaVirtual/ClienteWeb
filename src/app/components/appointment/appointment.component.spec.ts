@@ -31,4 +31,9 @@ describe('AppointmentComponent', () => {
     var dummy = true;
     expect(dummy).toBe(true);
   });
+
+  it('but apparently i do', () => {
+    var a = 1;
+    expect(a).toBe(1);
+  });
 });
