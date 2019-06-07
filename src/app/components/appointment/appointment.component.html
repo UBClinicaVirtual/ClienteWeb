@@ -7,6 +7,8 @@
     <div style="background-color:white;"><hr>
         <button type="button" class="btn btn-outline-primary" (click)="open(content)">Detalle</button>
         <button type="button" class="btn btn-outline-secondary" (click)="deleteSwal.show()">Cancelar Turno</button>
+
+
         <swal
           #deleteSwal
           title="¿Seguro que quiere cancelar su turno?"
@@ -16,12 +18,14 @@
           [focusCancel]="true"
           (confirm)="confirmDelete.show()">
         </swal>
+
         <swal
           #confirmDelete
           title="Turno cancelado correctamente"
           type="success"
           >
         </swal>
+
     </div>
 
   <ng-template #content let-c="close" let-d="dismiss">
@@ -33,6 +37,7 @@
             <ul class="list-group list-group-flush">
               
               <li class="list-group-item"><h1>{{turno.speciality_name}}</h1></li>
+              <li class="list-group-item"><h4>Turno {{turno.id}}</h4></li>
               <li class="list-group-item"><h3>{{turno.clinic_name}}</h3></li>
               <li class="list-group-item"><h3>{{turno.appointment_date}}</h3></li>
               <li class="list-group-item"><h3>Dr. {{turno.hcp_first_name}} {{turno.hcp_last_name}} </h3></li>
@@ -53,9 +58,26 @@
     <hr>
     <div class="modal-body" style="padding:2%;">
       <button type="button" class="btn btn-danger" (click)="deleteSwal.show()">Cancelar turno</button>
-      <button type="button" class="btn btn-info" (click)="c('Save click')">Pedir turno</button>
+      <button type="button" class="btn btn-info" (click)="sheduleAppointmentSwal.show()">Pedir turno</button>
       <button type="button" class="btn btn-secondary" (click)="c('Save click')">Descripcion</button>
       <button type="button" class="btn btn-secondary" (click)="c('Save click')">Volver</button>
     </div>
+
+    <swal
+          #sheduleAppointmentSwal
+          title="¿Esta seguro de solicitar un turno nuevo?"
+          text="Se solicitará un nuevo turno en la fecha indicada"
+          type="warning"
+          [showCancelButton]="true"
+          [focusCancel]="true"
+          (confirm)="scheduleAppointment()">
+        </swal>
+
+        <swal
+          #confirmSchedule
+          title="Turno pedido correctamente"
+          type="success"
+          >
+        </swal>
   </ng-template>
 </html>

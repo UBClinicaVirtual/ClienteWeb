@@ -5,13 +5,13 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class GetAvailableAppointmentsService implements serviceNotifyInterface {
+export class ScheduleAppointmentService implements serviceNotifyInterface{
+  
   constructor(private connection: ServerConnectionService) { }
 
   notifty(data: any) {
     this.componente.response(data);
   }
-
 
   componente: componentResponseInterface;
 
@@ -19,10 +19,10 @@ export class GetAvailableAppointmentsService implements serviceNotifyInterface {
 
     this.componente = component;
 
-    console.log("service: get-appointments-available");
+    console.log("service: schedule-appointment");
 
     let httpHeaderss = new HttpHeaders();
 
-    this.connection.post('/appointment/available',httpHeaderss,body,this);
+    this.connection.post('/user/patient/appointment/schedule',httpHeaderss,body,this);
   }
 }

@@ -23,9 +23,7 @@ export class GetClinicsService implements serviceNotifyInterface{
 
     console.log("service: get-clinics");
 
-    let httpHeaderss = new HttpHeaders({
-      'Authorization' : 'Bearer ' + this.connection.apiKey
-    });
+    let httpHeaderss = new HttpHeaders();
 
     let body = {}
     this.connection.post('/clinic/search',httpHeaderss,body,this);

@@ -22,8 +22,15 @@ export class ServerConnectionService {
   get (){
 
   }
-
   post(uri:string, httpHeaders:HttpHeaders,body, service:serviceNotifyInterface){
+
+    if(localStorage.getItem('token')){
+      httpHeaders = new HttpHeaders({
+        'Authorization' : 'Bearer ' + localStorage.getItem('token')
+      });
+    }
+
+
     this.http.post
     (
       this.urlPath + uri,
