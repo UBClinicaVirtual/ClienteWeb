@@ -37,6 +37,7 @@
             <ul class="list-group list-group-flush">
               
               <li class="list-group-item"><h1>{{turno.speciality_name}}</h1></li>
+              <li class="list-group-item"><h4>Turno {{turno.id}}</h4></li>
               <li class="list-group-item"><h3>{{turno.clinic_name}}</h3></li>
               <li class="list-group-item"><h3>{{turno.appointment_date}}</h3></li>
               <li class="list-group-item"><h3>Dr. {{turno.hcp_first_name}} {{turno.hcp_last_name}} </h3></li>
@@ -57,7 +58,7 @@
     <hr>
     <div class="modal-body" style="padding:2%;">
       <button type="button" class="btn btn-danger" (click)="deleteSwal.show()">Cancelar turno</button>
-      <button type="button" class="btn btn-info" (click)="scheduleAppointment();sheduleAppointmentSwal.show()">Pedir turno</button>
+      <button type="button" class="btn btn-info" (click)="sheduleAppointmentSwal.show()">Pedir turno</button>
       <button type="button" class="btn btn-secondary" (click)="c('Save click')">Descripcion</button>
       <button type="button" class="btn btn-secondary" (click)="c('Save click')">Volver</button>
     </div>
@@ -69,7 +70,7 @@
           type="warning"
           [showCancelButton]="true"
           [focusCancel]="true"
-          (confirm)="confirmSchedule.show()">
+          (confirm)="scheduleAppointment()">
         </swal>
 
         <swal
