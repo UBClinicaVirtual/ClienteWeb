@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { ServerConnectionService } from '../services/server-connection/server-connection.service';
+import { isInteger, toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsertypeConfigService {
+ constructor(private serviceConnectionService: ServerConnectionService){}
 
   appconfig = {
       "menuSidebar":
@@ -42,9 +45,11 @@ export class UsertypeConfigService {
 
 generateMenu(){
 
-  return this.appconfig.menuSidebar.map(function(data){
+  let userType = Number(this.serviceConnectionService.userType);
+
+  return this.appconfig.menuSidebar.map(function(data,){
       if(data.userType.find(function(boton){
-          return boton == 1;
+          return boton == userType;
       })){
           delete data["userType"];
           return data;
