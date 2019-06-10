@@ -40,7 +40,7 @@ export class UsertypeConfigService {
       ]
   }
 
-doit(){
+generateMenu(){
 
   return this.appconfig.menuSidebar.map(function(data){
       if(data.userType.find(function(boton){

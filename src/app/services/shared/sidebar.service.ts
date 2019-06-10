@@ -12,15 +12,14 @@ export class SidebarService {
     {
       titulo: 'Principal',
       icono: 'mdi mdi-gauge',
-      submenu: [
-        {titulo: 'Dashboard', url: '/dashboard'},
-        // {titulo: 'Barra de progreso (prueba) ', url: '/progress'},
-        // {titulo: 'Graficas(prueba)', url: '/graficas1'},
-        {titulo: 'Mis turnos', url: '/turnos'},
-        {titulo: 'Buscar Turnos', url: '/search-turn'}
-      ]
+      submenu: this.userTypeConfig.generateMenu()
+      // [
+      //   {titulo: 'Dashboard', url: '/dashboard'},
+      //   {titulo: 'Barra de progreso (prueba) ', url: '/progress'},
+      //   {titulo: 'Graficas(prueba)', url: '/graficas1'},
+      //   {titulo: 'Mis turnos', url: '/turnos'},
+      //   {titulo: 'Buscar Turnos', url: '/search-turn'}
+      // ]
     }
   ];
-
-  
 }
