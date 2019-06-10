@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { UsertypeConfigService } from 'src/app/config/usertype-config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarService {
+
+  constructor(private userTypeConfig: UsertypeConfigService) { }
 
   menu:any = [
     {
@@ -19,5 +22,5 @@ export class SidebarService {
     }
   ];
 
-  constructor() { }
+  
 }
