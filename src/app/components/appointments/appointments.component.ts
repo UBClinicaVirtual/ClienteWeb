@@ -4,9 +4,11 @@ import { GetAppointmentsService } from 'src/app/services/server-connection/reque
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
-  styleUrls: ['./appointments.component.css']
+  styles: []
 })
 export class AppointmentsComponent implements OnInit,componentResponseInterface {
+
+  
 
   loadingInfo = {
     state : false,
@@ -24,6 +26,7 @@ export class AppointmentsComponent implements OnInit,componentResponseInterface 
   response(data){
     this.loadingInfo.state = false;
     this.turnos = data.appointments;
+   
   }
 
   ngOnInit() {

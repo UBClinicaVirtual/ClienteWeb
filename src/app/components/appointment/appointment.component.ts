@@ -5,7 +5,7 @@ import { ScheduleAppointmentService } from 'src/app/services/server-connection/r
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
-  styleUrls: ['./appointment.component.css']
+  styles: []
 })
 export class AppointmentComponent implements OnInit, componentResponseInterface {
 
