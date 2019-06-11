@@ -30,3 +30,25 @@ export const menuSidebar =
             "url":"/protected"
         }
     ]
+
+export const menuAppointment =
+    [
+        {
+            "btnName":"Cancelar turno",
+            "status":'Pending',
+            "userType":[1],
+            "event":"deleteSwal.show()"
+        },
+        {
+            "btnName":"Pedir turno",
+            "status":'',
+            "userType":[1],
+            "event":"sheduleAppointmentSwal.show()"
+        },
+        {
+            "btnName":"Descripcion",
+            "status":'Agendado',
+            "userType":[2],
+            "event":""
+        },
+    ]
