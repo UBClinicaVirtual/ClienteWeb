@@ -25,7 +25,8 @@ export class ModifyProfileService implements serviceNotifyInterface{
     console.log("service: modify-profile");
 
     let httpHeaderss = new HttpHeaders();
+   
 
-    this.connection.post('/user/patient/',httpHeaderss,body,this);
+    this.connection.post('/user/patient',httpHeaderss,body,this);
   }
 }

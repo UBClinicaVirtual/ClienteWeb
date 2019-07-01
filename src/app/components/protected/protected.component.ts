@@ -155,21 +155,41 @@ export class ProtectedComponent implements OnInit,componentResponseInterface {
        this.paciente.identification_number = paciente.identification_number;
        this.paciente.phone = paciente.phone;
 
-       
-
-       let body = 
-       
+ /*      
+let body = `
        { 
-         "first_name" : this.paciente.first_name,
-         "last_name": this.paciente.last_name,
-         "identification_number": this.paciente.identification_number,
-         "birth_date": this.paciente.birth_date,
-         "gender_id": this.paciente.gender_id,
-         "address": this.paciente.address,
-         "phone": this.paciente.phone
+        "patient": {
+              "first_name" : "${this.paciente.first_name}",
+              "last_name": "${this.paciente.last_name}",
+              "identification_number": "${this.paciente.identification_number}",
+              "birth_date": "${this.paciente.birth_date}",
+              "gender_id": "${this.paciente.gender_id}",
+              "address": "${this.paciente.address}",
+              "phone": "${this.paciente.phone}"
        }
+      }`;
+
+      */
       
+     
+
       
+     let body = 
+     
+     {
+       "patient":{
+            "first_name" : this.paciente.first_name,
+            "last_name": this.paciente.last_name,
+            "identification_number": this.paciente.identification_number,
+            "birth_date": this.paciente.birth_date,
+            "gender_id": this.paciente.gender_id,
+            "address": this.paciente.address,
+            "phone": this.paciente.phone
+       }
+     };
+     
+
+    
       
        this.modifyprofileservice.execute(this,body);
   

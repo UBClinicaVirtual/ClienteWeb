@@ -31,6 +31,7 @@ export class ServerConnectionService {
     }
 
 
+    console.log("BODY"+body);
     this.http.post
     (
       this.urlPath + uri,
