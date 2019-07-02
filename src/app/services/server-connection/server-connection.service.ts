@@ -19,7 +19,22 @@ export class ServerConnectionService {
 
   public apiKey = false;
 
-  get (){
+  get (uri:string, httpHeaders:HttpHeaders, service:serviceNotifyInterface){
+ 
+    
+    if(localStorage.getItem('token')){
+      httpHeaders = new HttpHeaders({
+        'Authorization' : 'Bearer ' + localStorage.getItem('token')
+      });
+    }
+
+    this.http.get(this.urlPath+uri,{headers:httpHeaders})
+            .subscribe(data => {
+              service.notifty(data);
+            },
+            error =>{
+              console.log('Error', error);
+            });
 
   }
   post(uri:string, httpHeaders:HttpHeaders,body, service:serviceNotifyInterface){
@@ -31,7 +46,7 @@ export class ServerConnectionService {
     }
 
 
-    console.log("BODY"+body);
+  
     this.http.post
     (
       this.urlPath + uri,
