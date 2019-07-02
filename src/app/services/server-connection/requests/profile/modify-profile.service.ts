@@ -13,7 +13,7 @@ export class ModifyProfileService implements serviceNotifyInterface{
 
   notifty(data: any) {
     this.componente.response(data);
-    console.log(data);
+    
   }
 
   componente: componentResponseInterface;
