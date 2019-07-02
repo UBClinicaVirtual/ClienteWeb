@@ -116,8 +116,10 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/service.index';
 import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
 import { Patient } from 'src/app/models/patient.model';
+import { Gender} from 'src/app/models/gender.model';
 import { ModifyProfileService } from 'src/app/services/server-connection/requests/profile/modify-profile.service';
-//import swal from 'sweetalert';
+import swal from 'sweetalert';
+import { GetGenderService } from 'src/app/services/server-connection/requests/gender/get-gender.service';
 
 @Component({
   selector: 'app-protected',
@@ -125,53 +127,57 @@ import { ModifyProfileService } from 'src/app/services/server-connection/request
   styles: []
 })
 export class ProtectedComponent implements OnInit,componentResponseInterface {
-  response(data: any) {
-    alert("Paciente modificado");
-  }
-
+  
   usuario:Usuario;
   usuarioGoogle: UsuarioGoogle;
   paciente:Patient;
-
+  genders : Gender[] = [];
+  
+  
   constructor(
     public _usuarioService: UsuarioService,
-    private modifyprofileservice: ModifyProfileService
+    private modifyprofileservice: ModifyProfileService,
+  //  private getGendersService: GetGenderService
     ) { 
-    this.usuarioGoogle = this._usuarioService.usuarioGoogle;
-    this.paciente = this._usuarioService.paciente;
+      this.usuarioGoogle = this._usuarioService.usuarioGoogle;
+      this.paciente = this._usuarioService.paciente;
+      
+      
+    }
     
+    ngOnInit() {
+
+     // this.getGendersService.execute(this,"");
+      
+    }
+    
+    response(data: any) {
+      //alert("Paciente modificado");
+      console.log("RESPONSE:" + data);
+      this._usuarioService.guardarPaciente(data['patient']);
+      swal('Perfil Actualizado',"", 'success');
+    }
+
  
-  }
-
-  ngOnInit() {
-    
-  }
-
   guardar(paciente: Patient){
+     
 
+      if(paciente.address === this.paciente.address 
+        && paciente.birth_date === this.paciente.birth_date 
+        && paciente.gender_id === this.paciente.gender_id 
+        && paciente.address ===  this.paciente.address 
+        && paciente.phone === this.paciente.phone){
+          swal('No realizo cambios en su perfil',"", 'error');
+        
+      }else{
+     
+
+      
        this.paciente.address = paciente.address;
        this.paciente.birth_date = paciente.birth_date;
        this.paciente.gender_id = paciente.gender_id;
        this.paciente.identification_number = paciente.identification_number;
        this.paciente.phone = paciente.phone;
-
- /*      
-let body = `
-       { 
-        "patient": {
-              "first_name" : "${this.paciente.first_name}",
-              "last_name": "${this.paciente.last_name}",
-              "identification_number": "${this.paciente.identification_number}",
-              "birth_date": "${this.paciente.birth_date}",
-              "gender_id": "${this.paciente.gender_id}",
-              "address": "${this.paciente.address}",
-              "phone": "${this.paciente.phone}"
-       }
-      }`;
-
-      */
-      
-     
 
       
      let body = 
@@ -192,9 +198,12 @@ let body = `
     
       
        this.modifyprofileservice.execute(this,body);
+
+    }
+      }
   
  
-  }
+  
 
  
 
