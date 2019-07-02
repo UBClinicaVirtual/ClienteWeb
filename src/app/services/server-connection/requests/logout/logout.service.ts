@@ -5,28 +5,22 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ModifyProfileService implements serviceNotifyInterface{
-
- 
-
+export class LogoutService implements serviceNotifyInterface{
   constructor(private connection: ServerConnectionService) { }
-
   notifty(data: any) {
     this.componente.response(data);
-    
   }
 
   componente: componentResponseInterface;
 
   execute(component:componentResponseInterface, body:any){
-
     this.componente = component;
 
-    console.log("service: modify-profile");
+    console.log("Service: Logout");
 
-    let httpHeaderss = new HttpHeaders();
-   
+    let httpHeaders = new HttpHeaders();
 
-    this.connection.post('/user/patient',httpHeaderss,body,this);
+    this.connection.post('/logout',httpHeaders,body,this);
   }
+
 }
