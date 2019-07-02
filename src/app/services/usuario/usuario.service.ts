@@ -4,11 +4,18 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Patient } from 'src/app/models/patient.model';
 import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
+import { LogoutService } from '../server-connection/requests/logout/logout.service';
+import swal from 'sweetalert';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
+export class UsuarioService implements componentResponseInterface {
+  response(data: any) {
+    //console.log(data['msg']);
+    swal('Sesion Finalizada',data['msg'], 'success');
+    this.router.navigate(['./login2']);
+  }
 
   token: string;
   estado: string;
@@ -18,7 +25,8 @@ export class UsuarioService {
 
   constructor(
     public http: HttpClient,
-    public router:Router
+    public router:Router,
+    private loggout: LogoutService
   ) {
     this.cargarStorage();
    }
@@ -78,7 +86,8 @@ export class UsuarioService {
    }
 
    logout(){
-    
+     
+     this.loggout.execute(this,"");
     this.token='';
     this.estado='';
     this.usuario = null;
@@ -88,8 +97,10 @@ export class UsuarioService {
     localStorage.removeItem('usuarioGoogle');
     localStorage.removeItem('paciente');
 
+    
+
   
-    this.router.navigate(['./login2']);
+    //this.router.navigate(['./login2']);
 
     
   }
