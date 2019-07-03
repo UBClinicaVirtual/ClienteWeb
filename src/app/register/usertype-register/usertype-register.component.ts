@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GetSpecialitiesService } from 'src/app/services/server-connection/requests/specialities/get-specialities.service';
+import { Usuario } from 'src/app/models/usuario.model';
+import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
+import { Patient } from 'src/app/models/patient.model';
+import { UsuarioService } from 'src/app/services/service.index';
 
 @Component({
   selector: 'app-usertype-register',
@@ -7,6 +11,10 @@ import { GetSpecialitiesService } from 'src/app/services/server-connection/reque
   styleUrls: ['./usertype-register.component.css']
 })
 export class UsertypeRegisterComponent implements OnInit, componentResponseInterface {
+
+  usuario:Usuario;
+   paciente:Patient;
+  
   response(data: any) {
     this.information.state = false;
     console.log(data);
@@ -29,7 +37,11 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
   }
   registeredUser = {};
 
-  constructor(private getSpecialitiesService : GetSpecialitiesService) { }
+  constructor(private getSpecialitiesService : GetSpecialitiesService,
+          public _usuarioService: UsuarioService) { 
+       
+    
+  }
   information = {
     state : true,
     msg   : "Cargando Especialidades"
