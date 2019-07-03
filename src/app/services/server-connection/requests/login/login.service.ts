@@ -23,9 +23,9 @@ export class LoginService implements serviceNotifyInterface {
     //  this.router.navigate(['./dashboard']);
       window.location.href = '#/dashboard';
       this.usuarioService.guardarPaciente(data['patient'])
-    }else{
+    }if(this.connection.userType ==0){
       this.usuarioService.guardarStorage(data['user']['api_token'], '');
-      this.router.navigate(['./register']);
+      window.location.href = '#/register';
     }
   }
 

@@ -173,11 +173,11 @@ export class ProtectedComponent implements OnInit,componentResponseInterface {
      
 
       
-       this.paciente.address = paciente.address;
-       this.paciente.birth_date = paciente.birth_date;
-       this.paciente.gender_id = paciente.gender_id;
-       this.paciente.identification_number = paciente.identification_number;
-       this.paciente.phone = paciente.phone;
+     //  this.paciente.address = paciente.address;
+      // this.paciente.birth_date = paciente.birth_date;
+      // this.paciente.gender_id = paciente.gender_id;
+      // this.paciente.identification_number = paciente.identification_number;
+      // this.paciente.phone = paciente.phone;
 
       
      let body = 
@@ -186,11 +186,11 @@ export class ProtectedComponent implements OnInit,componentResponseInterface {
        "patient":{
             "first_name" : this.paciente.first_name,
             "last_name": this.paciente.last_name,
-            "identification_number": this.paciente.identification_number,
-            "birth_date": this.paciente.birth_date,
-            "gender_id": this.paciente.gender_id,
-            "address": this.paciente.address,
-            "phone": this.paciente.phone
+            "identification_number": paciente.identification_number,
+            "birth_date": paciente.birth_date,
+            "gender_id": paciente.gender_id,
+            "address": paciente.address,
+            "phone": paciente.phone
        }
      };
      

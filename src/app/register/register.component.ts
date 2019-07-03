@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registrarUsuario(){
-    console.log(this.forma.value);
+   // console.log(this.forma.value);
   }
 
   addUserType(type){
