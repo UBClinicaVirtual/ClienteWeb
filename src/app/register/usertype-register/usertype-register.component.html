@@ -15,13 +15,16 @@
 </div>
 <div *ngIf="user != 3" class="form-group">
     <div class="col-xs-12">
-        <input  [(ngModel)]="userData.born" name="nacimiento" class="form-control" type="text" required placeholder="Nacimiento">
+        <input  [(ngModel)]="userData.born" name="nacimiento" class="form-control" type="date" required placeholder="Nacimiento">
     </div>
 </div>
 <div *ngIf="user != 3" class="form-group">
-  <div class="col-xs-12">
-      <input  [(ngModel)]="userData.gender" name="sexo" class="form-control" type="text" required placeholder="Sexo">
-  </div>
+  <div class="col-xs-12"> 
+      <select [(ngModel)]="userData.gender" name="sexo" class="form-control" required>
+        <option selected value = "1">Masculino</option>
+        <option value = "2">Femenino</option>
+      </select>
+    </div>
 </div>
 <div class="form-group">
   <div class="col-xs-12">

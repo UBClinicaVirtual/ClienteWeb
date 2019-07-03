@@ -4,6 +4,8 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
 import { Patient } from 'src/app/models/patient.model';
 import { UsuarioService } from 'src/app/services/service.index';
+import swal from 'sweetalert';
+import { ModifyProfileService } from 'src/app/services/server-connection/requests/profile/modify-profile.service';
 
 @Component({
   selector: 'app-usertype-register',
@@ -14,12 +16,39 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
 
   usuario:Usuario;
    paciente:Patient;
+   requestType: string = "";
   
-  response(data: any) {
-    this.information.state = false;
-    console.log(data);
-    this.specialities = data.specialities;
+   response(data) {
+    // this.requestTypeOperation[this.requestType](this,data);
+
+    //alert("Paciente modificado");
+    console.log("RESPONSE:" + data);
+    this._usuarioService.guardarPaciente(data['patient']);
+    swal('Perfil Creado',"Ingrese nuevamente para acceder al sistema", 'success');
+    //this._usuarioService.guardarStorage(data['user']['api_token'], 'registrado');
+    window.location.href = '#/login2';
+    
   }
+
+  //----------------------------Revisar-------------------------------------------//
+/*
+  requestTypeOperation = {
+    "getSpecialitiesService":function(component,data){
+     // component.parseSpecialities(data["specialities"]);
+     this.information.state = false;
+     this.specialities = data.specialities;
+    },
+    "modifyprofileservice":function(component,data){
+      this._usuarioService.guardarPaciente(data['patient']);
+      swal('Perfil Creado',"", 'success');
+      this._usuarioService.guardarStorage(data['user']['api_token'], 'registrado');
+      window.location.href = '#/dashboard';
+
+    }
+    
+  }
+  */
+ //-----------------------------------------------------------------------------//
 
   @Input() user: any;
 
@@ -30,7 +59,7 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
     lastname:null,
     dni:null,
     born:null,
-    gender:null,
+    gender:"1",
     address:null,
     phone:null,
     specialities:null
@@ -38,6 +67,7 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
   registeredUser = {};
 
   constructor(private getSpecialitiesService : GetSpecialitiesService,
+          private modifyprofileservice: ModifyProfileService,
           public _usuarioService: UsuarioService) { 
        
     
@@ -55,9 +85,9 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
       console.log(this.user);
     }
 
-    this.information.state = true;
-    this.information.msg = "Cargando Especialidades";
-    this.getSpecialitiesService.execute(this);
+    //this.information.state = true;
+    //this.information.msg = "Cargando Especialidades";
+    //this.getSpecialitiesService.execute(this);
   }
 
  
@@ -69,12 +99,43 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
      // "name":specChoosed.value,
       "id":specChoosed.id
     });
-    console.log(this.specialities_chosen);
+    //console.log(this.specialities_chosen);
   }
 
   addUserProfile(){
     this.userData.specialities = this.specialities_chosen;
-    console.log(this.userData);
+    if(this.specialities_chosen.length === 0){
+      console.log("PACIENTE");
+
+    
+          // Gaby revisar el form validator (en el register esta en el form)
+          if(this.userData.address === null || this.userData.born === null ||
+            this.userData.dni === null || this.userData.lastname === null ||
+            this.userData.name === null || this.userData.phone === null){
+            swal('Faltan datos a completar',"", 'error');
+          }else{
+
+            let body =
+
+            {
+              "patient":{
+                   "first_name" : this.userData.name,
+                   "last_name": this.userData.lastname,
+                   "identification_number": this.userData.dni,
+                   "birth_date": this.userData.born,
+                   "gender_id": this.userData.gender,
+                   "address": this.userData.address,
+                   "phone": this.userData.phone
+              }
+            };
+
+            this.modifyprofileservice.execute(this,body);
+
+          }
+
+    }else{
+      console.log("MEDICO");
+    }
     
   }
 
