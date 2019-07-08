@@ -33,6 +33,7 @@ import { ProtectedComponent } from '../components/protected/protected.component'
 
 import {GoogleSignInComponent} from 'angular-google-signin';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SpecialitiesComponent } from './specialities/specialities/specialities.component';
 
 
 
@@ -57,6 +58,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         AppointmentComponent,
         LoadingComponent,
         AppointmentDetailComponent,
+        SpecialitiesComponent,
     ],
     exports:[
         DashboardComponent,
