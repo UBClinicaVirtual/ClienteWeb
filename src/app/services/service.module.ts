@@ -6,7 +6,8 @@ import {
       SidebarService,
       SharedService,
       UsuarioService,
-      LoginGuardGuard
+      LoginGuardGuard,
+      SpecialityService
  } from "./service.index";
 
 
@@ -20,7 +21,8 @@ import {
     SidebarService,
     SharedService,
     UsuarioService,
-    LoginGuardGuard
+    LoginGuardGuard,
+    SpecialityService
   ]
 })
 export class ServiceModule { }
