@@ -1,4 +1,8 @@
+export { ClinicsService } from './clinics/clinics.service';
 export { SpecialityService } from './speciality/speciality.service';
+
+
+
 
 
 export { LoginGuardGuard } from './guards/login-guard.guard';
