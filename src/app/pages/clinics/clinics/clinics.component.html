@@ -1,3 +1,76 @@
-<p>
-  clinics works!
-</p>
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <input #input (keyup)="buscarClinica(input.value)" type="text" class="form-control" placeholder="Buscar Clinica (3 caracteres minimo)" >
+ 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="cargando">
+  <div class="col-sm-12">
+
+    <div class="alert alert-warning text-center">
+      <strong>Cargando</strong>
+      <br>
+      <i class="fa fa-refresh fa-spin fa-2x"></i>
+      <br>
+      <span>Espere por favor</span>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="!cargando">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right"> 
+        </div>
+
+        <h3 class="card-title">Clinicas registradadas </h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Creada</th>
+              <th>Actualizada</th>
+              <th>Nombre</th>
+              <th>Numero</th>
+              <th>Direccion</th>
+              <th>Telefono</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let clinic of clinics">
+              <td>
+                <h5> {{clinic.id}} </h5> 
+              </td>
+              <td>
+                <h5> {{clinic.created_at}}</h5> 
+              </td>
+              <td>
+                <h5> {{clinic.updated_at}} </h5> 
+              </td>
+              <td>
+                <h5> {{clinic.business_name}} </h5> 
+              </td>
+              <td>
+                <h5> {{clinic.business_number}} </h5> 
+              </td>
+              <td>
+                <h5> {{clinic.address}}</h5> 
+              </td>
+              <td>
+                <h5> {{clinic.phone}} </h5> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
