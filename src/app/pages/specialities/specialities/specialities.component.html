@@ -10,7 +10,20 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row animated fadeIn" *ngIf="cargando">
+  <div class="col-sm-12">
+
+    <div class="alert alert-warning text-center">
+      <strong>Cargando</strong>
+      <br>
+      <i class="fa fa-refresh fa-spin fa-2x"></i>
+      <br>
+      <span>Espere por favor</span>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="!cargando">
   <div class="col-12">
     <div class="card">
       <div class="card-body">
@@ -35,7 +48,7 @@
           <tbody>
             <tr *ngFor="let speciality of specialities">
               <td>
-                <img  [(ngModel)]="speciality.id" name="id" type="text" class="form-control" placeholder="Id Especialidad">
+                <h5> {{speciality.id}} </h5> 
               </td>
               <td>
                 <input [(ngModel)]="speciality.name"  name="nombre" type="text" class="form-control" placeholder="Nombre de la especialidad">

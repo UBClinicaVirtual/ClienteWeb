@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Especialidad } from 'src/app/models/speciality.model';
+import { ServerConfigService } from 'src/app/config/server-config.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +14,24 @@ import { Especialidad } from 'src/app/models/speciality.model';
 export class SpecialityService {
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,private config: ServerConfigService
   ) { }
 
   cargarEspecialidades(){
+    let httpHeaders = new HttpHeaders({
+      'Authorization' : 'Bearer ' + localStorage.getItem('token')
+    });
 
+    let url = this.config.url() + '/specialities';
     /*
-    let url = URL_SERVICIOS + '/hospital';
-    return this.http.get(url)
-        .map((resp:any) =>  {
+    return this.http.post(url,{},{headers: httpHeaders})
+          .map((resp:any) => {
+              return resp.specialities;
+          });
+          */
+         return this.http.post(url,{},{headers: httpHeaders});
 
-          this.totalHospitales = resp.total;
-          return resp.hospitales;
-        });
-*/
+
   }
 
   obtenerEspecialidad(id:string){

@@ -10,6 +10,7 @@ import { SpecialityService } from 'src/app/services/service.index';
 export class SpecialitiesComponent implements OnInit {
 
   specialities: Especialidad[] = [];
+  cargando: boolean = true;
 
   constructor(
     public _specialityService: SpecialityService
@@ -31,16 +32,26 @@ export class SpecialitiesComponent implements OnInit {
   }
 
   cargarEspecialidades(){
+    this.cargando = true;
 
     this._specialityService.cargarEspecialidades()
-        .subscribe(specialities => this.specialities = specialities);
-        console.log(this.specialities);
+      // .subscribe(specialities => this.specialities = specialities);
+      .subscribe((resp:any) => {
+        console.log(resp);
+        this.specialities = resp.specialities;
+        this.cargando = false;
+      });
+       //this.cargando=false
+             
+        };
+        
     /*
     this._hospitalService.cargarHospitales()
     .subscribe(hospitales => this.hospitales=hospitales);
     console.log(this.hospitales);
     */
-  }
+  
+
 
   guardarEspecialidad(speciality: Especialidad){
     /*
