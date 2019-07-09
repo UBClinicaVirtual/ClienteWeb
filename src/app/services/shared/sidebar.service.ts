@@ -29,6 +29,13 @@ export class SidebarService {
       submenu: [
         {titulo: 'Ver Clinicas', url: '/clinics'},
       ]
+    },
+    {
+      titulo: 'Medicos',
+      icono: 'mdi mdi-folder-lock-open',
+      submenu: [
+        {titulo: 'Ver Medicos', url: '/hcps'},
+      ]
     }
 
   ];
