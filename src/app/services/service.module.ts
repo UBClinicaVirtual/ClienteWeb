@@ -7,7 +7,8 @@ import {
       SharedService,
       UsuarioService,
       LoginGuardGuard,
-      SpecialityService
+      SpecialityService,
+      ClinicsService
  } from "./service.index";
 
 
@@ -22,7 +23,8 @@ import {
     SharedService,
     UsuarioService,
     LoginGuardGuard,
-    SpecialityService
+    SpecialityService,
+    ClinicsService
   ]
 })
 export class ServiceModule { }
