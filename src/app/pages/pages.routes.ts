@@ -10,6 +10,8 @@ import { AppointmentSearchComponent } from '../components/appointment-search/app
 import { LoginGuardGuard } from '../services/service.index';
 import { ProtectedComponent } from '../components/protected/protected.component';
 import { SpecialitiesComponent } from './specialities/specialities/specialities.component';
+import { ClinicsComponent } from './clinics/clinics/clinics.component';
+
 
 
 
@@ -28,6 +30,7 @@ const pagesRoutes: Routes = [
             {path: 'account-settings', component:AccountSettingsComponent, data: {titulo: 'Ajustes de tema'}},
             {path: 'protected', component:ProtectedComponent, data: {titulo: 'Mi perfil'}},
             {path: 'specialities', component:SpecialitiesComponent, data: {titulo: 'Especialidades'}},
+            {path: 'clinics', component:ClinicsComponent, data: {titulo: 'Clinicas'}},
             {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]}
 
