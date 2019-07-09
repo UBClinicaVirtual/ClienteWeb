@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-body">
 
-        <input #input (keyup)="buscarEspecialidad(input.value)" type="text" class="form-control" placeholder="Buscar Especialidad...">
+        <input #input (keyup)="buscarEspecialidad(input.value)" type="text" class="form-control" placeholder="Buscar Especialidad (3 caracteres minimo)" >
  
       </div>
     </div>
@@ -40,6 +40,8 @@
           <thead>
             <tr>
               <th>Id</th>
+              <th>Creada</th>
+              <th>Actualizada</th>
               <th>Especialidad</th>
               <th></th>
             </tr>
@@ -49,6 +51,12 @@
             <tr *ngFor="let speciality of specialities">
               <td>
                 <h5> {{speciality.id}} </h5> 
+              </td>
+              <td>
+                <h5> {{speciality.created_at}}</h5> 
+              </td>
+              <td>
+                <h5> {{speciality.updated_at}} </h5> 
               </td>
               <td>
                 <input [(ngModel)]="speciality.name"  name="nombre" type="text" class="form-control" placeholder="Nombre de la especialidad">
