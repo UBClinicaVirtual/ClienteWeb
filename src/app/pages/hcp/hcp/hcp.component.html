@@ -1,0 +1,94 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <label>Especialidad</label>
+        <select (change)="cambioEspecialidad($event.target.value)" name="speciality" class="form-control" >
+          <option value="">Todas las especialidades</option>
+          <option *ngFor= "let speciality of specialities" [value]="speciality.id">
+          {{speciality.name}}
+        </option>
+        </select>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="cargando">
+  <div class="col-sm-12">
+
+    <div class="alert alert-warning text-center">
+      <strong>Cargando</strong>
+      <br>
+      <i class="fa fa-refresh fa-spin fa-2x"></i>
+      <br>
+      <span>Espere por favor</span>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="!cargando">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right"> 
+        </div>
+
+        <h3 class="card-title">Medicos registrados </h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Creado</th>
+              <th>Actualizado</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Dni</th>
+              <th>Nac</th>
+              <th>Matricula</th>
+              <th>Direccion</th>
+              <th>Tel</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let hcp of hcps">
+              <td>
+                <h5> {{hcp.id}} </h5> 
+              </td>
+              <td>
+                <h5> {{hcp.created_at}}</h5> 
+              </td>
+              <td>
+                <h5> {{hcp.updated_at}} </h5> 
+              </td>
+              <td>
+                <h5> {{hcp.first_name}} </h5> 
+              </td>
+              <td>
+                <h5> {{hcp.last_name}} </h5> 
+              </td>
+              <td>
+                <h5> {{hcp.identification_number}}</h5> 
+              </td>
+              <td>
+                <h5> {{hcp.birth_date}} </h5> 
+              </td>
+              <td>
+                <h5> {{hcp.register_number}} </h5> 
+              </td>
+              <td>
+                <h5> {{hcp.address}} </h5> 
+              </td>
+              <td>
+                <h5> {{hcp.phone}} </h5> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
