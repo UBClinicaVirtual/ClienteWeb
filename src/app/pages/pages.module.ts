@@ -35,6 +35,7 @@ import {GoogleSignInComponent} from 'angular-google-signin';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpecialitiesComponent } from './specialities/specialities/specialities.component';
 import { ClinicsComponent } from './clinics/clinics/clinics.component';
+import { HcpComponent } from './hcp/hcp/hcp.component';
 
 
 
@@ -61,6 +62,7 @@ import { ClinicsComponent } from './clinics/clinics/clinics.component';
         AppointmentDetailComponent,
         SpecialitiesComponent,
         ClinicsComponent,
+        HcpComponent,
     ],
     exports:[
         DashboardComponent,
