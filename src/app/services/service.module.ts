@@ -8,7 +8,8 @@ import {
       UsuarioService,
       LoginGuardGuard,
       SpecialityService,
-      ClinicsService
+      ClinicsService,
+      HcpService
  } from "./service.index";
 
 
@@ -24,7 +25,8 @@ import {
     UsuarioService,
     LoginGuardGuard,
     SpecialityService,
-    ClinicsService
+    ClinicsService,
+    HcpService
   ]
 })
 export class ServiceModule { }
