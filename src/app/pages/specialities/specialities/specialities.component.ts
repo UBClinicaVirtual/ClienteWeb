@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Especialidad } from 'src/app/models/speciality.model';
 import { SpecialityService } from 'src/app/services/service.index';
 
+declare var swal: any;
 @Component({
   selector: 'app-specialities',
   templateUrl: './specialities.component.html',
@@ -21,51 +22,43 @@ export class SpecialitiesComponent implements OnInit {
   }
 
   buscarEspecialidad(termino:string){
-    /*
-    if(termino.length <=0 ){
-      this.cargarHospitales();
+    if(termino.length <= 0){
+      this.cargarEspecialidades();
       return;
     }
-    this._hospitalService.buscarHospital(termino)
-            .subscribe(hospitales => this.hospitales = hospitales );
-            */
+    if(termino.length <=2){
+      return;
+    }
+    this.cargando = true;
+    this._specialityService.buscarEspecialidad(termino)
+          .subscribe((resp:any) => {
+            this.specialities = resp.specialities;
+            this.cargando = false;
+          });
   }
 
   cargarEspecialidades(){
     this.cargando = true;
 
     this._specialityService.cargarEspecialidades()
-      // .subscribe(specialities => this.specialities = specialities);
       .subscribe((resp:any) => {
-        console.log(resp);
         this.specialities = resp.specialities;
         this.cargando = false;
-      });
-       //this.cargando=false
-             
+      });    
         };
-        
-    /*
-    this._hospitalService.cargarHospitales()
-    .subscribe(hospitales => this.hospitales=hospitales);
-    console.log(this.hospitales);
-    */
-  
+         
 
 
   guardarEspecialidad(speciality: Especialidad){
-    /*
-    this._hospitalService.actualizarHospital(hospital)
-    .subscribe();
-    */
-
+    this._specialityService.actualizarEspecialidad(speciality)
+          .subscribe();
   }
 
   crearEspecialidad(){
-    /*
+    
     swal({
-      title: 'Crear hospital',
-      text: 'Ingrese el nombre del hospital',
+      title: 'Crear especialidad',
+      text: 'Ingrese el nombre de la especialidad',
       content: 'input',
       icon: 'info',
       buttons: true,
@@ -75,11 +68,11 @@ export class SpecialitiesComponent implements OnInit {
         return;
       }
 
-      this._hospitalService.crearHospital(valor)
-            .subscribe(()=>this.cargarHospitales());
+      this._specialityService.crearEspecialidad(valor)
+            .subscribe(()=>this.cargarEspecialidades());
     })
 
-    */
+    
   }
 
 
