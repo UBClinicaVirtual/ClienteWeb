@@ -11,6 +11,7 @@ import { LoginGuardGuard } from '../services/service.index';
 import { ProtectedComponent } from '../components/protected/protected.component';
 import { SpecialitiesComponent } from './specialities/specialities/specialities.component';
 import { ClinicsComponent } from './clinics/clinics/clinics.component';
+import { HcpComponent } from './hcp/hcp/hcp.component';
 
 
 
@@ -31,6 +32,7 @@ const pagesRoutes: Routes = [
             {path: 'protected', component:ProtectedComponent, data: {titulo: 'Mi perfil'}},
             {path: 'specialities', component:SpecialitiesComponent, data: {titulo: 'Especialidades'}},
             {path: 'clinics', component:ClinicsComponent, data: {titulo: 'Clinicas'}},
+            {path: 'hcps', component:HcpComponent, data: {titulo: 'Medicos'}},
             {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]}
 
