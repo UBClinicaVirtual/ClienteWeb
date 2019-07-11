@@ -23,9 +23,24 @@ export class PatientService {
 
       return this.http.post(url,body,{headers: httpHeaders})
             .map((resp:any)=> {
-              swal('Usuario creado!', 'Medico creado', 'success');
+              swal('Usuario Actualizado!', 'Paciente actualizado', 'success');
               return resp;
             })
+  }
+
+  actualizarPaciente(body){
+    let httpHeaders = new HttpHeaders({
+      'Authorization' : 'Bearer ' + localStorage.getItem('token')
+    });
+
+    
+    let url = this.config.url()+'/user/patient';
+
+    return this.http.post(url,body,{headers: httpHeaders})
+          .map((resp:any)=> {
+            swal('Usuario actualizado', 'Paciente actualizado', 'success');
+            return resp;
+          })
   }
 }
 

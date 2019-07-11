@@ -1,3 +1,5 @@
+import { Especialidad } from './speciality.model';
+
 export class Patient{
 
 
@@ -14,6 +16,9 @@ export class Patient{
         public gender_id:string,
         public address: string,
         public phone: string,
+        public user_id?:string,
+        public register_number?: string,
+        public specialities?:string
 
     ){}
 

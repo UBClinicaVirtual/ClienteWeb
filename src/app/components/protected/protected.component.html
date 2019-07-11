@@ -66,6 +66,25 @@
               <input [ngModel]="paciente.phone" name="phone" type="text" class="form-control"  placeholder="telefono" required>
           </div>
       </div>
+    
+    <div *ngIf="this.user == 2" class="form-group">
+        <label>Matricula</label>
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
+            <input [ngModel]="paciente.register_number" name="register_number" type="text" class="form-control"  placeholder="telefono" required>
+        </div>
+    </div>
+    
+    <div *ngIf="this.user == 2" class="form-group">
+        <label> Especialidad</label>
+        <select (change)="cambioEspecialidad($event.target.value)" [ngModel]="paciente.speciality"  name="speciality" class="form-control" required>
+            
+            <option *ngFor= "let speciality of specialities" [value]="speciality.id">
+            {{speciality.name}}
+        </option>
+        </select>
+    </div>
+    
 
   
                     <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">

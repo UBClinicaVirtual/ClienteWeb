@@ -22,7 +22,21 @@ export class HcpService {
 
     return this.http.post(url,body,{headers: httpHeaders})
           .map((resp:any)=> {
-            swal('Usuario creado!', 'Paciente creado', 'success');
+            swal('Usuario creado!', 'Medico creado', 'success');
+            return resp;
+          })
+  }
+
+  actualizarHcp(body){
+    let httpHeaders = new HttpHeaders({
+      'Authorization' : 'Bearer ' + localStorage.getItem('token')
+    });
+
+    let url = this.config.url()+'/user/hcp';
+
+    return this.http.post(url,body,{headers: httpHeaders})
+          .map((resp:any)=> {
+            swal('Usuario Actualizado!', 'Medico actualizado', 'success');
             return resp;
           })
   }
