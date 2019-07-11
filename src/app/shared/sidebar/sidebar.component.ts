@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
 
 
   usuarioGoogle: UsuarioGoogle;
+  user = 1;
 
   profile: any;
 
@@ -25,5 +26,6 @@ export class SidebarComponent implements OnInit {
    // console.log(this.usuarioGoogle);
     
   }
+
 
 }

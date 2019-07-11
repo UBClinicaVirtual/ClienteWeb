@@ -3,9 +3,15 @@ import { GetSpecialitiesService } from 'src/app/services/server-connection/reque
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
 import { Patient } from 'src/app/models/patient.model';
-import { UsuarioService } from 'src/app/services/service.index';
+import { UsuarioService, SpecialityService, HcpService, PatientService } from 'src/app/services/service.index';
 import swal from 'sweetalert';
 import { ModifyProfileService } from 'src/app/services/server-connection/requests/profile/modify-profile.service';
+import { Especialidad } from 'src/app/models/speciality.model';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Hcps } from 'src/app/models/hcp.model';
+import { Router } from '@angular/router';
+
+declare function init_plugins();
 
 @Component({
   selector: 'app-usertype-register',
@@ -14,61 +20,37 @@ import { ModifyProfileService } from 'src/app/services/server-connection/request
 })
 export class UsertypeRegisterComponent implements OnInit, componentResponseInterface {
 
+  forma: FormGroup;
+
   usuario:Usuario;
    paciente:Patient;
-   requestType: string = "";
+   specialities: Especialidad [] = [];
+   speciality: Especialidad = new Especialidad('','');
+   prueba:number;
+   
+   
   
    response(data) {
-    // this.requestTypeOperation[this.requestType](this,data);
-
-    //alert("Paciente modificado");
+    
     console.log("RESPONSE:" + data);
     this._usuarioService.guardarPaciente(data['patient']);
     swal('Perfil Creado',"Ingrese nuevamente para acceder al sistema", 'success');
-    //this._usuarioService.guardarStorage(data['user']['api_token'], 'registrado');
+    
     window.location.href = '#/login2';
     
   }
 
-  //----------------------------Revisar-------------------------------------------//
-/*
-  requestTypeOperation = {
-    "getSpecialitiesService":function(component,data){
-     // component.parseSpecialities(data["specialities"]);
-     this.information.state = false;
-     this.specialities = data.specialities;
-    },
-    "modifyprofileservice":function(component,data){
-      this._usuarioService.guardarPaciente(data['patient']);
-      swal('Perfil Creado',"", 'success');
-      this._usuarioService.guardarStorage(data['user']['api_token'], 'registrado');
-      window.location.href = '#/dashboard';
-
-    }
-    
-  }
-  */
- //-----------------------------------------------------------------------------//
-
   @Input() user: any;
 
-  specialities;
-  specialities_chosen = [];
-  userData = {
-    name:null,
-    lastname:null,
-    dni:null,
-    born:null,
-    gender:"1",
-    address:null,
-    phone:null,
-    specialities:null
-  }
+ 
   registeredUser = {};
 
-  constructor(private getSpecialitiesService : GetSpecialitiesService,
-          private modifyprofileservice: ModifyProfileService,
-          public _usuarioService: UsuarioService) { 
+  constructor(
+          public router: Router,
+          public _usuarioService: UsuarioService,
+          public _specialityService: SpecialityService,
+          public _hcpService: HcpService,
+          public _patientService: PatientService) { 
        
     
   }
@@ -80,62 +62,90 @@ export class UsertypeRegisterComponent implements OnInit, componentResponseInter
   isLoading:boolean;
 
   ngOnInit() {
+    init_plugins();
+    this.cargarEspecialidades();
     this.isLoading = false;
-    if(this.user){
-      console.log(this.user);
-    }
-
-    //this.information.state = true;
-    //this.information.msg = "Cargando Especialidades";
-    //this.getSpecialitiesService.execute(this);
-  }
-
- 
-
-  specialitieChoosed(id){
-    let specChoosed = document.getElementById(id);
-    specChoosed.hidden = true;
-    this.specialities_chosen.push({
-     // "name":specChoosed.value,
-      "id":specChoosed.id
-    });
-    //console.log(this.specialities_chosen);
-  }
-
-  addUserProfile(){
-    this.userData.specialities = this.specialities_chosen;
-    if(this.specialities_chosen.length === 0){
-      console.log("PACIENTE");
+   
+      
 
     
-          // Gaby revisar el form validator (en el register esta en el form)
-          if(this.userData.address === null || this.userData.born === null ||
-            this.userData.dni === null || this.userData.lastname === null ||
-            this.userData.name === null || this.userData.phone === null){
-            swal('Faltan datos a completar',"", 'error');
-          }else{
+      this.forma = new FormGroup({
+        nombre: new FormControl(null, Validators.required),
+        apellido: new FormControl(null, Validators.required),
+        dni: new FormControl(null, Validators.required),
+        nacimiento: new FormControl(null, Validators.required),
+        sexo: new FormControl(1, Validators.required),
+        direccion: new FormControl(null, Validators.required),
+        telefono: new FormControl(null, Validators.required),
+        matricula: new FormControl(null, Validators.required),
+        speciality: new FormControl(null, Validators.required),
+        
+      });
+    
+  }
+  cambioEspecialidad(id:string){
+    
+    this.speciality.id = id;
 
-            let body =
+  }
+  cargarEspecialidades(){
+   
 
-            {
-              "patient":{
-                   "first_name" : this.userData.name,
-                   "last_name": this.userData.lastname,
-                   "identification_number": this.userData.dni,
-                   "birth_date": this.userData.born,
-                   "gender_id": this.userData.gender,
-                   "address": this.userData.address,
-                   "phone": this.userData.phone
-              }
-            };
+    this._specialityService.cargarEspecialidades()
+      .subscribe((resp:any) => {
+        this.specialities = resp.specialities;
+        
+      });    
+        };
 
-            this.modifyprofileservice.execute(this,body);
+  
 
-          }
+  addUserProfile(){
 
-    }else{
-      console.log("MEDICO");
-    }
+       if(this.forma.value.matricula === null){
+         let body =
+         {
+           "patient":{
+                "first_name" : this.forma.value.nombre,
+                "last_name": this.forma.value.apellido,
+                "identification_number": this.forma.value.dni,
+                "birth_date": this.forma.value.nacimiento,
+                "gender_id": this.forma.value.sexo,
+                "address": this.forma.value.direccion,
+                "phone": this.forma.value.telefono
+           }
+         };
+
+         this._patientService.createPatient(body)
+               .subscribe(resp => this.router.navigate(['/login2']));
+
+       }else{
+        let body =
+        {
+          "hcp":{
+            "first_name": this.forma.value.nombre,
+            "last_name": this.forma.value.apellido,        
+            "identification_number": this.forma.value.dni,
+            "register_number": this.forma.value.matricula,
+            "birth_date": this.forma.value.nacimiento,
+            "gender_id": this.forma.value.sexo,
+            "address": this.forma.value.direccion,
+            "phone": this.forma.value.telefono,
+            "specialities": '['+this.speciality.id+']'
+          }  
+       }
+
+
+       this._hcpService.createHcp(body)
+            .subscribe(resp => this.router.navigate(['/login2']));
+
+
+            
+       
+
+      }
+
+  
     
   }
 

@@ -24,13 +24,14 @@ export class RegisterComponent implements OnInit {
       "class":"info",
       "img":"hcp"
     },
-    { "id":3,
+
+/*     { "id":3,
       "name":"CLINICA",
       "class":"success",
       "img":"clinic"
-    },
+    }, */
   ]
-  forma: FormGroup;
+  
 
   constructor() { }
 
@@ -38,18 +39,7 @@ export class RegisterComponent implements OnInit {
    
     init_plugins();
 
-    this.forma = new FormGroup({
-      nombre: new FormControl(null, Validators.required),
-      apellido: new FormControl(null, Validators.required),
-      dni: new FormControl(null, Validators.required),
-      nacimiento: new FormControl(null, Validators.required),
-      sexo: new FormControl(null, Validators.required),
-      direccion: new FormControl(null, Validators.required),
-      telefono: new FormControl(null, Validators.required),
-      condiciones: new FormControl(false),
-
  
-    });
   }
 
   registrarUsuario(){

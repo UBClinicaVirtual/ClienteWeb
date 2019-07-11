@@ -1,4 +1,8 @@
+export { PatientService } from './patient/patient.service';
+
+
 export { HcpService } from './hcp/hcp.service';
+
 
 export { ClinicsService } from './clinics/clinics.service';
 export { SpecialityService } from './speciality/speciality.service';

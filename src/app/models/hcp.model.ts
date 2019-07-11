@@ -12,7 +12,8 @@ export class Hcps {
         public user_id: string,
         public register_number: string,
         public address: string,
-        public phone: string
+        public phone: string,
+        public speciality?:string
        
     ) { }
 

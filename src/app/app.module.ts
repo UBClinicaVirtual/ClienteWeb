@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsertypeRegisterComponent } from './register/usertype-register/usertype-register.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { UsertypeRegisterComponent } from './register/usertype-register/usertype
    // GoogleSignInComponent,
    // AppointmentSearchComponent,
     RegisterComponent,
-   UsertypeRegisterComponent
+   UsertypeRegisterComponent,
+   
    // LoadingComponent,
     
   

@@ -6,6 +6,7 @@ import { Patient } from 'src/app/models/patient.model';
 import { UsuarioGoogle } from 'src/app/models/usuarioGoogle.model';
 import { LogoutService } from '../server-connection/requests/logout/logout.service';
 import swal from 'sweetalert';
+import { Hcps } from 'src/app/models/hcp.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class UsuarioService implements componentResponseInterface {
   usuario: Usuario;
   usuarioGoogle: UsuarioGoogle;
   paciente: Patient;
+  hcp: Hcps;
 
   constructor(
     public http: HttpClient,
@@ -43,6 +45,7 @@ export class UsuarioService implements componentResponseInterface {
        this.usuario = JSON.parse(localStorage.getItem('usuario'));
        this.usuarioGoogle = JSON.parse(localStorage.getItem('usuarioGoogle'));
        this.paciente = JSON.parse(localStorage.getItem('paciente'));
+       this.hcp = JSON.parse(localStorage.getItem('medico'));
 
        
      }else{
@@ -51,6 +54,7 @@ export class UsuarioService implements componentResponseInterface {
        this.usuario = null;
        this.usuarioGoogle= null;
        this.paciente=null;
+       this.hcp = null;
      }
    }
 
@@ -85,6 +89,13 @@ export class UsuarioService implements componentResponseInterface {
 
    }
 
+   guardarHcp(hcp:Hcps){
+     this.hcp = hcp;
+
+     localStorage.setItem('medico',JSON.stringify(this.hcp));
+
+   }
+
    logout(){
      
      this.loggout.execute(this,"");
@@ -96,6 +107,7 @@ export class UsuarioService implements componentResponseInterface {
     localStorage.removeItem('usuario');
     localStorage.removeItem('usuarioGoogle');
     localStorage.removeItem('paciente');
+    localStorage.removeItem('medico');
 
     
 
