@@ -1,0 +1,89 @@
+
+  <div class="row animated fadeIn">
+      <div class="col-lg-7">
+          <div class="card">
+              <div class="card-body">
+                  <h4 class="card-title">Perfil del usuario</h4>
+                  <h6 class="card-subtitle">Id Usuario: {{hcp.user_id}}</h6>
+  
+                  <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar( f.value)" class="form p-t-20">
+                      <div class="form-group">
+                          <label for="exampleInputuname">Nombre de usuario</label>
+                          <div class="input-group">
+                              <div class="input-group-addon"><i class="ti-user"></i></div>
+                              <input [ngModel]="usuarioGoogle.fullName" [disabled]=true name="nombre" type="text" class="form-control"  placeholder="Nombre" required>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Correo de usuario</label>
+                          <div class="input-group">
+                              <div class="input-group-addon"><i class="ti-email"></i></div>
+                              <input [ngModel]="usuarioGoogle.email" [disabled]=true name="email" type="email" class="form-control"  placeholder="Correo" required>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <label >Direccion</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
+                            <input [ngModel]="hcp.address"  name="address" type="text" class="form-control"  placeholder="Direccion" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label >Fecha de Nacimiento</label>
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
+                          <input [ngModel]="hcp.birth_date"  name="birth_date" type="date" class="form-control"  placeholder="Fecha de nacimiento" required>
+                      </div>
+                  </div>
+                <div class="form-group">
+                  <label >Sexo</label>
+                  <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
+                      <select [(ngModel)]="hcp.gender_id" name="gender_id" class="form-control">
+                        <option value = "1">Masculino</option>
+                        <option value = "2">Femenino</option>
+                      </select>
+                      <!-- Si hay tiempo, traer sexo desde server 
+                        <input [ngModel]="paciente.gender_id"  name="gender_id" type="text" class="form-control"  placeholder="sexo" required> -->
+                  </div>
+              </div>
+            <div class="form-group">
+              <label >identificacion</label>
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
+                  <input [ngModel]="hcp.identification_number"  name="identification_number" type="text" class="form-control"  placeholder="identificacion" required>
+              </div>
+          </div>
+          <div class="form-group">
+            <label>Telefono</label>
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-address-card-o"></i></div>
+                <input [ngModel]="hcp.phone" name="phone" type="text" class="form-control"  placeholder="telefono" required>
+            </div>
+        </div>
+  
+    
+                      <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                        <i class="fa fa-save"></i> Guardar</button>
+     
+                  </form>
+              </div>
+          </div>
+      </div>
+  
+      <div class="col-lg-5">
+          <div class="card">
+              <div class="card-body" align="center">
+                  <h4 class="card-title">Fotografia del usuario</h4>
+                  <h6 class="card-subtitle">{{usuarioGoogle.fullName}}</h6>
+  
+                  <img [src]="usuarioGoogle.image" class= "w150">
+                  
+              
+  
+                  <br><br>
+              </div>
+              </div>
+      </div>
+        
+  </div> 

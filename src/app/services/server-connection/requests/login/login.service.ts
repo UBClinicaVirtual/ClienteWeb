@@ -26,7 +26,13 @@ export class LoginService implements serviceNotifyInterface {
     }if(this.connection.userType ==0){
       this.usuarioService.guardarStorage(data['user']['api_token'], '');
       window.location.href = '#/register';
+    } if(this.connection.userType == 2){
+      this.usuarioService.guardarStorage(data['user']['api_token'], 'registrado');
+    
+      window.location.href = '#/dashboard';
+      this.usuarioService.guardarHcp(data['hcp'])
     }
+
   }
 
   execute(){

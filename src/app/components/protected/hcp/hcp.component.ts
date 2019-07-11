@@ -15,18 +15,17 @@ import { GetGenderService } from 'src/app/services/server-connection/requests/ge
 import { Hcps } from 'src/app/models/hcp.model';
 
 @Component({
-  selector: 'app-protected',
-  templateUrl: './protected.component.html',
+  selector: 'app-hcp',
+  templateUrl: './hcp.component.html',
   styles: []
 })
-export class ProtectedComponent implements OnInit,componentResponseInterface {
+export class HcpComponent implements OnInit,componentResponseInterface {
   
  
   usuarioGoogle: UsuarioGoogle;
   paciente:Patient;
   genders : Gender[] = [];
   hcp: Hcps;
-  user:number;
   
   
   constructor(
@@ -42,11 +41,6 @@ export class ProtectedComponent implements OnInit,componentResponseInterface {
     }
     
     ngOnInit() {
-      if(this.paciente === null){
-        this.user = 1;
-      }else{
-        this.user=2;
-      }
 
      // this.getGendersService.execute(this,"");
       

@@ -11,7 +11,7 @@ import { LoginGuardGuard } from '../services/service.index';
 import { ProtectedComponent } from '../components/protected/protected.component';
 import { SpecialitiesComponent } from './specialities/specialities/specialities.component';
 import { ClinicsComponent } from './clinics/clinics/clinics.component';
-import { HcpComponent } from './hcp/hcp/hcp.component';
+import { HcpComponent } from '../components/protected/hcp/hcp.component';
 
 
 
@@ -30,6 +30,7 @@ const pagesRoutes: Routes = [
             {path: 'search-turn', component:AppointmentSearchComponent, data: {titulo: 'Buscar Turnos'}},
             {path: 'account-settings', component:AccountSettingsComponent, data: {titulo: 'Ajustes de tema'}},
             {path: 'protected', component:ProtectedComponent, data: {titulo: 'Mi perfil'}},
+            {path: 'perfil', component:HcpComponent, data: {titulo: 'Mi perfil'}},
             {path: 'specialities', component:SpecialitiesComponent, data: {titulo: 'Especialidades'}},
             {path: 'clinics', component:ClinicsComponent, data: {titulo: 'Clinicas'}},
             {path: 'hcps', component:HcpComponent, data: {titulo: 'Medicos'}},
