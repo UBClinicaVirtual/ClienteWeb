@@ -25,5 +25,4 @@ Se puede acceder al entorno con tres tipos de usuarios:
 
 >Doctor
 
->Clinica
 
