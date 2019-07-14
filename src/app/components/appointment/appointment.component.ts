@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ScheduleAppointmentService } from 'src/app/services/server-connection/requests/appointments/schedule-appointment.service';
+import { CancelAppointmentService } from 'src/app/services/server-connection/requests/appointments/cancel-appointment.service';
 
 @Component({
   selector: 'app-appointment',
@@ -13,9 +14,15 @@ export class AppointmentComponent implements OnInit, componentResponseInterface 
     alert("Turno solicitado correctamente");
   }
 
+  request:string;
+
   @Input() turno:any = {};
 
-  constructor(config: NgbModalConfig, private modalService: NgbModal, private scheduleAppointmentService: ScheduleAppointmentService) {
+  constructor(
+    config: NgbModalConfig, 
+    private modalService: NgbModal, 
+    private scheduleAppointmentService: ScheduleAppointmentService,
+    private cancelAppointmentService: CancelAppointmentService) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
     config.keyboard = false;
@@ -28,12 +35,20 @@ export class AppointmentComponent implements OnInit, componentResponseInterface 
   }
 
   scheduleAppointment(){
+    this.request = "schedule-appoitment"
+
     let body = 
     {
       "clinic_appointment_schedule_id" : this.turno.id,
       "appointment_date": this.turno.appointment_date.substring(0,10)
     }
     this.scheduleAppointmentService.execute(this,body);
+  }
+
+  cancelarTurno(){
+    this.request = "cancel-appoitment"
+    let body = {"appointment_id": this.turno.id}
+    this.cancelAppointmentService.execute(this,body);
   }
 
 }
