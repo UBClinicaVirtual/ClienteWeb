@@ -11,22 +11,20 @@ export class CancelAppointmentService  implements serviceNotifyInterface{
 
   notifty(data: any) {
     console.log('POST Request is successful :D', data);
-    console.log(data);
+    this.componente.response(data);
   }
 
   constructor(private connection: ServerConnectionService) { }
 
   componente: AppointmentComponent;
 
-  execute(component:AppointmentComponent){
+  execute(component:AppointmentComponent, body:any){
 
     this.componente  = component;
 
     console.log("service: cancel-appointment");
 
     let httpHeaderss = new HttpHeaders();
-
-    let body = {"appointment_id": this.componente.turno.id}
 
     this.connection.post('/appointment/cancel',httpHeaderss,body,this);
   }

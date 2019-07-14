@@ -14,6 +14,8 @@ export class AppointmentComponent implements OnInit, componentResponseInterface 
     alert("Turno solicitado correctamente");
   }
 
+  request:string;
+
   @Input() turno:any = {};
 
   constructor(
@@ -33,6 +35,8 @@ export class AppointmentComponent implements OnInit, componentResponseInterface 
   }
 
   scheduleAppointment(){
+    this.request = "schedule-appoitment"
+
     let body = 
     {
       "clinic_appointment_schedule_id" : this.turno.id,
@@ -42,7 +46,9 @@ export class AppointmentComponent implements OnInit, componentResponseInterface 
   }
 
   cancelarTurno(){
-    this.cancelAppointmentService.execute(this);
+    this.request = "cancel-appoitment"
+    let body = {"appointment_id": this.turno.id}
+    this.cancelAppointmentService.execute(this,body);
   }
 
 }
