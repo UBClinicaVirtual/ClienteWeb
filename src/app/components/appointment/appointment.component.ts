@@ -11,10 +11,10 @@ import { CancelAppointmentService } from 'src/app/services/server-connection/req
 export class AppointmentComponent implements OnInit, componentResponseInterface {
 
   response(data: any) {
-    alert("Turno solicitado correctamente");
+    swal("Operacion Exitosa", this.responseMsg, "success")
   }
 
-  request:string;
+  responseMsg:string;
 
   @Input() turno:any = {};
 
@@ -35,20 +35,21 @@ export class AppointmentComponent implements OnInit, componentResponseInterface 
   }
 
   scheduleAppointment(){
-    this.request = "schedule-appoitment"
-
     let body = 
     {
       "clinic_appointment_schedule_id" : this.turno.id,
       "appointment_date": this.turno.appointment_date.substring(0,10)
     }
     this.scheduleAppointmentService.execute(this,body);
+    this.responseMsg = "Turno solicitado correctamente"
+
   }
 
   cancelarTurno(){
-    this.request = "cancel-appoitment"
     let body = {"appointment_id": this.turno.id}
     this.cancelAppointmentService.execute(this,body);
+    this.responseMsg = "Turno cancelado correctamente"
+
   }
 
 }
