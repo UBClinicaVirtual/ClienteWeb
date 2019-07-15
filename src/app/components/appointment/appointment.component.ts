@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ScheduleAppointmentService } from 'src/app/services/server-connection/requests/appointments/schedule-appointment.service';
 import { CancelAppointmentService } from 'src/app/services/server-connection/requests/appointments/cancel-appointment.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-appointment',
