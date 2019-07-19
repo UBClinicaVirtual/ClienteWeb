@@ -100,8 +100,9 @@ export class ProtectedComponent implements OnInit,componentResponseInterface {
           swal('No realizo cambios en su perfil',"", 'error');
         
       }else{
+      
 
-        if(paciente.register_number === null){
+        if(this.user = 1){
           
             let body = 
             
@@ -117,6 +118,15 @@ export class ProtectedComponent implements OnInit,componentResponseInterface {
               }
             };
 
+            this.paciente.identification_number = paciente.identification_number;
+            this.paciente.birth_date = paciente.birth_date;
+            this.paciente.gender_id = paciente.gender_id;
+            this.paciente.address = paciente.address;
+            this.paciente.phone = paciente.phone;
+           
+           this._usuarioService.guardarPaciente(this.paciente);
+
+           
             this._patientService.actualizarPaciente(body)
                 .subscribe();
         }else{
@@ -134,6 +144,15 @@ export class ProtectedComponent implements OnInit,componentResponseInterface {
               "specialities": '['+this.speciality.id+']'
             }  
          }
+         this.paciente.identification_number = paciente.identification_number;
+         this.paciente.birth_date = paciente.birth_date;
+         this.paciente.gender_id = paciente.gender_id;
+         this.paciente.address = paciente.address;
+         this.paciente.phone = paciente.phone;
+         this.paciente.register_number = paciente.register_number;
+         this.paciente.specialities = this.speciality.id;
+        
+         this._usuarioService.guardarPaciente(this.paciente);
 
          this._hcpService.actualizarHcp(body)
                 .subscribe();
