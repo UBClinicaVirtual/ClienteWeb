@@ -26,7 +26,7 @@
     "@sweetalert2/ngx-sweetalert2": "^5.0.1",
     "angular-google-signin": "^0.1.5",
     "auth0-js": "^9.11.3",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "core-js": "^2.5.4",
     "mockserver": "git+https://github.com/UBClinicaVirtual/MockServer.git",
     "ng2-charts": "^2.2.5",
